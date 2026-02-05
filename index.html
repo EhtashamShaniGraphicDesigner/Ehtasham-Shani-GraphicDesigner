@@ -10,78 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --primary: #ff6b4a;
-            --secondary: #ec4899;
-            --bg-dark: #000000;
-        }
+        :root { --primary: #ff6b4a; --secondary: #ec4899; --bg-dark: #000000; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: white; scroll-behavior: smooth; overflow-x: hidden; }
 
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: white; 
-            scroll-behavior: smooth; 
-            overflow-x: hidden;
-        }
+        /* FONT CLIPPING FIX - No more cutting */
+        .hero-title { line-height: 1.2; letter-spacing: -0.02em; display: block; padding: 15px 0; }
+        .gradient-text { background: linear-gradient(to right, #ff6b4a, #f43f5e, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
 
-        /* FONT CLIPPING FIX */
-        .hero-title {
-            line-height: 1.2; 
-            letter-spacing: -0.02em;
-            display: block;
-            padding: 15px 0;
-        }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .gradient-text { 
-            background: linear-gradient(to right, #ff6b4a, #f43f5e, #ec4899); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            display: inline-block;
-        }
+        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); transition: 0.4s ease; border-radius: 30px; }
+        .glass-card:hover { border-color: var(--primary); background: rgba(255, 255, 255, 0.07); transform: translateY(-8px); }
 
-        .reveal { 
-            opacity: 0; 
-            transform: translateY(30px); 
-            transition: all 0.8s ease-out; 
-        }
-
-        .reveal.active { 
-            opacity: 1; 
-            transform: translateY(0); 
-        }
-
-        .glass-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(10px);
-            transition: 0.4s ease;
-            border-radius: 30px;
-        }
-
-        .glass-card:hover { 
-            border-color: var(--primary); 
-            background: rgba(255, 255, 255, 0.07); 
-            transform: translateY(-8px);
-        }
-
-        /* Portfolio Image Hover */
-        .work-card img {
-            transition: transform 0.7s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-        }
-        .work-card:hover img {
-            transform: scale(1.1);
-        }
-
-        .social-icon { 
-            width: 50px; height: 50px; 
-            border-radius: 50%; 
-            border: 1px solid rgba(255,255,255,0.1); 
-            display: flex; align-items: center; justify-content: center; 
-            transition: 0.3s; 
-        }
-
-        .social-icon:hover { background: var(--primary); color: black; }
-
+        .work-card img { transition: transform 0.7s cubic-bezier(0.17, 0.67, 0.83, 0.67); width: 100%; height: 100%; object-cover: cover; }
+        .work-card:hover img { transform: scale(1.1); }
+        
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
     </style>
@@ -116,9 +60,9 @@
     </section>
 
     <section id="services" class="py-24 px-8 bg-[#050505]">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-6xl font-black uppercase italic text-center mb-20 tracking-tighter">Expert <span class="text-[#ff6b4a]">Services.</span></h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-4xl md:text-6xl font-black uppercase italic mb-20 tracking-tighter">Expert <span class="text-[#ff6b4a]">Services.</span></h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
                 <div class="glass-card p-10 reveal"><i data-lucide="brush" class="text-[#ff6b4a] mb-6"></i><h3 class="font-bold uppercase italic mb-2">Graphic Design</h3><p class="text-white/40 text-sm">Visual storytelling for brands.</p></div>
                 <div class="glass-card p-10 reveal"><i data-lucide="layers" class="text-[#ff6b4a] mb-6"></i><h3 class="font-bold uppercase italic mb-2">UI/UX Design</h3><p class="text-white/40 text-sm">Seamless user journeys.</p></div>
                 <div class="glass-card p-10 reveal"><i data-lucide="monitor" class="text-[#ff6b4a] mb-6"></i><h3 class="font-bold uppercase italic mb-2">Web Design</h3><p class="text-white/40 text-sm">High-performance sites.</p></div>
@@ -133,60 +77,90 @@
 
     <section id="work" class="py-32 px-8 border-y border-white/5">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
-                <div>
-                    <h2 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">Selected <br> <span class="text-[#ff6b4a]">Work.</span></h2>
-                </div>
-                <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-white/50 hover:text-[#ff6b4a] font-bold uppercase tracking-widest text-xs mt-6 md:mt-0 flex items-center gap-2">
-                    Browse All Projects <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                </a>
-            </div>
-
+            <h2 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter mb-20 reveal text-center md:text-left">Selected <br> <span class="text-[#ff6b4a]">Work.</span></h2>
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <script>
-                    const projects = [
-                        {title: "Brand Identity", cat: "Branding"},
-                        {title: "UI Dashboard", cat: "Product Design"},
-                        {title: "Social Media Campaign", cat: "Marketing"},
-                        {title: "Modern Logo Set", cat: "Typography"},
-                        {title: "E-Commerce App", cat: "Mobile Design"},
-                        {title: "Motion Graphics", cat: "Video"},
-                        {title: "Corporate Website", cat: "Web Design"},
-                        {title: "Product Packaging", cat: "Print Design"}
-                    ];
-                    
-                    projects.forEach((p, i) => {
-                        document.write(`
-                            <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
-                                <div class="aspect-[4/5] overflow-hidden">
-                                    <img src="https://images-platform.99static.com/LwO-SNgyGX-9fz9iNdOLzx3b60I=/393x280:1568x1455/fit-in/projects-files/172/17239/1723984/7f0021ea-ccf8-40cc-8da8-12261138bea4.png" alt="${p.title}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100">
-                                </div>
-                                <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
-                                    <p class="text-[#ff6b4a] text-[10px] font-bold uppercase tracking-widest mb-2">${p.cat}</p>
-                                    <h4 class="text-xl font-bold uppercase italic mb-4">${p.title}</h4>
-                                    <a href="https://www.behance.net/shanikhan27" target="_blank" class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">
-                                        View Project
-                                    </a>
-                                </div>
-                            </div>
-                        `);
-                    });
-                </script>
+                
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=1" alt="Work 1"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project One</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=2" alt="Work 2"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Two</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=3" alt="Work 3"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Three</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=4" alt="Work 4"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Four</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=5" alt="Work 5"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Five</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=6" alt="Work 6"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Six</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=7" alt="Work 7"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Seven</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
+                <div class="work-card group relative overflow-hidden rounded-[30px] glass-card reveal">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://picsum.photos/600/800?v=8" alt="Work 8"> </div>
+                    <div class="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold uppercase italic mb-4">Project Eight</h4>
+                        <a href="https://www.behance.net/shanikhan27" target="_blank" class="text-[10px] font-black uppercase tracking-widest text-white border-b border-white/20 pb-1 group-hover:border-[#ff6b4a] transition-all">View Project</a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <footer class="py-24 px-8 text-center border-t border-white/5">
         <div class="reveal">
-            <a href="mailto:ehtashamshaniofficial@gmail.com" class="text-xl md:text-4xl font-black text-white hover:text-[#ff6b4a] transition-all block mb-12">
-                ehtashamshaniofficial@gmail.com
-            </a>
-            <div class="flex justify-center gap-6 mb-16">
-                <a href="https://www.behance.net/shanikhan27" target="_blank" class="social-icon"><i data-lucide="external-link"></i></a>
-                <a href="https://x.com/EhtashamShani22" target="_blank" class="social-icon"><i data-lucide="twitter"></i></a>
-                <a href="https://www.instagram.com/ehtashamshani_/" target="_blank" class="social-icon"><i data-lucide="instagram"></i></a>
-            </div>
-            <p class="opacity-20 text-[9px] uppercase tracking-[1em] font-black">© 2026 EHTASHAM SHANI • CRAFTING VISUAL IMPACT</p>
+            <a href="mailto:ehtashamshaniofficial@gmail.com" class="text-xl md:text-4xl font-black text-white hover:text-[#ff6b4a] transition-all block mb-12">ehtashamshaniofficial@gmail.com</a>
+            <p class="opacity-20 text-[9px] uppercase tracking-[1em] font-black">© 2026 EHTASHAM SHANI</p>
         </div>
     </footer>
 
