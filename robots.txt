@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap ka link jo Google bot follow karega
+Sitemap: https://shani786-cpu.github.io/Ehtasham-Shani-GraphicDesigner/sitemap.xml
