@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Ehtasham Shani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #ff6b4a; --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.08); }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #050505; 
+            color: #ffffff; 
+            background-image: radial-gradient(circle at 10% 20%, #1a100d 0%, transparent 30%), radial-gradient(circle at 90% 80%, #0d0d1a 0%, transparent 30%); 
+        }
+        .glass { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); border-radius: 40px; overflow: hidden; }
+        .work-card:hover .glass { border-color: var(--accent); transform: translateY(-10px); }
+        .work-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: 0.8s ease; filter: grayscale(40%); }
+        .work-card:hover .work-img { filter: grayscale(0%); transform: scale(1.1); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <nav class="fixed top-0 w-full z-[100] py-6 px-8 md:px-16 flex justify-between items-center glass border-none rounded-none bg-black/40">
+        <div class="text-xl font-black italic tracking-tighter uppercase">ES <span class="text-[#ff6b4a]">.</span></div>
+        <div class="flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em]">
+            <a href="index.html" class="hover:text-[#ff6b4a]">Home</a>
+            <a href="about.html" class="hover:text-[#ff6b4a]">About</a>
+            <a href="services.html" class="hover:text-[#ff6b4a]">Services</a>
+            <a href="work.html" class="text-[#ff6b4a]">Work</a>
+            <a href="index.html#contact" class="bg-[#ff6b4a] px-5 py-2 rounded-full text-white">Hire</a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-12 px-8 md:px-24 text-center">
+        <div class="reveal">
+            <h1 class="text-6xl md:text-9xl font-black uppercase italic mb-6">THE <span class="text-[#ff6b4a]">NEXUS.</span></h1>
+            <p class="text-gray-500 max-w-2xl mx-auto italic tracking-widest text-xs uppercase">A curation of high-end visual systems and digital art.</p>
+        </div>
+    </section>
+
+    <section class="pb-32 px-8 md:px-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <div class="work-card reveal">
+                <div class="glass">
+                    <div class="overflow-hidden">
+                        <img src="./Behance Thumbnail Mallenxa 2.jpg" class="work-img" alt="Mallenxa Ads">
+                    </div>
+                    <div class="p-10 flex justify-between items-end">
+                        <div>
+                            <h3 class="text-3xl font-black italic uppercase mb-2">Mallenxa</h3>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff6b4a] uppercase">Social Media Identity</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/243334625/Mallenxa-Creative-Ads-Social-Media-Posts-Posters" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card reveal">
+                <div class="glass">
+                    <div class="overflow-hidden">
+                        <img src="./Behance Thumbnail - Racing.png" class="work-img" alt="Auto Chase Branding">
+                    </div>
+                    <div class="p-10 flex justify-between items-end">
+                        <div>
+                            <h3 class="text-3xl font-black italic uppercase mb-2">Auto Chase</h3>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff6b4a] uppercase">Brand Guidelines</p>
+                        </div>
+                        <a href="https://www.behance.net/gallery/243288137/AutoChase-Brand-Guidelines-Branding-Logo-Design" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card reveal">
+                <div class="glass">
+                    <div class="overflow-hidden">
+                        <img src="./Fatty Patty mockup behance_.jpg" class="work-img" alt="Fatty Patty Mockup">
+                    </div>
+                    <div class="p-10 flex justify-between items-end">
+                        <div>
+                            <h3 class="text-3xl font-black italic uppercase mb-2">Fatty Patty</h3>
+                            <p class="text-[10px] font-bold tracking-[0.3em] text-[#ff6b4a] uppercase">Commercial Branding</p>
+                        </div>
+                        <a href="https://www.behance.net/EhtashamShaniGraphicDesigner" target="_blank" class="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="work-card reveal">
+                <div class="glass bg-white/[0.02] border-dashed flex flex-col items-center justify-center p-20 text-center">
+                    <i data-lucide="plus-circle" class="w-12 h-12 text-gray-700 mb-6"></i>
+                    <h3 class="text-xl font-bold uppercase italic text-gray-500">More Projects <br> Coming Soon</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-20 px-8 text-center border-t border-white/5">
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2026 EHTASHAM SHANI • PORTFOLIO UPDATED</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
