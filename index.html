@@ -1,11 +1,163 @@
-<nav class="fixed top-0 w-full z-[100] py-6 px-8 md:px-16 flex justify-between items-center glass border-none rounded-none bg-black/40">
-    <div class="text-xl font-black italic tracking-tighter uppercase">ES <span class="text-[#ff6b4a]">.</span></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ehtasham Shani | Creative Designer</title>
     
-    <div class="flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em]">
-        <a href="index.html" class="hover:text-[#ff6b4a] transition">Home</a>
-        <a href="about.html" class="hover:text-[#ff6b4a] transition">About</a>
-        <a href="services.html" class="hover:text-[#ff6b4a] transition">Services</a>
-        <a href="work.html" class="hover:text-[#ff6b4a] transition">Work</a>
-        <a href="#contact" class="bg-[#ff6b4a] px-5 py-2 rounded-full text-white">Hire</a>
-    </div>
-</nav>
+    <meta name="description" content="Ehtasham Shani - Professional Graphic Designer and UI/UX Specialist.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root { --accent: #ff6b4a; --glass: rgba(255, 255, 255, 0.03); --border: rgba(255, 255, 255, 0.08); }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #050505; 
+            color: #ffffff; 
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, #1a100d 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, #0d0d1a 0%, transparent 30%);
+        }
+
+        .glass { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--border); transition: 0.4s ease; }
+        .glass:hover { border-color: var(--accent); background: rgba(255, 255, 255, 0.06); }
+
+        .hero-title { line-height: 0.9; letter-spacing: -0.05em; font-size: clamp(3rem, 10vw, 8rem); }
+        .outline-text { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.3); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .work-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; filter: grayscale(100%); transition: 0.6s; }
+        .work-card:hover .work-img { filter: grayscale(0%); transform: scale(1.03); }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-0 w-full z-[100] py-6 px-8 md:px-16 flex justify-between items-center glass border-none rounded-none bg-black/40">
+        <div class="text-xl font-black italic tracking-tighter uppercase">ES <span class="text-[#ff6b4a]">.</span></div>
+        <div class="flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em]">
+            <a href="index.html" class="text-[#ff6b4a]">Home</a>
+            <a href="about.html" class="hover:text-[#ff6b4a] transition">About</a>
+            <a href="services.html" class="hover:text-[#ff6b4a] transition">Services</a>
+            <a href="work.html" class="hover:text-[#ff6b4a] transition">Work</a>
+            <a href="#contact" class="bg-[#ff6b4a] px-5 py-2 rounded-full text-white">Hire</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center px-8 md:px-24 pt-20">
+        <div class="reveal">
+            <h1 class="hero-title font-extrabold uppercase italic">
+                CRAFTING <br> <span class="outline-text">THE FUTURE</span> <br> OF DESIGN.
+            </h1>
+            <div class="mt-12 max-w-xl">
+                <p class="text-gray-500 text-lg md:text-xl font-light leading-relaxed mb-10">
+                    Ehtasham Shani — Creative Alchemist specialized in building <span class="text-white">high-end visual systems</span>.
+                </p>
+                <a href="work.html" class="inline-flex items-center gap-4 text-xs font-black uppercase tracking-[0.3em] border-b-2 border-[#ff6b4a] pb-2 hover:gap-8 transition-all">
+                    Explore All Projects <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-home" class="py-32 px-8 md:px-24">
+        <div class="flex justify-between items-end mb-16">
+            <h2 class="text-xs font-black uppercase tracking-[0.5em] text-[#ff6b4a]">My Expertise</h2>
+            <a href="services.html" class="text-[10px] font-bold uppercase border-b border-white/20">View Detailed Services</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass p-10 reveal rounded-[30px]">
+                <i data-lucide="layers" class="text-[#ff6b4a] mb-6"></i>
+                <h3 class="text-xl font-bold uppercase italic">Identity Design</h3>
+                <p class="text-gray-500 text-sm mt-4">Building unique visual DNA for global brands.</p>
+            </div>
+            <div class="glass p-10 reveal rounded-[30px]">
+                <i data-lucide="monitor" class="text-[#ff6b4a] mb-6"></i>
+                <h3 class="text-xl font-bold uppercase italic">UI/UX Strategy</h3>
+                <p class="text-gray-500 text-sm mt-4">Crafting seamless journeys for digital products.</p>
+            </div>
+            <div class="glass p-10 reveal rounded-[30px]">
+                <i data-lucide="zap" class="text-[#ff6b4a] mb-6"></i>
+                <h3 class="text-xl font-bold uppercase italic">Web Art</h3>
+                <p class="text-gray-500 text-sm mt-4">High-performance futuristic web interfaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work-home" class="py-32 px-8 md:px-24 bg-[#080808]">
+        <div class="flex justify-between items-end mb-20 reveal">
+            <h2 class="text-5xl md:text-7xl font-black uppercase italic">Selected <br> <span class="text-[#ff6b4a]">Projects.</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="work-card glass p-5 reveal rounded-[40px]">
+                <img src="./Behance Thumbnail Mallenxa 2.jpg" class="work-img" alt="Mallenxa">
+                <div class="mt-6">
+                    <h4 class="font-bold uppercase italic">Mallenxa</h4>
+                    <p class="text-[9px] text-gray-500 tracking-widest uppercase">Visual Identity</p>
+                </div>
+            </div>
+            <div class="work-card glass p-5 reveal rounded-[40px]">
+                <img src="./Behance Thumbnail - Racing.png" class="work-img" alt="Auto Chase">
+                <div class="mt-6">
+                    <h4 class="font-bold uppercase italic">Auto Chase</h4>
+                    <p class="text-[9px] text-gray-500 tracking-widest uppercase">Branding</p>
+                </div>
+            </div>
+            <div class="work-card glass p-5 reveal rounded-[40px]">
+                <img src="./Fatty Patty mockup behance_.jpg" class="work-img" alt="Fatty Patty">
+                <div class="mt-6">
+                    <h4 class="font-bold uppercase italic">Fatty Patty</h4>
+                    <p class="text-[9px] text-gray-500 tracking-widest uppercase">Advertising</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 text-center">
+            <a href="work.html" class="glass px-10 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white">View Full Portfolio</a>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-8 md:px-24">
+        <div class="glass p-12 md:p-24 rounded-[60px] grid lg:grid-cols-2 gap-20">
+            <div class="reveal">
+                <h2 class="text-6xl font-black uppercase italic tracking-tighter mb-10 leading-none">Let's <br> Connect.</h2>
+                <div class="space-y-4">
+                    <p class="text-gray-400">ehtashamshaniofficial@gmail.com</p>
+                    <p class="text-gray-400">+92 335 6440525</p>
+                </div>
+            </div>
+            <div class="reveal">
+                <form action="https://formspree.io/f/xqedzjbg" method="POST" class="space-y-6">
+                    <input type="text" name="name" placeholder="YOUR NAME" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a]" required>
+                    <input type="email" name="email" placeholder="YOUR EMAIL" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a]" required>
+                    <textarea name="message" placeholder="PROJECT BRIEF" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] h-32" required></textarea>
+                    <button type="submit" class="bg-[#ff6b4a] text-white px-10 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest hover:scale-105 transition">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-8 text-center border-t border-white/5">
+        <p class="text-[10px] text-gray-600 uppercase tracking-widest">© 2026 EHTASHAM SHANI • DESIGNED TO INSPIRE</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
