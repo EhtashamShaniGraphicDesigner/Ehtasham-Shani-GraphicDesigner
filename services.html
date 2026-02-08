@@ -20,82 +20,95 @@
         .glass:hover { border-color: var(--accent); transform: translateY(-10px); background: rgba(255, 255, 255, 0.06); }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        #mobile-nav { transform: translateX(100%); transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        #mobile-nav.open { transform: translateX(0); }
+        .outline-text { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.3); }
     </style>
 </head>
-<nav class="fixed top-0 w-full z-[100] py-4 md:py-6 px-6 md:px-16 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/5">
+<body>
+
+    <nav class="fixed top-0 w-full z-[100] py-4 md:py-6 px-6 md:px-16 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/5">
         <div class="text-lg md:text-xl font-black italic tracking-tighter uppercase">ES <span class="text-[#ff6b4a]">.</span></div>
         <div class="flex items-center gap-4 md:gap-10">
             <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
-                <a href="#home" class="text-[#ff6b4a]">Home</a>
+                <a href="index.html" class="hover:text-[#ff6b4a] transition">Home</a>
                 <a href="about.html" class="hover:text-[#ff6b4a] transition">About</a>
-                <a href="services.html" class="hover:text-[#ff6b4a] transition">Services</a>
+                <a href="services.html" class="text-[#ff6b4a]">Services</a>
                 <a href="work.html" class="hover:text-[#ff6b4a] transition">Work</a>
             </div>
-            <a href="#contact" class="bg-[#ff6b4a] text-white px-5 py-2 md:px-7 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Hire</a>
-            <button id="open-menu" class="md:hidden glass p-2 rounded-lg text-white"><i data-lucide="settings-2" class="w-5 h-5"></i></button>
+            <a href="index.html#contact" class="bg-[#ff6b4a] text-white px-5 py-2 md:px-7 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Hire</a>
+            <button id="open-menu" class="md:hidden glass p-2 rounded-lg text-white"><i data-lucide="menu" class="w-5 h-5"></i></button>
         </div>
     </nav>
 
     <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/95 backdrop-blur-2xl flex flex-col justify-center items-center md:hidden">
         <button id="close-menu" class="absolute top-6 right-8 glass p-3 rounded-full"><i data-lucide="x" class="w-6 h-6"></i></button>
         <div class="flex flex-col gap-8 text-center">
-            <a href="#home" class="m-link text-4xl font-black italic uppercase">Home</a>
+            <a href="index.html" class="m-link text-4xl font-black italic uppercase outline-text">Home</a>
             <a href="about.html" class="m-link text-4xl font-black italic uppercase outline-text">About</a>
-            <a href="services.html" class="m-link text-4xl font-black italic uppercase">Services</a>
+            <a href="services.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]">Services</a>
             <a href="work.html" class="m-link text-4xl font-black italic uppercase outline-text">Work</a>
         </div>
     </div>
 
-
     <section class="pt-40 pb-20 px-8 md:px-24">
         <div class="reveal">
-            <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-6">PREMIUM <br> <span class="text-[#ff6b4a]">SOLUTIONS.</span></h1>
+            <h1 class="text-6xl md:text-8xl font-black uppercase italic mb-6 leading-tight">PREMIUM <br> <span class="text-[#ff6b4a]">SOLUTIONS.</span></h1>
             <p class="text-gray-500 max-w-2xl italic text-lg mb-20">I don't just design your brand; I establish it as a global standard through strategic visual excellence.</p>
         </div>
 
-        <div class="grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
-                    <i data-lucide="palette" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">01</span>
+                    <i data-lucide="layers" class="text-[#ff6b4a] w-12 h-12"></i>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">01</span>
                 </div>
-                <h3 class="text-3xl font-black italic mb-4 uppercase">Visual Branding</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    From minimalist logo systems to comprehensive brand guidelines. I build iconic identities that resonate with your audience and leave a lasting impression.
-                </p>
+                <h3 class="text-3xl font-black italic mb-4 uppercase">Identity Design</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">Building unique visual DNA for global brands. From minimalist logo systems to comprehensive brand guidelines.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Logo Design</li>
-                    <li>• Color Theory</li>
-                    <li>• Brand Voice</li>
+                    <li>• Logo Architecture</li>
+                    <li>• Visual Guidelines</li>
+                    <li>• Brand Assets</li>
                 </ul>
             </div>
 
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
-                    <i data-lucide="layout" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">02</span>
+                    <i data-lucide="monitor" class="text-[#ff6b4a] w-12 h-12"></i>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">02</span>
                 </div>
-                <h3 class="text-3xl font-black italic mb-4 uppercase">UI/UX Interface</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    User-centric design that doesn't just look stunning but functions flawlessly. Crafting modern, intuitive interfaces for both Mobile Apps and Websites.
-                </p>
+                <h3 class="text-3xl font-black italic mb-4 uppercase">UI/UX Strategy</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">Crafting seamless journeys for digital products. User-centric design that functions flawlessly.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Mobile Apps</li>
-                    <li>• Dashboards</li>
+                    <li>• User Experience</li>
+                    <li>• Interface Design</li>
                     <li>• Prototyping</li>
                 </ul>
             </div>
 
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
+                    <i data-lucide="zap" class="text-[#ff6b4a] w-12 h-12"></i>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">03</span>
+                </div>
+                <h3 class="text-3xl font-black italic mb-4 uppercase">Web Art</h3>
+                <p class="text-gray-400 leading-relaxed mb-6">High-performance futuristic web interfaces. Giving life to static layouts with high-end aesthetics.</p>
+                <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
+                    <li>• Creative Frontend</li>
+                    <li>• Digital Experiences</li>
+                    <li>• Web Animation</li>
+                </ul>
+            </div>
+
+            <div class="glass p-12 reveal">
+                <div class="flex justify-between items-start mb-8">
                     <i data-lucide="clapperboard" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">03</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">04</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Motion Design</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Giving life to static graphics. High-impact motion posters, intro videos, and social media animations designed to skyrocket your brand engagement.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">High-impact motion posters, intro videos, and animations designed to skyrocket engagement.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
                     <li>• Ad Campaigns</li>
                     <li>• Logo Animation</li>
@@ -106,28 +119,24 @@
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="box" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">04</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">05</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Packaging Art</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Premium product packaging designed to dominate the shelves. From labels to 3D mockups, I create visuals that increase your product's perceived value.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Premium product packaging designed to dominate the shelves. From labels to 3D mockups.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
                     <li>• Label Design</li>
                     <li>• Product Mockups</li>
-                    <li>• Print Ready Files</li>
+                    <li>• Print Ready</li>
                 </ul>
             </div>
 
-<div class="glass p-12 reveal">
+            <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="share-2" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">05</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">06</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Social Media Kit</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Comprehensive visual assets for your social presence. High-impact post templates, story designs, and covers that maintain brand consistency across all platforms.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Comprehensive visual assets. High-impact post templates, story designs, and brand consistency.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
                     <li>• Instagram Layouts</li>
                     <li>• LinkedIn Banners</li>
@@ -138,46 +147,40 @@
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="megaphone" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">06</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">07</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Ad Campaigns</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Performance-driven ad creatives for Meta and Google. Designs specifically engineered to increase click-through rates (CTR) and scale your business growth.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Performance-driven ad creatives designed to increase click-through rates (CTR).</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Google Display Ads</li>
-                    <li>• Meta Static/Video Ads</li>
-                    <li>• Retargeting Visuals</li>
+                    <li>• Google Display</li>
+                    <li>• Meta Static/Video</li>
+                    <li>• Retargeting</li>
                 </ul>
             </div>
 
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="smartphone" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">07</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">08</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">App Store Visuals</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Professional App Store and Play Store screenshots. We turn complex app features into easy-to-understand, high-converting visual stories.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Professional screenshots. We turn complex app features into high-converting stories.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Panoramic Screenshots</li>
+                    <li>• Panoramic Views</li>
                     <li>• Feature Highlights</li>
-                    <li>• App Icon Design</li>
+                    <li>• App Icons</li>
                 </ul>
             </div>
 
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="printer" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">08</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">09</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Print Media</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Tangible brand experiences. High-quality designs for business cards, brochures, and stationary that bring your digital brand into the physical world.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Tangible brand experiences. Designs for business cards, brochures, and stationary.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Business Stationery</li>
+                    <li>• Stationery</li>
                     <li>• Brochure Systems</li>
                     <li>• Event Branding</li>
                 </ul>
@@ -186,62 +189,40 @@
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="shopping-cart" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">09</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">10</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">E-Commerce Design</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Optimizing the digital shopping experience. We design high-converting Shopify stores and custom interfaces that turn visitors into loyal customers.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Optimizing digital shopping. We design high-converting stores and custom interfaces.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Custom Storefronts</li>
-                    <li>• Product Page UX</li>
-                    <li>• Checkout Design</li>
+                    <li>• Shopify Custom</li>
+                    <li>• Checkout UX</li>
+                    <li>• Product Pages</li>
                 </ul>
             </div>
 
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="presentation" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">10</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">11</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Pitch Decks</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Visual storytelling for startups and corporates. We design world-class pitch decks and keynote presentations that help you win investors.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Visual storytelling for startups. World-class decks that help you win investors.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
                     <li>• Investor Decks</li>
-                    <li>• Corporate Keynotes</li>
-                    <li>• Data Visualization</li>
-                </ul>
-            </div>
-
-            <div class="glass p-12 reveal">
-                <div class="flex justify-between items-start mb-8">
-                    <i data-lucide="component" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">11</span>
-                </div>
-                <h3 class="text-3xl font-black italic mb-4 uppercase">Icon Systems</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Custom-crafted icon sets tailored to your brand’s DNA. We build cohesive iconography systems for apps and websites to enhance navigation.
-                </p>
-                <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Vector Icons</li>
-                    <li>• App Iconography</li>
-                    <li>• Illustrative Assets</li>
+                    <li>• Corporate Decks</li>
+                    <li>• Data Viz</li>
                 </ul>
             </div>
 
             <div class="glass p-12 reveal">
                 <div class="flex justify-between items-start mb-8">
                     <i data-lucide="briefcase" class="text-[#ff6b4a] w-12 h-12"></i>
-                    <span class="text-white/10 font-black text-6xl italic">12</span>
+                    <span class="text-white/10 font-black text-6xl italic leading-none">12</span>
                 </div>
                 <h3 class="text-3xl font-black italic mb-4 uppercase">Brand Strategy</h3>
-                <p class="text-gray-400 leading-relaxed mb-6">
-                    Beyond just visuals. We provide strategic consultancy to position your brand in the market, ensuring long-term growth and a unique edge.
-                </p>
+                <p class="text-gray-400 leading-relaxed mb-6">Beyond visuals. Strategic consultancy to position your brand for long-term growth.</p>
                 <ul class="text-[10px] font-bold tracking-widest text-gray-500 space-y-2 uppercase">
-                    <li>• Market Positioning</li>
+                    <li>• Market Position</li>
                     <li>• Brand Audits</li>
                     <li>• Growth Strategy</li>
                 </ul>
@@ -251,19 +232,23 @@
     </section>
 
     <footer class="py-20 px-8 text-center border-t border-white/5">
-        <a href="index.html#contact" class="inline-block bg-[#ff6b4a] px-10 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest hover:scale-105 transition mb-10">Start a Project</a>
+        <a href="index.html#contact" class="inline-block bg-[#ff6b4a] px-10 py-4 rounded-full font-bold uppercase text-[10px] tracking-widest hover:scale-105 transition mb-10 text-white">Start a Project</a>
         <p class="text-[10px] text-gray-600 uppercase tracking-widest block">© 2026 EHTASHAM SHANI • INNOVATING DESIGN</p>
     </footer>
 
     <script>
         lucide.createIcons();
+        const openBtn = document.getElementById('open-menu');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mLinks = document.querySelectorAll('.m-link');
+        openBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+        closeBtn.addEventListener('click', () => mobileNav.classList.remove('open'));
+        mLinks.forEach(link => link.addEventListener('click', () => mobileNav.classList.remove('open')));
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
-
 </html>
-
-
