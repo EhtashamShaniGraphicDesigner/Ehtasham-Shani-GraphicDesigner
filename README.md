@@ -1,6 +1,6 @@
 Ehtasham Shani | Graphic Designer
 
-Creative Graphic Designer specialized in building high-end visual systems, premium branding, and modern UI/UX interfaces.
+Graphic Designer specialized in building high-end visual systems, premium branding, and modern UI/UX interfaces.
 
 ---
 
