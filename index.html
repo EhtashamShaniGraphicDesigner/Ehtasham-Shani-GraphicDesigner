@@ -111,7 +111,27 @@
         .m-link { opacity: 0; transform: translateY(20px); transition: 0.4s; }
         #mobile-nav.open .m-link { opacity: 1; transform: translateY(0); transition-delay: 0.4s; }
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }/* Blob Styles */
+        .blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,74,0.15) 0%, rgba(255,107,74,0) 70%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            animation: move 20s infinite alternate;
+        }
+        .blob-2 {
+            background: radial-gradient(circle, rgba(13,13,26,0.4) 0%, rgba(13,13,26,0) 70%);
+            animation-delay: -5s;
+            animation-duration: 25s;
+        }
+        @keyframes move {
+            from { transform: translate(-10%, -10%) scale(1); }
+            to { transform: translate(100%, 50%) scale(1.2); }
+        }
     </style>
 </head>
 <body>
@@ -148,6 +168,9 @@
             </button>
         </div>
     </nav>
+
+<div class="blob"></div>
+    <div class="blob blob-2" style="right: 0; bottom: 0;"></div>
 
     <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
         <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]">
@@ -293,6 +316,38 @@
 
         <div class="mt-16 md:mt-24 text-center">
             <a href="work.html" class="glass px-10 py-4 md:px-12 md:py-5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#ff6b4a] hover:text-white transition-all">Explore All Work</a>
+        </div>
+    </section>
+
+<section id="customers" class="py-20 md:py-32 px-6 md:px-24 bg-[#030303]">
+        <div class="max-w-7xl mx-auto text-center reveal">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-6">Partnerships</h2>
+            <h3 class="text-4xl md:text-6xl font-black uppercase italic leading-tight mb-6">Our <span class="outline-text">Customers.</span></h3>
+            <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-16 leading-relaxed">
+                "Committed to delivering exceptional service and exceeding client expectations every step of the way. Delighted to serve our clients with excellence!"
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 items-center opacity-70">
+                <div class="flex flex-col items-center gap-4 group">
+                    <img src="./smart-fitness-wear-logo.png" alt="Smart Fitness Wear" class="h-12 md:h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors">Smart Fitness Wear</span>
+                </div>
+                
+                <div class="flex flex-col items-center gap-4 group">
+                    <img src="./optimum-fitness-logo.png" alt="Optimum Fitness" class="h-12 md:h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors">Optimum Fitness</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 group">
+                    <img src="./dd-skin-clinic-logo.png" alt="D.D. Skin Clinic" class="h-12 md:h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors">D.D. Skin Clinic</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-4 group">
+                    <img src="./shoper-s-logo.png" alt="Shoper's" class="h-12 md:h-20 object-contain grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-white transition-colors">Shoper's</span>
+                </div>
+            </div>
         </div>
     </section>
 
