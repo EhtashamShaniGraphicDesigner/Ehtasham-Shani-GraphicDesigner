@@ -311,17 +311,19 @@
     <div class="blob"></div>
     <div class="blob blob-2" style="right: 0; bottom: 0;"></div>
 
+    <!-- UPDATED MOBILE NAVIGATION OVERLAY SYSTEM WITH STROKE STYLE ON BLOG -->
     <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
         <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]">
             <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <div class="flex flex-col gap-8 text-center w-full px-10">
+        <div class="flex flex-col gap-6 text-center w-full px-10">
             <a href="index.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]">Home</a>
-            <a href="about.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.5s;">About</a>
-            <a href="services.html" class="m-link text-4xl font-black italic uppercase" style="transition-delay: 0.6s;">Services</a>
-            <a href="work.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.7s;">Work</a>
-            <a href="blog.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.8s;">Blog</a>
-            <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-10 text-white/30" style="transition-delay: 0.9s;">Contact</a>
+            <a href="about.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.1s;">About</a>
+            <a href="services.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.2s;">Services</a>
+            <a href="work.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.3s;">Work</a>
+            <!-- Blog option now updated seamlessly to professional outline text stroke style -->
+            <a href="blog.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.4s;">Blog</a>
+            <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-8 text-white/30" style="transition-delay: 0.5s;">Contact</a>
         </div>
     </div>
 
@@ -752,13 +754,12 @@
         </div>
     </section>
 
-    <!-- MISSION/CONTACT SECTION (PERFECTLY ALIGNED GRID) -->
+    <!-- MISSION/CONTACT SECTION -->
     <section id="contact" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505]">
         <div class="max-w-7xl mx-auto">
             <div class="reveal mb-16 md:mb-24">
                 <h2 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">START A <br> <span class="text-[#ff6b4a]">MISSION.</span></h2>
             </div>
-            <!-- Flex/Stretch implementation makes both form box and text info side align together cleanly -->
             <div class="grid lg:grid-cols-12 gap-12 md:gap-16 items-stretch">
                 <div class="lg:col-span-5 flex flex-col justify-between py-2 reveal">
                     <div class="flex flex-col h-full justify-between space-y-12">
@@ -794,7 +795,6 @@
                             </div>
                         </div>
 
-                        <!-- Card container now aligns strictly to the form baseline -->
                         <div class="glass p-6 rounded-2xl border-l-4 border-l-[#ff6b4a] mt-auto">
                             <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-1">Status Update</p>
                             <p class="text-base md:text-lg font-bold italic">Available for new missions.</p>
