@@ -52,7 +52,10 @@
             "https://www.behance.net/shanikhan27",
             "https://www.instagram.com/ehtashamshani_/",
             "https://www.facebook.com/ehtasham.shani.806426",
-            "https://www.pinterest.com/ehtashamshanidesigns"
+            "https://www.pinterest.com/ehtashamshanidesigns",
+            "https://peerlist.io/ehtashamishani",
+            "https://medium.com/@ehtashamshani",
+            "https://x.com/EhtashamShani22"
           ],
           "contactPoint": {
             "@type": "ContactPoint",
@@ -214,6 +217,22 @@
             transform: scale(1.05); 
         }
 
+        .testimonial-card {
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            transform: translateY(15px);
+            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+
+        .testimonial-card.active-review {
+            opacity: 1;
+            pointer-events: auto;
+            position: relative;
+            transform: translateY(0);
+        }
+
         #mobile-nav { 
             clip-path: circle(0% at 90% 5%); 
             transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1); 
@@ -245,7 +264,7 @@
         .cursor-dot { width: 8px; height: 8px; background-color: #ff6b4a; }
         .cursor-outline { width: 40px; height: 40px; border: 2px solid #ff6b4a; transition: all 0.15s ease-out; }
 
-        .cursor-active .cursor-outline { 
+        .cursor-hover-active #cursor-outline { 
             transform: translate(-50%, -50%) scale(1.5); 
             background-color: rgba(255, 107, 74, 0.1); 
             border-color: transparent; 
@@ -256,8 +275,14 @@
 </head>
 <body>
 
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cursor-outline" class="cursor-outline"></div>
+
+    <!-- NAVIGATION BAR -->
     <nav class="fixed top-0 w-full z-[100] py-4 md:py-6 px-4 md:px-16 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/5">
-        <div class="text-lg md:text-xl font-black italic tracking-tighter uppercase">ES <span class="text-[#ff6b4a]">.</span></div>
+        <a href="index.html" class="text-lg md:text-xl font-black italic tracking-tighter uppercase cursor-pointer group">
+            ES <span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span>
+        </a>
         <div class="flex items-center gap-3 md:gap-10">
             <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
                 <a href="index.html" class="text-[#ff6b4a]">Home</a>
@@ -300,6 +325,7 @@
         </div>
     </div>
 
+    <!-- HERO SECTION -->
     <section id="home" class="relative min-h-screen flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 md:px-24 pt-10 overflow-hidden">
         <div class="reveal relative z-10 flex flex-col items-center md:items-start w-full">
             <h1 class="hero-title flex flex-col items-center md:items-start gap-1 md:gap-0 font-extrabold uppercase italic tracking-tighter leading-none">
@@ -324,30 +350,98 @@
         </div>
     </section>
 
+    <!-- SERVICES SECTION -->
     <section id="services-home" class="py-20 md:py-32 px-6 md:px-24">
         <div class="flex justify-between items-end mb-12 md:mb-16 reveal">
-            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a]">My Expertise</h2>
-            <a href="services.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1">View Services</a>
+            <div>
+                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">My Expertise</h2>
+                <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Core <span class="outline-text">Solutions.</span></h3>
+            </div>
+            <a href="services.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">View All Services</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a]/20">
-                <i data-lucide="layers" class="text-[#ff6b4a] mb-6"></i>
-                <h3 class="text-xl font-bold uppercase italic">Identity Design</h3>
-                <p class="text-gray-500 text-sm mt-4">Building unique visual DNA for global brands.</p>
+                <i data-lucide="pen-tool" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Logo Design</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Unique aur memorable logos for modern brands.</p>
             </div>
+
             <div class="glass p-8 md:p-10 reveal rounded-[30px]">
-                <i data-lucide="monitor" class="text-[#ff6b4a] mb-6"></i>
-                <h3 class="text-xl font-bold uppercase italic">UI/UX Strategy</h3>
-                <p class="text-gray-500 text-sm mt-4">Crafting seamless journeys for digital products.</p>
+                <i data-lucide="layers" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Brand Identity</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Complete branding system with colors, typography & guidelines.</p>
             </div>
+
             <div class="glass p-8 md:p-10 reveal rounded-[30px]">
-                <i data-lucide="zap" class="text-[#ff6b4a] mb-6"></i>
-                <h3 class="text-xl font-bold uppercase italic">Web Art</h3>
-                <p class="text-gray-500 text-sm mt-4">High-performance futuristic web interfaces.</p>
+                <i data-lucide="monitor" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Website UI/UX</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Modern, responsive aur user-friendly website interfaces.</p>
             </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="shopping-bag" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">E-com Banners</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">High-converting product banners aur promotional creatives for online stores.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="smartphone" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Mobile App UI</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Clean aur intuitive mobile app experiences.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="layout-dashboard" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Dashboard UI</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Professional dashboards & SaaS admin panel interfaces.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="share-2" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Social Media</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Creative posts, stories aur social media visuals.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="megaphone" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Ad Creatives</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Eye-catching ads for Meta, Google & online campaigns.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="image" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Thumbnails</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">High-click thumbnails designed for better engagement.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="box" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Packaging Art</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Premium packaging concepts for products & brands.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="printer" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">Print Design</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Flyers, brochures, posters aur marketing materials.</p>
+            </div>
+
+            <div class="glass p-8 md:p-10 reveal rounded-[30px]">
+                <i data-lucide="box-select" class="text-[#ff6b4a] mb-6 w-8 h-8"></i>
+                <h3 class="text-xl font-bold uppercase italic">3D Mockups</h3>
+                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Modern 3D product presentations & visual showcases.</p>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center reveal">
+            <a href="services.html" class="inline-block bg-white/5 border border-white/10 text-white hover:bg-[#ff6b4a] hover:text-white px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all shadow-lg">
+                See More Services
+            </a>
         </div>
     </section>
 
+    <!-- ABOUT HOME SECTION -->
     <section id="about-home" class="py-20 md:py-24 px-6 md:px-24 bg-[#030303]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div class="reveal">
@@ -368,15 +462,17 @@
         </div>
     </section>
 
+    <!-- SELECTED PROJECTS WORK SECTION (12 PROJECTS) -->
     <section id="work-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#080808]">
         <div class="flex justify-between items-end mb-12 md:mb-20 reveal">
             <h2 class="text-4xl md:text-7xl font-black uppercase italic leading-none">Selected <br> <span class="text-[#ff6b4a]">Projects.</span></h2>
+            <a href="work.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">View All Work</a>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
             <div class="work-card reveal group">
                 <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
-                    <img src="1.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Fatty Patty Restaurant Branding & Social Media Post Design by Ehtasham Shani">
+                    <img src="1.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Fatty Patty">
                 </div>
                 <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
                     <h4 class="font-bold uppercase italic text-lg mb-2">Fatty Patty</h4>
@@ -387,7 +483,7 @@
 
             <div class="work-card reveal group">
                 <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
-                    <img src="02.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Auto Chase Professional Brand Identity & Logo Guidelines Portfolio">
+                    <img src="02.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Auto Chase">
                 </div>
                 <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
                     <h4 class="font-bold uppercase italic text-lg mb-2">Auto Chase</h4>
@@ -398,7 +494,7 @@
 
             <div class="work-card reveal group">
                 <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
-                    <img src="3.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Sweet Chocruit Product Packaging & Label Design Case Study">
+                    <img src="3.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Sweet Chocruit">
                 </div>
                 <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
                     <h4 class="font-bold uppercase italic text-lg mb-2">Sweet Chocruit</h4>
@@ -409,7 +505,7 @@
 
             <div class="work-card reveal group">
                 <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
-                    <img src="01.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Mallenxa Creative Commercial Advertising & Poster Design by Ehtasham Shani">
+                    <img src="01.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Mallenxa Creative Ads">
                 </div>
                 <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
                     <h4 class="font-bold uppercase italic text-lg mb-2">Mallenxa Creative Ads</h4>
@@ -420,7 +516,7 @@
 
             <div class="work-card reveal group">
                 <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
-                    <img src="2.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Mike AI Chat Mobile App UI/UX Design Portfolio Case Study">
+                    <img src="2.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Mike Mobile App">
                 </div>
                 <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
                     <h4 class="font-bold uppercase italic text-lg mb-2">Mike Mobile App</h4>
@@ -431,7 +527,7 @@
 
             <div class="work-card reveal group">
                 <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
-                    <img src="10.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Ehtasham Shani Professional Brand Mark & Logotype Design Collection">
+                    <img src="10.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Logo Folio">
                 </div>
                 <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
                     <h4 class="font-bold uppercase italic text-lg mb-2">Logo Folio</h4>
@@ -439,13 +535,195 @@
                     <a href="https://www.behance.net/gallery/221888235/Brand-mark-Logotype-Logofolio" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
                 </div>
             </div>
+
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
+                    <img src="9.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Real Estate Creative Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
+                    <h4 class="font-bold uppercase italic text-lg mb-2">Real Estate Ads</h4>
+                    <p class="text-[10px] text-gray-500 tracking-widest uppercase mb-6 leading-relaxed">Social Media Post Campaigns</p>
+                    <a href="https://www.behance.net/gallery/242831719/Social-Media-Post-Real-Estate-Creative-Ads" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
+                </div>
+            </div>
+
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
+                    <img src="6.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Print Cosmic Art Ad">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
+                    <h4 class="font-bold uppercase italic text-lg mb-2">Print Ad</h4>
+                    <p class="text-[10px] text-gray-500 tracking-widest uppercase mb-6 leading-relaxed">Poster Graphic Design Exhibition</p>
+                    <a href="https://www.behance.net/gallery/211113291/Poster-Graphic-Design-Exhibition-Cosmic-Art" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
+                </div>
+            </div>
+
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
+                    <img src="4.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Tomato Ketchup Creative Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
+                    <h4 class="font-bold uppercase italic text-lg mb-2">Ketchup Ads</h4>
+                    <p class="text-[10px] text-gray-500 tracking-widest uppercase mb-6 leading-relaxed">Product Manipulation Strategy</p>
+                    <a href="https://www.behance.net/gallery/221810939/Social-Media-Post-Product-Design-Ketchup-Ads" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
+                </div>
+            </div>
+
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
+                    <img src="5.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Face Wash Label Design">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
+                    <h4 class="font-bold uppercase italic text-lg mb-2">Label Design</h4>
+                    <p class="text-[10px] text-gray-500 tracking-widest uppercase mb-6 leading-relaxed">Package & Skincare Product Art</p>
+                    <a href="https://www.behance.net/gallery/223578083/Label-Design-Package-Design-Face-wash-Label" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
+                </div>
+            </div>
+
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
+                    <img src="8.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Jewellery Creative Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
+                    <h4 class="font-bold uppercase italic text-lg mb-2">Jewellery Ads</h4>
+                    <p class="text-[10px] text-gray-500 tracking-widest uppercase mb-6 leading-relaxed">Luxury Social Media Post Sets</p>
+                    <a href="https://www.behance.net/gallery/221550291/Jewellery-Design-Social-Media-Post-Poster-Ad" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
+                </div>
+            </div>
+
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-6 aspect-[16/10]">
+                    <img src="12.jpg" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="AL Saif Travels Creative Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30">
+                    <h4 class="font-bold uppercase italic text-lg mb-2">AL Saif Travels</h4>
+                    <p class="text-[10px] text-gray-500 tracking-widest uppercase mb-6 leading-relaxed">Tourism Campaign & Branding</p>
+                    <a href="https://www.behance.net/gallery/205176195/Social-Media-Posts-for-AL-Saif-Travels-Tourism" target="_blank" class="inline-block border border-[#ff6b4a] text-[#ff6b4a] px-6 py-2 rounded-full text-[9px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View My Work</a>
+                </div>
+            </div>
         </div>
 
-        <div class="mt-16 md:mt-24 text-center">
-            <a href="work.html" class="glass px-10 py-4 md:px-12 md:py-5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#ff6b4a] hover:text-white transition-all">Explore All Work</a>
+        <div class="mt-16 text-center">
+            <a href="work.html" class="glass px-10 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#ff6b4a] hover:text-white transition-all">Explore All Work</a>
         </div>
     </section>
 
+    <!-- TESTIMONIAL DYNAMIC SECTION -->
+    <section id="testimonials" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-b border-white/5 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center reveal relative z-10">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-3">Testimonials</h2>
+            <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none mb-16">Client <span class="outline-text">Endorsements.</span></h3>
+            
+            <div class="relative min-h-[320px] sm:min-h-[250px] flex items-center justify-center">
+                <!-- Review 1 -->
+                <div class="testimonial-card active-review">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"Ehtasham completely redefined our corporate presence. His attention to detail within branding and logo system rules sets him on a elite professional tier."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Marcus Thorne</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Director, Nexa Systems</p>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"The mobile application UI/UX mockups were flawless. Our developers integrated the Figma assets effortlessly. Outstanding speed and communication."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Sophia Martinez</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Product Lead, Aura Digital</p>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"Our product packaging completely stands out on retail shelves now. Ehtasham brought strategic luxury concepts directly into reality."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Liam Henderson</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Co-Founder, Sweet Chocruit</p>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"High converting social media creatives and stunning web UI design. Working with this studio has scaled our digital conversion margins drastically."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Aisha Rahman</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Marketing Head, Al Saif Group</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center gap-3 mt-12">
+                <span class="indicator-dot w-8 h-1 bg-[#ff6b4a] rounded-full transition-all duration-500 cursor-pointer"></span>
+                <span class="indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer"></span>
+                <span class="indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer"></span>
+                <span class="indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE BLOG INSIGHTS SECTION -->
+    <section id="blog-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#080808]">
+        <div class="flex justify-between items-end mb-12 md:mb-16 reveal">
+            <div>
+                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">Insights</h2>
+                <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Latest <span class="outline-text">Articles.</span></h3>
+            </div>
+            <a href="blog.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">Read More</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <div class="glass p-6 rounded-[24px] reveal group flex flex-col justify-between">
+                <div>
+                    <span class="text-[9px] font-bold uppercase text-[#ff6b4a] tracking-widest">Branding System</span>
+                    <h4 class="text-lg font-bold uppercase italic mt-3 mb-4 leading-tight group-hover:text-[#ff6b4a] transition-colors">Types of Logo Designs: Which One Is Best for Your Brand?</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">An in-depth structural guide exploring various corporate logotypes and choosing the optimal scalable alignment for brand equity.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                    <span>Branding Insights</span>
+                    <a href="https://ehtashamshani.medium.com/types-of-logo-designs-which-one-is-best-for-your-brand-1e69bc56710f" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="glass p-6 rounded-[24px] reveal group flex flex-col justify-between">
+                <div>
+                    <span class="text-[9px] font-bold uppercase text-[#ff6b4a] tracking-widest">Future Matrix</span>
+                    <h4 class="text-lg font-bold uppercase italic mt-3 mb-4 leading-tight group-hover:text-[#ff6b4a] transition-colors">The UI/UX and Graphic Design Trends Defining 2026</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Analyzing modern dark aesthetic minimalism, bento layouts, premium micro-interactions, and spatial interface transformations.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                    <span>Trends 2026</span>
+                    <a href="https://ehtashamshani.medium.com/the-ui-ux-and-graphic-design-trends-defining-2026-60fa04b04af5" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="glass p-6 rounded-[24px] reveal group flex flex-col justify-between">
+                <div>
+                    <span class="text-[9px] font-bold uppercase text-[#ff6b4a] tracking-widest">Case Study</span>
+                    <h4 class="text-lg font-bold uppercase italic mt-3 mb-4 leading-tight group-hover:text-[#ff6b4a] transition-colors">A Premium Room Spray Label Design Case Study</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">A complete premium packaging product breakdown highlighting minimalist composition, print finish architecture, and visual aesthetics.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                    <span>Packaging Art</span>
+                    <a href="https://ehtashamshani.medium.com/a-premium-room-spray-label-design-case-study-by-ehtasham-shani-graphic-designer-ui-ux-9d3bfdfc13dd" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center reveal">
+            <a href="blog.html" class="glass px-10 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#ff6b4a] hover:text-white transition-all">
+                Read More Articles
+            </a>
+        </div>
+    </section>
+
+    <!-- BRAND PARTNERSHIPS CUSTOMERS SECTION -->
     <section id="customers" class="py-20 md:py-32 px-6 md:px-24 bg-[#030303]">
         <div class="max-w-7xl mx-auto text-center reveal">
             <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-6">Partnerships</h2>
@@ -455,34 +733,10 @@
             </p>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 items-start justify-center">
-                <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                    <div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center transition-all duration-500 group-hover:bg-white/5 group-hover:border-[#ff6b4a]/50 group-hover:-translate-y-3 group-hover:shadow-[0_20px_40px_rgba(255,107,74,0.1)]">
-                        <img src="Mushk Mahal.jpg" alt="Mushk Mahal" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <span class="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#ff6b4a] transition-colors text-center leading-tight h-8">Mushk Mahal</span>
-                </div>
-                
-                <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                    <div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center transition-all duration-500 group-hover:-translate-y-3">
-                        <img src="PCDA.jpg" alt="PCDA" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <span class="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#ff6b4a] transition-colors text-center leading-tight h-8">PCDA</span>
-                </div>
-
-                <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                    <div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center transition-all duration-500 group-hover:-translate-y-3">
-                        <img src="Fatty Patty Logo.jpg" alt="Fatty Patty" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <span class="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#ff6b4a] transition-colors text-center leading-tight h-8">Fatty Patty</span>
-                </div>
-
-                <div class="flex flex-col items-center gap-4 group cursor-pointer">
-                    <div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center transition-all duration-500 group-hover:-translate-y-3">
-                        <img src="KDBA.jpg" alt="KDBA" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110">
-                    </div>
-                    <span class="text-[8px] md:text-[9px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-[#ff6b4a] transition-colors text-center leading-tight h-8">KDBA</span>
-                </div>
-
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Mushk Mahal.jpg" class="max-h-full max-w-full object-contain" alt="Mushk Mahal"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Mushk Mahal</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="PCDA.jpg" class="max-h-full max-w-full object-contain" alt="PCDA"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">PCDA</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Fatty Patty Logo.jpg" class="max-h-full max-w-full object-contain" alt="Fatty Patty"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Fatty Patty</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="KDBA.jpg" class="max-h-full max-w-full object-contain" alt="KDBA"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">KDBA</span></div>
                 <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Main Cash Logo.jpg" class="max-h-full max-w-full object-contain" alt="Main Cash"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Main Cash</span></div>
                 <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="GNH.jpg" class="max-h-full max-w-full object-contain" alt="GNH"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">GNH</span></div>
                 <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="The Venue Co Logo.jpg" class="max-h-full max-w-full object-contain" alt="The Venue Co"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">The Venue Co.</span></div>
@@ -498,45 +752,65 @@
         </div>
     </section>
 
+    <!-- MISSION/CONTACT SECTION (PERFECTLY ALIGNED GRID) -->
     <section id="contact" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505]">
         <div class="max-w-7xl mx-auto">
             <div class="reveal mb-16 md:mb-24">
                 <h2 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">START A <br> <span class="text-[#ff6b4a]">MISSION.</span></h2>
             </div>
+            <!-- Flex/Stretch implementation makes both form box and text info side align together cleanly -->
             <div class="grid lg:grid-cols-12 gap-12 md:gap-16 items-stretch">
                 <div class="lg:col-span-5 flex flex-col justify-between py-2 reveal">
-                    <div class="space-y-12 md:space-y-20">
+                    <div class="flex flex-col h-full justify-between space-y-12">
                         <div>
                             <p class="text-[10px] font-bold text-[#ff6b4a] uppercase tracking-[0.4em] mb-6 flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3"></i> Direct Lines</p>
                             <div class="space-y-4">
                                 <a href="mailto:ehtashamshaniofficial@gmail.com" class="block text-lg md:text-2xl font-bold hover:text-[#ff6b4a] transition break-all">ehtashamshaniofficial@gmail.com</a>
                                 <a href="tel:+923356440525" class="block text-2xl md:text-3xl font-bold hover:text-[#ff6b4a] transition">+92 335 6440525</a>
                             </div>
+                            
+                            <div class="mt-6">
+                                <a href="https://share.google/5BHn28MXwS7BvIgi7" target="_blank" class="inline-flex items-center gap-2 text-[11px] font-bold italic tracking-wide text-gray-400 border-b border-white/10 pb-1.5 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all group">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#ff6b4a]"></i>
+                                    <span>Find Studio on Google Maps</span>
+                                </a>
+                            </div>
                         </div>
+                        
                         <div>
-                            <p class="text-[10px] font-bold text-[#ff6b4a] uppercase tracking-[0.4em] mb-8 flex items-center gap-2"><i data-lucide="globe" class="w-3 h-3"></i> Digital Presence</p>
-                            <div class="grid grid-cols-3 gap-y-10 gap-x-6 md:gap-x-12 mb-12">
-                                <a href="https://www.behance.net/shanikhan27" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-2 hover:border-[#ff6b4a] transition w-fit">Behance</a>
-                                <a href="https://www.instagram.com/ehtashamshani_/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-2 hover:border-[#ff6b4a] transition w-fit">Instagram</a>
-                                <a href="https://www.linkedin.com/in/ehtasham-shani-4b0672190/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-2 hover:border-[#ff6b4a] transition w-fit">LinkedIn</a>
-                                <a href="https://www.upwork.com/freelancers/~017eb77fb4d0b583ff?mp_source=share" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-2 hover:border-[#ff6b4a] transition w-fit">Upwork</a>
-                                <a href="https://www.pinterest.com/ehtashamshanidesigns/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-2 hover:border-[#ff6b4a] transition w-fit">Pinterest</a>
-                                <a href="https://www.facebook.com/ehtasham.shani.806426" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-2 hover:border-[#ff6b4a] transition w-fit">Facebook</a>
+                            <p class="text-[10px] font-bold text-[#ff6b4a] uppercase tracking-[0.4em] mb-6 flex items-center gap-2"><i data-lucide="globe" class="w-3 h-3"></i> Digital Presence</p>
+                            <div class="grid grid-cols-3 gap-y-6 gap-x-4 md:gap-x-8 mb-8">
+                                <a href="https://www.behance.net/shanikhan27" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Behance</a>
+                                <a href="https://www.linkedin.com/in/ehtasham-shani-4b0672190/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">LinkedIn</a>
+                                <a href="https://peerlist.io/ehtashamishani" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Peerlist</a>
+                                
+                                <a href="https://x.com/EhtashamShani22" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Twitter / X</a>
+                                <a href="https://medium.com/@ehtashamshani" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Medium</a>
+                                <a href="https://www.instagram.com/ehtashamshani_/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Instagram</a>
+                                
+                                <a href="https://www.upwork.com/freelancers/~017eb77fb4d0b583ff?mp_source=share" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Upwork</a>
+                                <a href="https://www.pinterest.com/ehtashamshanidesigns/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Pinterest</a>
+                                <a href="https://www.facebook.com/ehtasham.shani.806426" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Facebook</a>
                             </div>
-                            <div class="glass p-8 rounded-3xl border-l-4 border-l-[#ff6b4a]">
-                                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-2">Status Update</p>
-                                <p class="text-lg font-bold italic">Available for new missions.</p>
-                            </div>
+                        </div>
+
+                        <!-- Card container now aligns strictly to the form baseline -->
+                        <div class="glass p-6 rounded-2xl border-l-4 border-l-[#ff6b4a] mt-auto">
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-1">Status Update</p>
+                            <p class="text-base md:text-lg font-bold italic">Available for new missions.</p>
                         </div>
                     </div>
                 </div>
-                <div class="lg:col-span-7 reveal">
-                    <div class="glass p-6 md:p-14 rounded-[30px] md:rounded-[40px] border border-white/5">
-                        <form action="https://formspree.io/f/xqedzjbg" method="POST" class="space-y-8 md:space-y-12">
-                            <input type="text" name="name" placeholder="YOUR NAME" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] transition-all text-base md:text-lg" required>
-                            <input type="email" name="email" placeholder="YOUR EMAIL" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] transition-all text-base md:text-lg" required>
-                            <textarea name="message" placeholder="PROJECT VISION" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] h-24 md:h-32 resize-none text-base md:text-lg" required></textarea>
-                            <button type="submit" class="w-full bg-[#ff6b4a] text-white py-5 md:py-6 rounded-2xl font-black uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-black transition-all">Initiate Protocol</button>
+                
+                <div class="lg:col-span-7 reveal flex flex-col h-full">
+                    <div class="glass p-6 md:p-14 rounded-[30px] md:rounded-[40px] border border-white/5 flex flex-col h-full justify-between">
+                        <form action="https://formspree.io/f/xqedzjbg" method="POST" class="space-y-8 md:space-y-12 flex flex-col h-full justify-between">
+                            <div class="space-y-8 md:space-y-12">
+                                <input type="text" name="name" placeholder="YOUR NAME" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] transition-all text-base md:text-lg" required>
+                                <input type="email" name="email" placeholder="YOUR EMAIL" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] transition-all text-base md:text-lg" required>
+                                <textarea name="message" placeholder="PROJECT VISION" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] h-24 md:h-32 resize-none text-base md:text-lg" required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-[#ff6b4a] text-white py-5 md:py-6 rounded-2xl font-black uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-black transition-all mt-8">Initiate Protocol</button>
                         </form>
                     </div>
                 </div>
@@ -544,10 +818,12 @@
         </div>
     </section>
 
-    <footer class="py-10 px-6 border-t border-white/5 bg-[#050505] text-center">
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 bg-[#030303] border-t border-white/5 text-center relative z-10">
         <p class="text-[9px] md:text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2026 EHTASHAM SHANI • DESIGNED TO INSPIRE</p>
     </footer>
 
+    <!-- FLOATING COMMUNICATION ACTION LAYER -->
     <div class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[200] flex flex-col gap-4">
         <a href="mailto:ehtashamshaniofficial@gmail.com" class="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#ff6b4a] rounded-full shadow-[0_10px_25px_rgba(255,107,74,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 group" aria-label="Send an Email">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 md:w-8 md:h-8 text-white transition-transform group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -562,6 +838,7 @@
         </a>
     </div>
 
+    <!-- CORE INTERACTION JAVASCRIPT LAYER -->
     <script>
         lucide.createIcons();
         const openBtn = document.getElementById('open-menu'), 
@@ -592,8 +869,8 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        const cursorDot = document.querySelector(".cursor-dot");
-        const cursorOutline = document.querySelector(".cursor-outline");
+        const cursorDot = document.getElementById("cursor-dot");
+        const cursorOutline = document.getElementById("cursor-outline");
 
         window.addEventListener("mousemove", function (e) {
             const posX = e.clientX;
@@ -612,6 +889,39 @@
         interactables.forEach(el => {
             el.addEventListener("mouseenter", () => document.body.classList.add("cursor-active"));
             el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-active"));
+        });
+
+        // Dynamic Loop for Testimonials Sliding Track
+        let currentReviewIndex = 0;
+        const reviews = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.indicator-dot');
+
+        function showNextReview() {
+            reviews[currentReviewIndex].classList.remove('active-review');
+            dots[currentReviewIndex].classList.remove('bg-[#ff6b4a]', 'w-8');
+            dots[currentReviewIndex].classList.add('bg-white/20', 'w-2');
+
+            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+
+            reviews[currentReviewIndex].classList.add('active-review');
+            dots[currentReviewIndex].classList.remove('bg-white/20', 'w-2');
+            dots[currentReviewIndex].classList.add('bg-[#ff6b4a]', 'w-8');
+        }
+
+        setInterval(showNextReview, 5000);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                reviews[currentReviewIndex].classList.remove('active-review');
+                dots[currentReviewIndex].classList.remove('bg-[#ff6b4a]', 'w-8');
+                dots[currentReviewIndex].classList.add('bg-white/20', 'w-2');
+
+                currentReviewIndex = index;
+
+                reviews[currentReviewIndex].classList.add('active-review');
+                dots[currentReviewIndex].classList.remove('bg-white/20', 'w-2');
+                dots[currentReviewIndex].classList.add('bg-[#ff6b4a]', 'w-8');
+            });
         });
     </script>
 </body>
