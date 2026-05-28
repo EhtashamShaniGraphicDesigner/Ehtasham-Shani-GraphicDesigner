@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ehtashamshanigraphicdesigner.github.io/Ehtasham-Shani-GraphicDesigner/sitemap.xml
+Sitemap: https://ehtashamshani.com/sitemap.xml
