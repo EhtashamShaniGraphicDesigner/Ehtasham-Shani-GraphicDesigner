@@ -3,29 +3,36 @@
 
   <!-- 1. Home Page -->
   <url>
-    <loc>https://ehtashamshanigraphicdesigner.github.io/Ehtasham-Shani-GraphicDesigner/</loc>
-    <lastmod>2026-05-27</lastmod>
+    <loc>https://ehtashamshani.com/</loc>
+    <lastmod>2026-05-28</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- 2. About Page -->
   <url>
-    <loc>https://ehtashamshanigraphicdesigner.github.io/Ehtasham-Shani-GraphicDesigner/about.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <loc>https://ehtashamshani.com/about.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- 3. Services Page -->
   <url>
-    <loc>https://ehtashamshanigraphicdesigner.github.io/Ehtasham-Shani-GraphicDesigner/services.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <loc>https://ehtashamshani.com/services.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- 4. Work Page -->
   <url>
-    <loc>https://ehtashamshanigraphicdesigner.github.io/Ehtasham-Shani-GraphicDesigner/work.html</loc>
-    <lastmod>2026-05-27</lastmod>
+    <loc>https://ehtashamshani.com/work.html</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Blog Page -->
+  <url>
+    <loc>https://ehtashamshani.com/blog.html</loc>
+    <lastmod>2026-05-28</lastmod>
     <priority>0.8</priority>
   </url>
 
