@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link class="rounded-full" rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- SEO & Metadata Setup -->
+    <title>Premium 3D Mockup Design & Product Visualization – Ehtasham Shani</title>
+    <meta name="description" content="Engineering high-fidelity 3D product presentations, realistic environmental renders, and luxury packaging mockups by expert solo designer Ehtasham Shani.">
+    <meta name="keywords" content="3D Mockup Design, Product Visualization Karachi, 3D Render Pakistan, Premium Cosmetic Mockups, Room Spray 3D Layout, Glassmorphism Design, Freelance Product Specialist">
+    <meta name="author" content="Ehtasham Shani">
+    <meta name="robots" content="index, follow">
+    <link class="canonical" href="https://ehtashamshani.com/3d-mockup.html">
+
+    <!-- Meta Open Graph (OG Tags) -->
+    <meta property="og:site_name" content="Ehtasham Shani">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ehtashamshani.com/3d-mockup.html">
+    <meta property="og:title" content="Premium 3D Mockup Design & Product Visualization – Ehtasham Shani">
+    <meta property="og:description" content="Sculpting modern 3D product showcases with accurate shadows, realistic global illumination, and minimalist premium presentation settings.">
+    <meta property="og:image" content="https://ehtashamshani.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://ehtashamshani.com/og-image.png">
+
+    <!-- Scripts and Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root { 
+            --accent: #ff6b4a; 
+            --glass: rgba(255, 255, 255, 0.03); 
+            --border: rgba(255, 255, 255, 0.08); 
+        }
+        html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #050505; 
+            color: #ffffff; 
+            overflow-x: hidden; 
+            width: 100%; 
+            background-image: 
+                radial-gradient(circle at 10% 20%, #1a100d 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, #0d0d1a 0%, transparent 30%);
+        }
+        .glass { 
+            background: var(--glass); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid var(--border); 
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); 
+            transform-style: preserve-3d;
+        }
+        .glass:hover { 
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-10px) rotateX(4deg) rotateY(-2deg);
+            box-shadow: 0 20px 40px rgba(255, 107, 74, 0.15);
+        }
+        .outline-text { 
+            color: transparent; 
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3); 
+        }
+        .reveal { 
+            opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1); 
+        }
+        .reveal.active { 
+            opacity: 1; transform: translateY(0); 
+        }
+        .slow-float {
+            animation: float-3d 12s infinite ease-in-out; 
+            filter: drop-shadow(0 0 30px rgba(255,107,74,0.1));
+        }
+        @keyframes float-3d {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            50% { transform: translate(-15px, 25px) rotate(-3deg) scale(1.02); }
+            100% { transform: translate(10px, -15px) rotate(2deg) scale(1); }
+        }
+        .work-img { 
+            width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 20px; 
+            filter: grayscale(100%); transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1); 
+        }
+        .work-card:hover .work-img { 
+            filter: grayscale(0%); transform: scale(1.05); 
+        }
+        .testimonial-card {
+            opacity: 0; pointer-events: none; position: absolute; width: 100%;
+            transform: translateY(15px); transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+        }
+        .testimonial-card.active-review {
+            opacity: 1; pointer-events: auto; position: relative; transform: translateY(0);
+        }
+        #mobile-nav { 
+            clip-path: circle(0% at 90% 5%); transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1); visibility: hidden; 
+        }
+        #mobile-nav.open { 
+            clip-path: circle(150% at 90% 5%); visibility: visible; 
+        }
+        .cursor-dot, .cursor-outline {
+            pointer-events: none; position: fixed; top: 0; left: 0;
+            transform: translate(-50%, -50%); border-radius: 50%; z-index: 9999;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #ff6b4a; }
+        .cursor-outline { width: 40px; height: 40px; border: 2px solid #ff6b4a; transition: all 0.15s ease-out; }
+        .cursor-hover-active #cursor-outline { 
+            transform: translate(-50%, -50%) scale(1.5); background-color: rgba(255, 107, 74, 0.1); border-color: transparent; 
+        }
+        @media (max-width: 768px) { .cursor-dot, .cursor-outline { display: none; } }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+        /* Accordion Grid Formatting */
+        .faq-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .faq-card:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .faq-card.active {
+            background: rgba(255, 107, 74, 0.04);
+            border-color: #ff6b4a;
+            box-shadow: 0 15px 35px rgba(255, 107, 74, 0.08);
+        }
+        .faq-answer-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .faq-card.active .faq-answer-wrapper {
+            opacity: 1;
+        }
+        .faq-chevron-icon {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+        }
+        .faq-card.active .faq-chevron-icon {
+            transform: rotate(180deg);
+            color: #ff6b4a;
+        }
+    </style>
+</head>
+<body id="top">
+
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cursor-outline" class="cursor-outline"></div>
+
+    <!-- 📲 FLOATING ACTION CHAT BUTTONS -->
+    <div class="fixed bottom-6 right-6 z-[999] flex flex-col gap-4 items-center justify-center">
+        <a href="mailto:ehtashamshaniofficial@gmail.com" aria-label="Send Email" class="w-14 h-14 rounded-full bg-[#ff6b4a] shadow-[0_8px_24px_rgba(255,107,74,0.4)] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300">
+            <i data-lucide="mail" class="w-6 h-6 stroke-[2]"></i>
+        </a>
+        <a href="https://wa.me/923356440525?text=Hi%20Ehtasham,%20I%20want%20to%20discuss%20a%203D%20Mockup%20Design%20project." target="_blank" aria-label="Chat on WhatsApp" class="w-14 h-14 rounded-full bg-[#25d366] shadow-[0_8px_24px_rgba(37,211,102,0.4)] flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300">
+            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.008c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- NAV BAR -->
+    <nav class="fixed top-0 w-full z-[100] py-4 md:py-6 px-4 md:px-16 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/5">
+        <a href="index.html" class="text-lg md:text-xl font-black italic tracking-tighter uppercase cursor-pointer group">
+            ES <span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span>
+        </a>
+        <div class="flex items-center gap-3 md:gap-10">
+            <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
+                <a href="index.html" class="hover:text-[#ff6b4a] transition">Home</a>
+                <a href="about.html" class="hover:text-[#ff6b4a] transition">About</a>
+                <a href="services.html" class="text-[#ff6b4a]">Services</a>
+                <a href="work.html" class="hover:text-[#ff6b4a] transition">Work</a>
+                <a href="blog.html" class="hover:text-[#ff6b4a] transition">Blog</a>
+            </div>
+            <a href="#contact" class="bg-[#ff6b4a] text-white px-4 py-2 md:px-7 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Hire</a>
+            <button id="open-menu" class="md:hidden glass p-2 rounded-lg text-white">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAV -->
+    <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
+        <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <div class="flex flex-col gap-6 text-center w-full px-10">
+            <a href="index.html" class="m-link text-4xl font-black italic uppercase outline-text">Home</a>
+            <a href="about.html" class="m-link text-4xl font-black italic uppercase outline-text">About</a>
+            <a href="services.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]">Services</a>
+            <a href="work.html" class="m-link text-4xl font-black italic uppercase outline-text">Work</a>
+            <a href="blog.html" class="m-link text-4xl font-black italic uppercase outline-text">Blog</a>
+        </div>
+    </div>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-28 md:pt-32 px-6 md:px-24 py-4 text-gray-400 text-xs relative z-10">
+        <nav aria-label="Breadcrumb">
+            <ol class="list-reset flex">
+                <li><a href="index.html" class="hover:text-[#ff6b4a]">Home</a></li>
+                <li><span class="mx-2">/</span></li>
+                <li><a href="services.html" class="hover:text-[#ff6b4a]">Services</a></li>
+                <li><span class="mx-2">/</span></li>
+                <li class="text-white">3D Mockup Design</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- SERVICE HERO SECTION -->
+    <section class="py-12 md:py-20 px-6 md:px-24 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="max-w-4xl relative z-10 flex-1 reveal">
+            <h2 class="text-xs font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-4">Service Profile</h2>
+            <h1 class="text-4xl md:text-7xl font-extrabold uppercase italic tracking-tighter leading-none">
+                3D MOCKUP DESIGN <br><span class="outline-text block py-1 md:py-0">& VISUAL PRESENTATIONS.</span>
+            </h1>
+            <p class="mt-6 text-gray-400 text-sm md:text-base max-w-xl leading-relaxed opacity-80">
+                Engineering high-fidelity 3D product visualizations, realistic studio packaging environments, and high-contrast digital presentation layouts crafted natively to disrupt target consumer feeds.
+            </p>
+        </div>
+
+        <!-- Right Side Glossy 3D Object Shape -->
+        <div class="relative w-[200px] h-[200px] md:w-[400px] md:h-[400px] pointer-events-none z-0 mt-6 md:mt-0 shrink-0 reveal">
+            <img src="Shape.webp" alt="Premium Glossy 3D Geometry" class="w-full h-full object-contain mix-blend-screen slow-float opacity-90">
+        </div>
+    </section>
+
+    <!-- 🏷️ 3D VISUALIZATION CORE MODULES -->
+    <section class="py-16 md:py-24 px-6 md:px-24 bg-[#030303]/40">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">Spatial Rendering</h2>
+            <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-tight">High-Fidelity 3D <br>Mockup <span class="text-[#ff6b4a]">Ecosystems!</span></h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+            <!-- Card 1: Premium Cosmetics & Skincare 3D Mockups -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">01</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Luxury Cosmetics Renders</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">Photorealistic spatial mockups designed cleanly for face wash tubes, cosmetic jars, and premium skincare line architectures.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 2: Glass Container & Hair Oil Presentations -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">02</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="droplet" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Hair Oil Presentations</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">High-definition transparent glass styling layouts featuring realistic oil viscosity reflections and lighting refraction channels.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 3: Room Spray & Premium Canisters -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">03</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="wind" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Room Spray Canister Mockups</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">High-contrast aluminum and matte texture container visualization arrays built to exhibit premium typography alignment lines.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 4: High-End Packaging Box Prototypes -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">04</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="box" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Box Packaging Prototypes</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">3D structural box layouts mapping exact matte, glossy, cardboard textures, and precise industrial die-line folds seamlessly.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 5: Modern Glassmorphism Display Podiums -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">05</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Glassmorphism Renders</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">Modern dark aesthetic environments utilizing frosted glass podiums, translucent layers, and ambient colored backlit tones.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 6: Accurate Studio Global Illumination -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">06</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Global Illumination Setup</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">Advanced realistic studio light parameters mapping custom directional shadows and highlighting product geometry lines cleanly.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 7: Digital Advertisement Manipulation Sync -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">07</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="image" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Commercial Ad Integration</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">Blending 3D model setups flawlessly into high-converting social media marketing posts and performance campaign layouts.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+
+            <!-- Card 8: High Definition Alpha Channel PNGs -->
+            <div class="glass p-8 rounded-[30px] flex flex-col justify-between relative overflow-hidden group reveal">
+                <div class="absolute right-6 top-4 text-5xl font-black text-white/5 group-hover:text-[#ff6b4a]/10 transition-colors">08</div>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-[#ff6b4a]/10 border border-[#ff6b4a]/20 flex items-center justify-center text-[#ff6b4a] mb-6 group-hover:bg-[#ff6b4a] group-hover:text-white transition-all duration-300">
+                        <i data-lucide="download" class="w-5 h-5"></i>
+                    </div>
+                    <h4 class="text-lg font-bold uppercase italic tracking-tight">Alpha Channel Render Exports</h4>
+                    <p class="text-gray-500 text-xs mt-3 leading-relaxed">Delivering isolated product mockup canvases with transparent alpha vectors for flexible cross-platform layout deployment.</p>
+                </div>
+                <a href="#top" class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent hover:border-[#ff6b4a] pb-0.5 transition-all w-fit">Read More &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📰 LONG-FORM SEO CONTENT SECTION -->
+    <section class="py-16 md:py-24 px-6 md:px-24 bg-[#050505] border-t border-white/5 relative z-10">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h3 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight leading-tight mb-8">
+                Premium <span class="text-[#ff6b4a]">3D Mockup & Product Visualizer</span> In Pakistan<br>
+                <span class="outline-text text-2xl md:text-4xl block mt-2">High-Fidelity 3D Renders Karachi</span>
+            </h3>
+
+            <div class="space-y-6 text-gray-400 text-xs md:text-sm leading-relaxed text-justify md:text-center font-normal opacity-80 max-w-4xl mx-auto">
+                <p>
+                    Kiya aapki online store listings low-quality stock mockups ki wajah se customer orders convert nahi kar pa rahi? Basic flat layouts modern consumer markets mein luxury establish nahi kar sakte. To command high retail ticket prices, your brand requires premium 3D visualization, hyper-realistic reflections, and tailored ambient studio backgrounds configured explicitly to capture attention. Operating as an expert solo visual architect based in Karachi, Pakistan, I render top-tier 3D product mockups that elevate your goods into high-end retail masterpieces.
+                </p>
+                <p>
+                    Whether your lineup demands bespoke cosmetic glass bottles, minimalist room spray textures, or layered packaging box vectors, I manipulate depth indices with absolute aesthetic precision. Working directly with an individual independent design specialist completely frees you from rigid, expensive traditional agency contracts, delivering supreme turnaround velocity, direct asset control, and pixel-perfect results tailored exactly to your commercial marketing goals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ❓ HIGH-END FAQ ACCORDION SECTION (6 COMPREHENSIVE FAQs) -->
+    <section class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-t border-white/5 relative z-10">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center md:text-left mb-16 reveal">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">System Blueprint</h2>
+                <h3 class="text-4xl md:text-6xl font-black uppercase italic tracking-tighter leading-none">Frequently <br><span class="outline-text">Asked Questions.</span></h3>
+            </div>
+
+            <div class="space-y-4 relative z-10 reveal">
+                <!-- FAQ Item 1 -->
+                <div class="faq-card rounded-[24px] overflow-hidden transition-all duration-400">
+                    <button class="faq-header-trigger w-full flex justify-between items-center px-6 py-6 md:px-8 md:py-7 text-left outline-none cursor-pointer">
+                        <span class="text-sm md:text-md font-bold uppercase tracking-wide text-white">What are 3D mockup visualizations used for?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+                            <i data-lucide="plus" class="faq-chevron-icon w-4 h-4 text-gray-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 text-xs md:text-sm text-gray-400 leading-relaxed max-w-3xl">
+                            3D mockups allow brands to visualize their final physical product realistically before spending capital on manufacturing runs, providing elite promotional assets for Shopify storefronts and ad campaigns.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-card rounded-[24px] overflow-hidden transition-all duration-400">
+                    <button class="faq-header-trigger w-full flex justify-between items-center px-6 py-6 md:px-8 md:py-7 text-left outline-none cursor-pointer">
+                        <span class="text-sm md:text-md font-bold uppercase tracking-wide text-white">Do I need to send physical product samples to your Karachi studio?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+                            <i data-lucide="plus" class="faq-chevron-icon w-4 h-4 text-gray-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 text-xs md:text-sm text-gray-400 leading-relaxed max-w-3xl">
+                            No physical logistics are required. I build standard 3D configurations entirely digitally using exact dimension references, flat label artwork blueprints, and sample reference photographs provided by your team.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-card rounded-[24px] overflow-hidden transition-all duration-400">
+                    <button class="faq-header-trigger w-full flex justify-between items-center px-6 py-6 md:px-8 md:py-7 text-left outline-none cursor-pointer">
+                        <span class="text-sm md:text-md font-bold uppercase tracking-wide text-white">What type of file resolutions are delivered for digital marketing?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+                            <i data-lucide="plus" class="faq-chevron-icon w-4 h-4 text-gray-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 text-xs md:text-sm text-gray-400 leading-relaxed max-w-3xl">
+                            Final mockup assets are exported as high-resolution image files (typically 4K pixel arrays at 300 DPI), ensuring flawless clarity across social media platforms, websites, and print catalogs.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-card rounded-[24px] overflow-hidden transition-all duration-400">
+                    <button class="faq-header-trigger w-full flex justify-between items-center px-6 py-6 md:px-8 md:py-7 text-left outline-none cursor-pointer">
+                        <span class="text-sm md:text-md font-bold uppercase tracking-wide text-white">Can you export mockups on transparent backgrounds for easy editing?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+                            <i data-lucide="plus" class="faq-chevron-icon w-4 h-4 text-gray-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 text-xs md:text-sm text-gray-400 leading-relaxed max-w-3xl">
+                            Yes. I export dedicated product files utilizing alpha channels as clean PNGs, allowing your internal marketing team to drop the 3D items effortlessly into new social media backgrounds or banners.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-card rounded-[24px] overflow-hidden transition-all duration-400">
+                    <button class="faq-header-trigger w-full flex justify-between items-center px-6 py-6 md:px-8 md:py-7 text-left outline-none cursor-pointer">
+                        <span class="text-sm md:text-md font-bold uppercase tracking-wide text-white">How do you manage hyper-realistic glass refraction and liquids?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+                            <i data-lucide="plus" class="faq-chevron-icon w-4 h-4 text-gray-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 text-xs md:text-sm text-gray-400 leading-relaxed max-w-3xl">
+                            By deploying advanced digital lighting engines that simulate real-world light behaviors, managing custom transparency variables, accurate glass thickness reflection, and fluid light refraction physics.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-card rounded-[24px] overflow-hidden transition-all duration-400">
+                    <button class="faq-header-trigger w-full flex justify-between items-center px-6 py-6 md:px-8 md:py-7 text-left outline-none cursor-pointer">
+                        <span class="text-sm md:text-md font-bold uppercase tracking-wide text-white">Why should my brand choose a solo expert designer for 3D staging?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0">
+                            <i data-lucide="plus" class="faq-chevron-icon w-4 h-4 text-gray-400"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="px-6 pb-6 md:px-8 md:pb-8 text-xs md:text-sm text-gray-400 leading-relaxed max-w-3xl">
+                            Working directly with me ensures your premium aesthetic style and vision are executed perfectly without any middleman communication errors, offering rapid turnaround speeds and direct technical adjustments.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔴 CLEAN CTA FREE CONSULTATION BANNER -->
+    <section class="px-6 md:px-24 py-6 relative z-10">
+        <div class="w-full bg-[#ff6b4a] rounded-[24px] p-6 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_15px_40px_rgba(255,107,74,0.25)] reveal">
+            <div class="flex items-center gap-6 w-full lg:w-auto border-b lg:border-b-0 lg:border-r border-white/20 pb-6 lg:pb-0 lg:pr-10">
+                <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/40 flex items-center justify-center text-white shrink-0">
+                    <i data-lucide="phone-call" class="w-6 h-6 md:w-7 md:h-7"></i>
+                </div>
+                <div>
+                    <span class="block text-[10px] md:text-xs font-black tracking-widest text-white/80 uppercase">Get A Free Consultation</span>
+                    <a href="tel:+923356440525" class="text-2xl md:text-4xl font-extrabold tracking-tight text-white block mt-1 hover:scale-102 transition-transform">+92 335 6440525</a>
+                </div>
+            </div>
+            <div class="text-center lg:text-left flex-1 lg:px-8">
+                <p class="text-white text-sm md:text-base font-medium max-w-xl leading-relaxed">
+                    If you are in need of outstanding 3D product mockup design services as per your requirement, we would love to serve you. <strong class="underline">WhatsApp</strong> us right away to avail the best experience ever.
+                </p>
+            </div>
+            <div class="w-full lg:w-auto shrink-0 text-center">
+                <a href="https://wa.me/923356440525?text=Hi%20Ehtasham,%20I%20want%20to%20get%20a%20free%20consultation%20for%203D%20Mockup%20Design!" target="_blank" class="inline-block w-full lg:w-auto bg-white text-black px-8 py-4 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white transition-all shadow-md">
+                    Make Appointment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🖼️ PORTFOLIO WORK (12 CARDS GRID) -->
+    <section id="work-home" class="py-16 md:py-24 px-6 md:px-24">
+        <div class="text-center md:text-left mb-12 md:mb-16 reveal">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">Our Portfolio</h2>
+            <h3 class="text-3xl md:text-6xl font-black uppercase italic leading-none">Activities <span class="outline-text">We Completed.</span></h3>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+            <!-- Card 1 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="1.webp" class="work-img" alt="Fatty Patty">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Fatty Patty</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Social Media Strategy</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/242877141/Social-Media-Post-Restaurant-Poster-Poster-Design" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="02.webp" class="work-img" alt="Auto Chase">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Auto Chase</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Brand Guidelines</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/243288137/AutoChase-Brand-Guidelines-Branding-Logo-Design" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="3.webp" class="work-img" alt="Sweet Chocruit">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Sweet Chocruit</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Label & Packaging</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/225863375/Label-Design-Branding-I-Packaging-Product-Design" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="01.webp" class="work-img" alt="Mallenxa Creative Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Mallenxa Ads</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Commercial Marketing</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/243334625/Mallenxa-Creative-Ads-Social-Media-Posts-Posters" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="2.webp" class="work-img" alt="Mike Mobile App">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Mike Mobile App</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">AI Mentorship UI</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/243722709/Mike-Chat-AI-Mobile-App-UI-Design-Mentorship-App" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="10.webp" class="work-img" alt="Logo Folio">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Logo Folio</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Logotype Collection</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/221888235/Brand-mark-Logotype-Logofolio" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="9.webp" class="work-img" alt="Real Estate Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Real Estate Ads</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Campaign Management</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/242831719/Social-Media-Post-Real-Estate-Creative-Ads" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="6.webp" class="work-img" alt="Print Ad">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Print Ad</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Exhibition Poster Art</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/211113291/Poster-Graphic-Design-Exhibition-Cosmic-Art" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 9 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="4.webp" class="work-img" alt="Ketchup Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Ketchup Ads</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Product Manipulation</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/221810939/Social-Media-Post-Product-Design-Ketchup-Ads" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 10 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="5.webp" class="work-img" alt="Label Design">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Label Design</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Skincare Product Art</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/223578083/Label-Design-Package-Design-Face-wash-Label" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 11 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="8.webp" class="work-img" alt="Jewellery Ads">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">Jewellery Ads</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Luxury Assets Set</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/221550291/Jewellery-Design-Social-Media-Post-Poster-Ad" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+            <!-- Card 12 -->
+            <div class="work-card reveal group">
+                <div class="overflow-hidden rounded-[24px] border border-white/5 mb-4 aspect-[16/10]">
+                    <img src="12.webp" class="work-img" alt="AL Saif Travels">
+                </div>
+                <div class="pl-2 border-l-2 border-[#ff6b4a]/30 flex justify-between items-center">
+                    <div>
+                        <h4 class="font-bold uppercase italic text-md">AL Saif Travels</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase mt-0.5">Tourism Campaigns</p>
+                    </div>
+                    <a href="https://www.behance.net/gallery/205176195/Social-Media-Posts-for-AL-Saif-Travels-Tourism" target="_blank" class="border border-[#ff6b4a] text-[#ff6b4a] px-4 py-1.5 rounded-full text-[8px] font-bold uppercase tracking-widest hover:bg-[#ff6b4a] hover:text-white transition-all">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center reveal">
+            <a href="work.html" class="glass px-10 py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-[#ff6b4a] hover:text-white transition-all">Explore All Work</a>
+        </div>
+    </section>
+
+    <!-- 💬 TESTIMONIAL SECTION -->
+    <section id="testimonials" class="py-16 md:py-24 px-6 md:px-24 bg-[#050505] relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-3">Testimonials</h2>
+            <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none mb-16">Client <span class="outline-text">Reviews.</span></h3>
+            
+            <div class="relative min-h-[320px] sm:min-h-[250px] flex items-center justify-center">
+                <div class="testimonial-card active-review">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"Ehtasham completely transformed our brand identity. The Auto Chase brand guidelines he created exceeded our expectations. His eye for high-end racing graphics and strategic alignment is exceptional."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Auto Chase Showroom</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Automotive Director</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"The social media ad creatives designed for Mallenxa gave us an incredible conversion rate. He turns complex project visions into premium, high-converting storytelling posts flawlessly."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Mallenxa Clothing Brand</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Marketing Head</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"Outstanding premium package label design. He perfectly mapped out the aesthetic grid architecture we needed. Professional, fast, and highly intuitive UI/UX design process."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Sweet Chocruit Venture</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Product Owner</p>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <i data-lucide="quote" class="text-[#ff6b4a]/20 w-16 h-16 mx-auto mb-6 transform rotate-180"></i>
+                    <p class="text-lg md:text-2xl font-light italic leading-relaxed text-gray-200 max-w-2xl mx-auto">"High converting social media creatives and stunning web UI design. Working with this studio has scaled our digital conversion margins drastically."</p>
+                    <div class="mt-8">
+                        <h4 class="text-sm font-bold uppercase tracking-widest text-[#ff6b4a]">Al Saif Group</h4>
+                        <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Marketing Head</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center gap-3 mt-12">
+                <span class="indicator-dot w-8 h-1 bg-[#ff6b4a] rounded-full transition-all duration-500 cursor-pointer"></span>
+                <span class="indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer"></span>
+                <span class="indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer"></span>
+                <span class="indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📰 LATEST ARTICLES SECTION -->
+    <section id="blog-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#080808]">
+        <div class="flex justify-between items-end mb-12 md:mb-16 reveal">
+            <div>
+                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">Insights</h2>
+                <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Latest <span class="outline-text">Articles.</span></h3>
+            </div>
+            <a href="blog.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">Read More</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass p-6 rounded-[24px] reveal group flex flex-col justify-between">
+                <div>
+                    <span class="text-[9px] font-bold uppercase text-[#ff6b4a] tracking-widest">Branding System</span>
+                    <h4 class="text-lg font-bold uppercase italic mt-3 mb-4 leading-tight group-hover:text-[#ff6b4a] transition-colors">Types of Logo Designs: Which One Is Best for Your Brand?</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">An in-depth structural guide exploring various corporate logotypes and choosing the optimal scalable alignment for brand equity.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                    <span>Branding Insights</span>
+                    <a href="https://ehtashamshani.medium.com/types-of-logo-designs-which-one-is-best-for-your-brand-1e69bc56710f" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+
+            <div class="glass p-6 rounded-[24px] reveal group flex flex-col justify-between">
+                <div>
+                    <span class="text-[9px] font-bold uppercase text-[#ff6b4a] tracking-widest">Future Matrix</span>
+                    <h4 class="text-lg font-bold uppercase italic mt-3 mb-4 leading-tight group-hover:text-[#ff6b4a] transition-colors">The UI/UX and Graphic Design Trends Defining 2026</h4>
+                    <p class="text-gray-400 text-xs leading-relaxed">Analyzing modern dark aesthetic minimalism, bento layouts, premium micro-interactions, and spatial interface transformations.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                    <span>Trends 2026</span>
+                    <a href="https://ehtashamshani.medium.com/the-ui-ux-and-graphic-design-trends-defining-2026-60fa04b04af5" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+
+            <div class="glass p-6 rounded-[24px] reveal group flex flex-col justify-between">
+                <div>
+                    <span class="text-[9px] font-bold uppercase text-[#ff6b4a] tracking-widest">Case Study</span>
+                    <h4 class="text-lg font-bold uppercase italic mt-3 mb-4 leading-tight group-hover:text-[#ff6b4a] transition-colors">A Premium Room Spray Label Design Case Study</h4>
+                    <p class="text-gray-500 text-xs leading-relaxed">A complete premium packaging product breakdown highlighting minimalist composition, print finish architecture, and visual aesthetics.</p>
+                </div>
+                <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
+                    <span>Packaging Art</span>
+                    <a href="https://ehtashamshani.medium.com/a-premium-room-spray-label-design-case-study-by-ehtasham-shani-graphic-designer-ui-ux-9d3bfdfc13dd" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🤝 TRUSTED BRANDS GRID -->
+    <section id="customers" class="py-16 md:py-24 px-6 md:px-24 bg-[#030303]">
+        <div class="max-w-7xl mx-auto text-center reveal">
+            <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-6">Partnerships</h2>
+            <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-tight mb-6">Trusted <span class="outline-text">Brands.</span></h3>
+            <p class="text-gray-400 text-xs md:text-sm max-w-2xl mx-auto mb-16 leading-relaxed">
+                "Committed to delivering exceptional service and exceeding client expectations every step of the way."
+            </p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 items-start justify-center">
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Mushk Mahal.webp" class="max-h-full max-w-full object-contain" alt="Mushk Mahal"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Mushk Mahal</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="PCDA.webp" class="max-h-full max-w-full object-contain" alt="PCDA"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">PCDA</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Fatty Patty Logo.webp" class="max-h-full max-w-full object-contain" alt="Fatty Patty"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Fatty Patty</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="KDBA.webp" class="max-h-full max-w-full object-contain" alt="KDBA"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">KDBA</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Main Cash Logo.webp" class="max-h-full max-w-full object-contain" alt="Main Cash"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Main Cash</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="GNH.webp" class="max-h-full max-w-full object-contain" alt="GNH"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">GNH</span></div>
+                <div class="flex flex-col items-center gap-4 group pointer-events-none"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="The Venue Co Logo.webp" class="max-h-full max-w-full object-contain" alt="The Venue Co"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">The Venue Co.</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="WOK MASTER.webp" class="max-h-full max-w-full object-contain" alt="Wok Master"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Wok Master</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Times of Murree.webp" class="max-h-full max-w-full object-contain" alt="Times of Murree"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Times of Murree</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Frutmin.webp" class="max-h-full max-w-full object-contain" alt="Frutmin"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Frutmin</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Chaska Food.webp" class="max-h-full max-w-full object-contain" alt="Chaska Food"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Chaska Food</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="James & Co Logo.webp" class="max-h-full max-w-full object-contain" alt="James & Co"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">James & Co.</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Aurae Logo.webp" class="max-h-full max-w-full object-contain" alt="Aurae"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Aurae</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Sweet Logo.webp" class="max-h-full max-w-full object-contain" alt="Sweet"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Sweet</span></div>
+                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-2"><img src="Al Saif Travel Logo.webp" class="max-h-full max-w-full object-contain" alt="Al Saif Travel"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500">Al Saif Travel</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📨 START A MISSION CONTACT FORM SECTION -->
+    <section id="contact" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="reveal mb-16 md:mb-24">
+                <h2 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">START A <br> <span class="text-[#ff6b4a]">MISSION.</span></h2>
+            </div>
+            <div class="grid lg:grid-cols-12 gap-12 md:gap-16 items-stretch">
+                <div class="lg:col-span-5 flex flex-col justify-between py-2 reveal">
+                    <div class="flex flex-col h-full justify-between space-y-12">
+                        <div>
+                            <p class="text-[10px] font-bold text-[#ff6b4a] uppercase tracking-[0.4em] mb-6 flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3"></i> Direct Lines</p>
+                            <div class="space-y-4">
+                                <a href="mailto:ehtashamshaniofficial@gmail.com" class="block text-lg md:text-2xl font-bold hover:text-[#ff6b4a] transition break-all">ehtashamshaniofficial@gmail.com</a>
+                                <a href="tel:+923356440525" class="block text-2xl md:text-3xl font-bold hover:text-[#ff6b4a] transition">+92 335 6440525</a>
+                            </div>
+                            <div class="mt-6">
+                                <a href="https://share.google/5BHn28MXwS7BvIgi7" target="_blank" class="inline-flex items-center gap-2 text-[11px] font-bold italic tracking-wide text-gray-400 border-b border-white/10 pb-1.5 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all group">
+                                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#ff6b4a]"></i>
+                                    <span>Find Studio on Google Maps</span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <p class="text-[10px] font-bold text-[#ff6b4a] uppercase tracking-[0.4em] mb-6 flex items-center gap-2"><i data-lucide="globe" class="w-3 h-3"></i> Digital Presence</p>
+                            <div class="grid grid-cols-3 gap-y-6 gap-x-4 md:gap-x-8 mb-8">
+                                <a href="https://www.behance.net/shanikhan27" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Behance</a>
+                                <a href="https://www.linkedin.com/in/ehtasham-shani-4b0672190/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">LinkedIn</a>
+                                <a href="https://peerlist.io/ehtashamishani" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Peerlist</a>
+                                
+                                <a href="https://x.com/EhtashamShani22" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Twitter / X</a>
+                                <a href="https://medium.com/@ehtashamshani" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Medium</a>
+                                <a href="https://www.instagram.com/ehtashamshani_/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Instagram</a>
+                                
+                                <a href="https://www.upwork.com/freelancers/~017eb77fb4d0b583ff?mp_source=share" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Upwork</a>
+                                <a href="https://www.pinterest.com/ehtashamshanidesigns/" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Pinterest</a>
+                                <a href="https://www.facebook.com/ehtasham.shani.806426" class="text-[11px] md:text-sm font-bold italic border-b border-white/10 pb-1 hover:border-[#ff6b4a] transition w-fit">Facebook</a>
+                            </div>
+                        </div>
+
+                        <div class="glass p-6 rounded-2xl border-l-4 border-l-[#ff6b4a] mt-auto">
+                            <p class="text-[9px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-1">Status Update</p>
+                            <p class="text-base md:text-lg font-bold italic">Available for new missions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-7 reveal flex flex-col h-full">
+                    <div class="glass p-6 md:p-14 rounded-[30px] md:rounded-[40px] border border-white/5 flex flex-col h-full justify-between" style="background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px);">
+                        <form action="https://formspree.io/f/xqedzjbg" method="POST" class="space-y-8 md:space-y-12 flex flex-col h-full justify-between">
+                            <div class="space-y-8 md:space-y-12">
+                                <input type="text" name="name" placeholder="YOUR NAME" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] transition-all text-base md:text-lg" required>
+                                <input type="email" name="email" placeholder="YOUR EMAIL" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] transition-all text-base md:text-lg" required>
+                                <textarea name="message" placeholder="PROJECT VISION" class="w-full bg-transparent border-b border-white/10 py-4 outline-none focus:border-[#ff6b4a] h-24 md:h-32 resize-none text-base md:text-lg" required></textarea>
+                            </div>
+                            <div class="flex-1"></div>
+                            <button type="submit" class="w-full bg-[#ff6b4a] text-white py-5 md:py-6 rounded-2xl font-black uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:text-black transition-all mt-8">Initiate Protocol</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 OFFICIAL FOOTER -->
+    <footer class="py-12 px-6 bg-[#030303] border-t border-white/5 text-center relative z-10">
+        <p class="text-[9px] md:text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2026 EHTASHAM SHANI • DESIGNED TO INSPIRE</p>
+    </footer>
+
+    <!-- INTERACTION SCRIPTS -->
+    <script>
+        lucide.createIcons();
+        const openBtn = document.getElementById('open-menu'), 
+              closeBtn = document.getElementById('close-menu'), 
+              mobileNav = document.getElementById('mobile-nav'), 
+              links = document.querySelectorAll('.m-link');
+
+        openBtn.onclick = () => { mobileNav.classList.add('open'); document.body.style.overflow = 'hidden'; };
+        const closeMenu = () => { mobileNav.classList.remove('open'); setTimeout(() => { document.body.style.overflow = 'auto'; }, 800); };
+        closeBtn.onclick = closeMenu; links.forEach(link => link.onclick = closeMenu);
+
+        // Smooth View Scroll Tracking System
+        const observer = new IntersectionObserver((entries) => { 
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) entry.target.classList.add('active'); 
+            }); 
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Custom Cursor Action Setup
+        const cursorDot = document.getElementById("cursor-dot");
+        const cursorOutline = document.getElementById("cursor-outline");
+        window.addEventListener("mousemove", function (e) {
+            const posX = e.clientX; const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+        });
+        document.querySelectorAll("a, button, .glass, .work-card, .faq-header-trigger").forEach(el => {
+            el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
+            el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
+        });
+
+        // Testimonials Tracker Setup
+        let currentReviewIndex = 0;
+        const reviews = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.indicator-dot');
+
+        function showNextReview() {
+            if(!reviews.length) return;
+            reviews[currentReviewIndex].classList.remove('active-review');
+            dots[currentReviewIndex].classList.remove('bg-[#ff6b4a]', 'w-8');
+            dots[currentReviewIndex].classList.add('bg-white/20', 'w-2');
+            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
+            reviews[currentReviewIndex].classList.add('active-review');
+            dots[currentReviewIndex].classList.remove('bg-white/20', 'w-2');
+            dots[currentReviewIndex].classList.add('bg-[#ff6b4a]', 'w-8');
+        }
+        setInterval(showNextReview, 5000);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                reviews[currentReviewIndex].classList.remove('active-review');
+                dots[currentReviewIndex].classList.remove('bg-[#ff6b4a]', 'w-8');
+                dots[currentReviewIndex].classList.add('bg-white/20', 'w-2');
+                currentReviewIndex = index;
+                reviews[currentReviewIndex].classList.add('active-review');
+                dots[currentReviewIndex].classList.remove('bg-white/20', 'w-2');
+                dots[currentReviewIndex].classList.add('bg-[#ff6b4a]', 'w-8');
+            });
+        });
+
+        // Refined Accordion State Manager (Strict 6 Items Supported)
+        document.querySelectorAll('.faq-header-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const card = trigger.closest('.faq-card');
+                const contentWrapper = trigger.nextElementSibling;
+                const icon = trigger.querySelector('.faq-chevron-icon');
+                
+                if (card.classList.contains('active')) {
+                    contentWrapper.style.maxHeight = null;
+                    card.classList.remove('active');
+                    icon.setAttribute('data-lucide', 'plus');
+                } else {
+                    document.querySelectorAll('.faq-card').forEach(otherCard => {
+                        if (otherCard !== card && otherCard.classList.contains('active')) {
+                            otherCard.classList.remove('active');
+                            otherCard.querySelector('.faq-answer-wrapper').style.maxHeight = null;
+                            otherCard.querySelector('.faq-chevron-icon').setAttribute('data-lucide', 'plus');
+                        }
+                    });
+                    
+                    contentWrapper.style.maxHeight = contentWrapper.scrollHeight + "px";
+                    card.classList.add('active');
+                    icon.setAttribute('data-lucide', 'minus');
+                }
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
