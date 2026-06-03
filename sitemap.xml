@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- 1. Home Page -->
+  <!-- Main Pages -->
   <url>
     <loc>https://ehtashamshani.com/</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <priority>1.0</priority>
   </url>
-
-  <!-- 2. About Page -->
   <url>
     <loc>https://ehtashamshani.com/about.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.8</priority>
   </url>
-
-  <!-- 3. Services Page -->
   <url>
     <loc>https://ehtashamshani.com/services.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.8</priority>
   </url>
-
-  <!-- 4. Work Page -->
   <url>
     <loc>https://ehtashamshani.com/work.html</loc>
-    <lastmod>2026-05-28</lastmod>
+    <lastmod>2026-06-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ehtashamshani.com/blog.html</loc>
+    <lastmod>2026-06-04</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- 5. Blog Page -->
-  <url>
-    <loc>https://ehtashamshani.com/blog.html</loc>
-    <lastmod>2026-05-28</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <!-- Service Sub-Pages (Cards) -->
+  <url><loc>https://ehtashamshani.com/logo-design.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/brand-identity.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/website-uiux.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/ecommerce-banner.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/mobile-app.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/dashboard-ui.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/social-media.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/ad-creative.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/youtube-thumbnail.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/packaging-design.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/print-design.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
+  <url><loc>https://ehtashamshani.com/3d-mockup.html</loc><lastmod>2026-06-04</lastmod><priority>0.7</priority></url>
 
 </urlset>
