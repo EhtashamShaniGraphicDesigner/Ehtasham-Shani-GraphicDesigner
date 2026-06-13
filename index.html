@@ -67,41 +67,41 @@
           "knowsAbout": ["UI/UX Design", "Graphic Design", "Branding", "Mobile App Design", "Logo Design", "Web Design", "Creative Ads"]
         },
         {
-  "@type": "BreadcrumbList",
-  "@id": "https://ehtashamshani.com/#breadcrumb",
-  "itemListElement": [
-    { 
-      "@type": "ListItem", 
-      "position": 1, 
-      "name": "Home", 
-      "item": "https://ehtashamshani.com/" 
-    },
-    { 
-      "@type": "ListItem", 
-      "position": 2, 
-      "name": "Services", 
-      "item": "https://ehtashamshani.com/services.html" 
-    },
-    { 
-      "@type": "ListItem", 
-      "position": 3, 
-      "name": "Work", 
-      "item": "https://ehtashamshani.com/work.html" 
-    },
-    { 
-      "@type": "ListItem", 
-      "position": 4, 
-      "name": "About", 
-      "item": "https://ehtashamshani.com/about.html" 
-    },
-    { 
-      "@type": "ListItem", 
-      "position": 5, 
-      "name": "Blog", 
-      "item": "https://ehtashamshani.com/blog.html" 
-    }
-  ]
-},
+          "@type": "BreadcrumbList",
+          "@id": "https://ehtashamshani.com/#breadcrumb",
+          "itemListElement": [
+            { 
+              "@type": "ListItem", 
+              "position": 1, 
+              "name": "Home", 
+              "item": "https://ehtashamshani.com/" 
+            },
+            { 
+              "@type": "ListItem", 
+              "position": 2, 
+              "name": "Services", 
+              "item": "https://ehtashamshani.com/services.html" 
+            },
+            { 
+              "@type": "ListItem", 
+              "position": 3, 
+              "name": "Work", 
+              "item": "https://ehtashamshani.com/work.html" 
+            },
+            { 
+              "@type": "ListItem", 
+              "position": 4, 
+              "name": "About", 
+              "item": "https://ehtashamshani.com/about.html" 
+            },
+            { 
+              "@type": "ListItem", 
+              "position": 5, 
+              "name": "Blog", 
+              "item": "https://ehtashamshani.com/blog.html" 
+            }
+          ]
+        },
         {
           "@type": "ImageGallery",
           "@id": "https://ehtashamshani.com/#gallery",
@@ -134,7 +134,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root { 
@@ -292,6 +292,72 @@
             border-color: transparent; 
         }
 
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            transition: max-height 1s cubic-bezier(1, 0, 1, 0);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* IDENTICAL PROCESS CARDS WITH COLOR & STROKE HOVER EFFECTS FROM ABOUT.HTML */
+        .process-grid-block {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .process-grid-block { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1024px) {
+            .process-grid-block { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        .process-card-about {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .process-card-about:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: #ff6b4a; /* Precise color accent change on hover */
+            box-shadow: 0 20px 40px rgba(255, 107, 74, 0.05);
+        }
+        .process-num-about-outline {
+            position: absolute;
+            right: 1.5rem;
+            top: 0.5rem;
+            font-size: 6.5rem;
+            font-weight: 800;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+            user-select: none;
+            transition: all 0.4s ease-in-out;
+        }
+        .process-card-about:hover .process-num-about-outline {
+            -webkit-text-stroke: 1px rgba(255, 107, 74, 0.09); /* Stroke glow transition */
+            transform: scale(1.03);
+        }
+        .process-card-about h4 {
+            transition: color 0.3s ease;
+        }
+
         @media (max-width: 768px) { .cursor-dot, .cursor-outline { display: none; } }
     </style>
 </head>
@@ -416,7 +482,7 @@
                 <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
             </a>
 
-            <a href="dashboard-ui.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
+            <a href="dashboard-ui.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group pointer group cursor-pointer transition-all duration-300">
                 <i data-lucide="layout-dashboard" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
                 <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Dashboard UI</h3>
                 <p class="text-gray-500 text-sm mt-4 leading-relaxed">Professional dashboards & SaaS admin panel interfaces.</p>
@@ -473,6 +539,182 @@
         </div>
     </section>
 
+    <section id="process-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#030303] border-t border-white/5">
+        <div class="flex justify-between items-end mb-12 md:mb-16 reveal">
+            <div>
+                <h3 class="text-3xl md:text-5xl font-extrabold uppercase tracking-tight leading-none italic" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                    OUR 6-D <span class="outline-text" style="-webkit-text-stroke: 1px #ff6b4a; color: transparent;">PROCESS.</span>
+                </h3>
+            </div>
+        </div>
+
+        <div class="process-grid-block">
+            <div class="process-card-about reveal group">
+                <span class="process-num-about-outline">01</span>
+                <div>
+                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DISCOVER</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Exploring insights, market research, and client requirements to build a solid project foundation.</p>
+                </div>
+            </div>
+
+            <div class="process-card-about reveal group">
+                <span class="process-num-about-outline">02</span>
+                <div>
+                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DEFINE</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Establishing clear goals, project scope, and brand strategy to align with your vision.</p>
+                </div>
+            </div>
+
+            <div class="process-card-about reveal group">
+                <span class="process-num-about-outline">03</span>
+                <div>
+                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DESIGN</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Creating high-end visuals and intuitive interfaces that bring the brand's personality to life.</p>
+                </div>
+            </div>
+
+            <div class="process-card-about reveal group">
+                <span class="process-num-about-outline">04</span>
+                <div>
+                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DEVELOP</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Transforming designs into functional digital assets with precision and attention to detail.</p>
+                </div>
+            </div>
+
+            <div class="process-card-about reveal group">
+                <span class="process-num-about-outline">05</span>
+                <div>
+                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DEPLOY</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Launching the finalized solution into the digital world, ensuring everything is optimized.</p>
+                </div>
+            </div>
+
+            <div class="process-card-about reveal group">
+                <span class="process-num-about-outline">06</span>
+                <div>
+                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DELIVER</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Handing over the final mission-ready assets and ensuring long-term project success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-t border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12 md:mb-16 reveal">
+                <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">Common Queries</h2>
+                <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Frequently <span class="outline-text">Asked.</span></h3>
+            </div>
+
+            <div class="space-y-4 reveal">
+                <div class="faq-item glass rounded-[20px] overflow-hidden border border-white/5 cursor-pointer">
+                    <div class="faq-toggle flex justify-between items-center p-6 md:p-8 select-none">
+                        <h4 class="text-sm md:text-base font-bold uppercase tracking-wide">What design services do you offer?</h4>
+                        <div class="text-[#ff6b4a] faq-icon flex items-center justify-center">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer px-6 md:px-8">
+                        <p class="text-gray-400 text-xs md:text-sm pb-6 md:pb-8 leading-relaxed">I provide comprehensive visual solutions including Brand Identity design, Website and Mobile App UI/UX design, SaaS Dashboards, E-commerce promotional banners, Premium Product Packaging art, and high-converting Creative Ads for social media campaigns.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass rounded-[20px] overflow-hidden border border-white/5 cursor-pointer">
+                    <div class="faq-toggle flex justify-between items-center p-6 md:p-8 select-none">
+                        <h4 class="text-sm md:text-base font-bold uppercase tracking-wide">What is your typical project timeline?</h4>
+                        <div class="text-[#ff6b4a] faq-icon flex items-center justify-center">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer px-6 md:px-8">
+                        <p class="text-gray-400 text-xs md:text-sm pb-6 md:pb-8 leading-relaxed">Timelines depend entirely on the scope of the mission. A typical standard logo mark or single-page landing page interface takes about 3 to 7 business days, while complete premium branding guidelines systems or extensive full-product UI/UX structures take 2 to 4 weeks.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass rounded-[20px] overflow-hidden border border-white/5 cursor-pointer">
+                    <div class="faq-toggle flex justify-between items-center p-6 md:p-8 select-none">
+                        <h4 class="text-sm md:text-base font-bold uppercase tracking-wide">Do you offer unlimited revisions?</h4>
+                        <div class="text-[#ff6b4a] faq-icon flex items-center justify-center">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer px-6 md:px-8">
+                        <p class="text-gray-400 text-xs md:text-sm pb-6 md:pb-8 leading-relaxed">I follow a structured 6-D design sprint layout where revisions are embedded into phases. Standard packages include 3 to 5 comprehensive design adjustment structural rounds to refine the chosen layout iteration without disrupting structural milestone deadlines.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass rounded-[20px] overflow-hidden border border-white/5 cursor-pointer">
+                    <div class="faq-toggle flex justify-between items-center p-6 md:p-8 select-none">
+                        <h4 class="text-sm md:text-base font-bold uppercase tracking-wide">What files do you deliver upon completion?</h4>
+                        <div class="text-[#ff6b4a] faq-icon flex items-center justify-center">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer px-6 md:px-8">
+                        <p class="text-gray-400 text-xs md:text-sm pb-6 md:pb-8 leading-relaxed">All standard raw industry file assets are fully supplied. For branding and graphics, you receive vector source layouts (AI, EPS, PDF, SVG) alongside high-res web sets (PNG, WebP). For interactive web products and user experience structures, complete collaborative Figma source links are transferred.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass rounded-[20px] overflow-hidden border border-white/5 cursor-pointer">
+                    <div class="faq-toggle flex justify-between items-center p-6 md:p-8 select-none">
+                        <h4 class="text-sm md:text-base font-bold uppercase tracking-wide">How do we communicate throughout the workflow?</h4>
+                        <div class="text-[#ff6b4a] faq-icon flex items-center justify-center">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer px-6 md:px-8">
+                        <p class="text-gray-400 text-xs md:text-sm pb-6 md:pb-8 leading-relaxed">Clear communication is essential. Standard official milestones are processed via official direct emails or tracking platforms. Real-time visual layout reviews and structural sprint standups are organized directly via WhatsApp messaging channels or Google Meet text briefings.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item glass rounded-[20px] overflow-hidden border border-white/5 cursor-pointer">
+                    <div class="faq-toggle flex justify-between items-center p-6 md:p-8 select-none">
+                        <h4 class="text-sm md:text-base font-bold uppercase tracking-wide">What are your design payment terms?</h4>
+                        <div class="text-[#ff6b4a] faq-icon flex items-center justify-center">
+                            <i data-lucide="plus" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+                    <div class="faq-answer px-6 md:px-8">
+                        <p class="text-gray-400 text-xs md:text-sm pb-6 md:pb-8 leading-relaxed">Projects generally operate on a 50% upfront commitment allocation deposit to initiate background asset exploration protocols. The remaining 50% balancing completion framework is securely cleared once all layout iterations are finalized and before source design delivery transfers occur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta-banner-home" class="py-12 px-6 md:px-24 bg-[#050505]">
+        <div class="max-w-7xl mx-auto reveal">
+            <div class="bg-[#ff6b4a] rounded-[30px] p-8 md:p-10 lg:p-12 flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8 shadow-[0_20px_50px_rgba(255,107,74,0.15)] relative overflow-hidden">
+                
+                <div class="flex items-center gap-4 w-full lg:w-auto justify-center lg:justify-start">
+                    <a href="tel:+923356440525" class="w-14 h-14 rounded-full border border-white/20 flex justify-center items-center flex-shrink-0 bg-white/5 hover:bg-white hover:text-[#ff6b4a] text-white transition-all duration-300">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                    </a>
+                    <div class="flex flex-col">
+                        <span class="text-[10px] font-normal uppercase tracking-[0.15em] text-white/90 block mb-0.5" style="font-family: 'Plus Jakarta Sans', sans-serif;">GET A FREE CONSULTATION</span>
+                        <a href="tel:+923356440525" class="text-2xl md:text-3xl font-medium tracking-tight text-white select-all whitespace-nowrap" style="font-family: 'Plus Jakarta Sans', sans-serif;">+92 335 6440525</a>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block w-[1px] h-12 bg-white/20 self-center mx-2"></div>
+
+                <div class="text-center lg:text-left max-w-xl">
+                    <p class="text-sm md:text-[15px] font-normal leading-relaxed text-white opacity-95" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                        If you are in need of outstanding logo design services as per your requirement, we would love to serve you. 
+                        <a href="https://wa.me/923356440525?text=Hi%20Ehtasham,%20I%20saw%20your%20portfolio%20and%20want%20to%20avail%20the%20free%20design%20consultation!" target="_blank" class="underline underline-offset-4 hover:text-black transition-colors font-medium">WhatsApp</a> us right away to avail the best experience ever.
+                    </p>
+                </div>
+
+                <div class="w-full sm:w-auto flex-shrink-0 text-center">
+                    <a href="#contact" class="inline-block w-full sm:w-auto bg-white text-black font-medium uppercase text-[11px] tracking-[0.12em] px-7 py-3.5 rounded-xl shadow-md hover:bg-black hover:text-white transition-all duration-300">
+                        MAKE APPOINTMENT
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="about-home" class="py-20 md:py-24 px-6 md:px-24 bg-[#030303]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center">
             <div class="reveal">
@@ -495,7 +737,7 @@
 
     <section id="work-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#080808]">
         <div class="flex justify-between items-end mb-12 md:mb-20 reveal">
-            <h2 class="text-4xl md:text-7xl font-black uppercase italic leading-none">Selected <br> <span class="text-[#ff6b4a]">Projects.</span></h2>
+            <h2 class="text-4xl md:text-7xl font-black uppercase italic none">Selected <br> <span class="text-[#ff6b4a]">Projects.</span></h2>
             <a href="work.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">View All Work</a>
         </div>
         
@@ -708,7 +950,7 @@
                 </div>
                 <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
                     <span>Branding Insights</span>
-                    <a href="https://ehtashamshani.medium.com/types-of-logo-designs-which-one-is-best-for-your-brand-1e69bc56710f" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                    <a href="https://snapshot.ehtashamshani.com/types-of-logo-designs" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
                 </div>
             </div>
 
@@ -720,7 +962,7 @@
                 </div>
                 <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
                     <span>Trends 2026</span>
-                    <a href="https://ehtashamshani.medium.com/the-ui-ux-and-graphic-design-trends-defining-2026-60fa04b04af5" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                    <a href="https://snapshot.ehtashamshani.com/trends-2026" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
                 </div>
             </div>
 
@@ -732,7 +974,7 @@
                 </div>
                 <div class="mt-6 pt-4 border-t border-white/5 flex justify-between items-center text-[10px] text-gray-500 uppercase tracking-wider font-bold">
                     <span>Packaging Art</span>
-                    <a href="https://ehtashamshani.medium.com/a-premium-room-spray-label-design-case-study-by-ehtasham-shani-graphic-designer-ui-ux-9d3bfdfc13dd" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
+                    <a href="https://snapshot.ehtashamshani.com/room-spray-case-study" target="_blank" class="text-white group-hover:text-[#ff6b4a] transition-colors flex items-center gap-1">Read Article <i data-lucide="arrow-up-right" class="w-3 h-3"></i></a>
                 </div>
             </div>
         </div>
@@ -767,7 +1009,7 @@
                 <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="James & Co Logo.webp" class="max-h-full max-w-full object-contain" alt="James & Co"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">James & Co.</span></div>
                 <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Aurae Logo.webp" class="max-h-full max-w-full object-contain" alt="Aurae"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Aurae</span></div>
                 <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Sweet Logo.webp" class="max-h-full max-w-full object-contain" alt="Sweet"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Sweet</span></div>
-                <div class="flex flex-col items-center gap-4 group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Al Saif Travel Logo.webp" class="max-h-full max-w-full object-contain" alt="Al Saif Travel"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Al Saif Travel</span></div>
+                <div class="flex flex-col items-center gap-4 group pointer group cursor-pointer"><div class="glass p-5 md:p-8 rounded-[25px] w-full aspect-square flex justify-center items-center group-hover:-translate-y-3"><img src="Al Saif Travel Logo.webp" class="max-h-full max-w-full object-contain" alt="Al Saif Travel"></div><span class="text-[9px] font-bold uppercase tracking-widest text-gray-500 h-8">Al Saif Travel</span></div>
             </div>
         </div>
     </section>
@@ -835,6 +1077,20 @@
         </div>
     </section>
 
+    <div class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[200] flex flex-col gap-4">
+        <a href="mailto:ehtashamshaniofficial@gmail.com" class="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#ff6b4a] rounded-full shadow-[0_10px_25px_rgba(255,107,74,0.3)] hover:scale-110 active:scale-95 transition-all duration-300 group" aria-label="Send an Email">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 md:w-8 md:h-8 text-white transition-transform group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+        </a>
+
+        <a href="https://wa.me/923356440525?text=Hi%20Ehtasham,%20I%20saw%20your%20portfolio%20and%20I%20want%20to%20discuss%20a%20design%20project!" target="_blank" class="flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-[0_10px_25px_rgba(37,211,102,0.3)] hover:scale-110 active:scale-95 transition-all duration-300" aria-label="Contact on WhatsApp">
+            <svg viewBox="0 0 24 24" class="w-8 h-8 md:w-9 md:h-9 fill-white">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+    </div>
+
     <footer class="py-12 px-6 bg-[#030303] border-t border-white/5 text-center relative z-10">
         <p class="text-[9px] md:text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2026 EHTASHAM SHANI • DESIGNED TO INSPIRE</p>
     </footer>
@@ -885,10 +1141,31 @@
             }, { duration: 500, fill: "forwards" });
         });
 
-        const interactables = document.querySelectorAll("a, button, .glass, .work-card");
+        const interactables = document.querySelectorAll("a, button, .glass, .work-card, .process-card-about");
         interactables.forEach(el => {
             el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
             el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
+        });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const toggle = item.querySelector('.faq-toggle');
+            toggle.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    const icon = i.querySelector('.faq-icon');
+                    if(icon) icon.innerHTML = '<i data-lucide="plus" class="w-5 h-5"></i>';
+                });
+
+                if (!isActive) {
+                    item.classList.add('active');
+                    const icon = item.querySelector('.faq-icon');
+                    if(icon) icon.innerHTML = '<i data-lucide="minus" class="w-5 h-5"></i>';
+                }
+                lucide.createIcons();
+            });
         });
 
         let currentReviewIndex = 0;
