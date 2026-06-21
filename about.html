@@ -887,16 +887,92 @@
         </a>
     </div>
 
-    <!-- MAIN CONTROL JAVASCRIPT ANIMATIONS MATRIX -->
-       <script>
-// Dynamic Style Injection for Smooth Transitions
+<script>
+// Dynamic Style Injection for Fluid Non-Snapping Layouts & Component Hover States
 const customStyle = document.createElement('style');
 customStyle.innerHTML = `
+  /* FAQ Smooth Configuration */
   .faq-answer {
     transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    overflow: hidden;
+  }
+  
+  /* Testimonial Zero-Jerk Absolute Framework */
+  #testimonials .max-w-4xl {
+    min-height: 380px; /* Secure dynamic height allocation */
+    position: relative;
+  }
+  @media (max-width: 768px) {
+    #testimonials .max-w-4xl { min-height: 460px; }
   }
   .testimonial-card {
-    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0 auto;
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+    pointer-events: none;
+    display: none;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+  .testimonial-card.active-review {
+    display: block !important;
+    position: relative !important;
+    opacity: 1 !important;
+    transform: scale(1) translateY(0px) !important;
+    pointer-events: auto !important;
+  }
+
+  /* Grid Items Component Interaction Glow Triggers */
+  .faq-item {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+  .faq-item:hover {
+    border-color: #ff6b4a !important;
+    box-shadow: 0 15px 35px rgba(255, 107, 74, 0.12) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    transform: translateY(-2px);
+  }
+
+  #partners-about .glass, #customers .glass {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+  #partners-about .group:hover .glass, #customers .group:hover .glass {
+    border-color: #ff6b4a !important;
+    box-shadow: 0 15px 30px rgba(255, 107, 74, 0.12) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  #about-home .glass {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  #about-home .reveal:hover .glass {
+    border-color: #ff6b4a !important;
+    box-shadow: 0 25px 60px rgba(255, 107, 74, 0.15) !important;
+    transform: scale(1.02) translateY(-4px);
+  }
+
+  #contact form, #contact .lg\\:col-span-7 .glass {
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+  #contact .lg\\:col-span-7:hover .glass {
+    border-color: #ff6b4a !important;
+    box-shadow: 0 30px 60px rgba(255, 107, 74, 0.1) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    transform: translateY(-4px);
+  }
+
+  #contact .glass.mt-auto {
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  }
+  #contact .glass.mt-auto:hover {
+    border-color: #ff6b4a !important;
+    box-shadow: 0 15px 30px rgba(255, 107, 74, 0.15) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    transform: scale(1.02);
   }
 `;
 document.head.appendChild(customStyle);
@@ -904,9 +980,7 @@ document.head.appendChild(customStyle);
 // Initialize Lucide Icons Globally
 lucide.createIcons();
 
-// ==========================================
-// 1. MOBILE MENU LOGIC
-// ==========================================
+// Mobile Navigation Panel Controller
 const openBtn = document.getElementById('open-menu');
 const closeBtn = document.getElementById('close-menu');
 const mobileNav = document.getElementById('mobile-nav');
@@ -925,19 +999,18 @@ if(openBtn && closeBtn && mobileNav) {
     mLinks.forEach(link => link.addEventListener('click', closeMenu));
 }
 
-// ==========================================
-// 2. REVEAL ANIMATION ON SCROLL
-// ==========================================
+// Optimized Non-Lagging Intersection Observer for Reveals
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Prevents constant layout re-calculation recalculation loops
+        }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.02, rootMargin: "0px 0px 50px 0px" });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ==========================================
-// 3. FAQ ACCORDION LOGIC (FIXED ICON & TRANSITION)
-// ==========================================
+// FAQ ACCORDION LOGIC WITH REFINED STRUCTURAL ROTATION
 document.querySelectorAll('.faq-item').forEach(item => {
     const toggle = item.querySelector('.faq-toggle');
     const answer = item.querySelector('.faq-answer');
@@ -951,7 +1024,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
         e.preventDefault();
         const isOpen = answer.style.maxHeight !== '0px';
         
-        // Close all other FAQs cleanly
         document.querySelectorAll('.faq-item').forEach(otherItem => {
             if (otherItem !== item) {
                 const otherAnswer = otherItem.querySelector('.faq-answer');
@@ -960,29 +1032,24 @@ document.querySelectorAll('.faq-item').forEach(item => {
                     otherAnswer.style.maxHeight = '0px';
                     otherAnswer.style.opacity = '0';
                 }
-                if (otherIcon) {
-                    otherIcon.style.transform = 'rotate(0deg)';
-                }
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
             }
         });
 
-        // Toggle current FAQ with icon rotation fallback (Premium Alternative to dynamic morphing)
         const currentIcon = toggle.querySelector('.faq-icon svg');
         if (!isOpen) {
             answer.style.maxHeight = answer.scrollHeight + 'px';
             answer.style.opacity = '1';
-            if (currentIcon) currentIcon.style.transform = 'rotate(45deg)'; // Plus turns into X smoothly
+            if (currentIcon) currentIcon.style.transform = 'rotate(45deg)';
         } else {
             answer.style.maxHeight = '0px';
             answer.style.opacity = '0';
-            if (currentIcon) currentIcon.style.transform = 'rotate(0deg)'; // Back to Plus
+            if (currentIcon) currentIcon.style.transform = 'rotate(0deg)';
         }
     });
 });
 
-// ==========================================
-// 4. TESTIMONIAL SLIDER LOGIC (SMOOTH TRANSITIONS)
-// ==========================================
+// TESTIMONIAL FLUID LOOP ENGINE (ZERO SNAP SWAP)
 const slides = document.querySelectorAll('.testimonial-card');
 const dots = document.querySelectorAll('.indicator-dot');
 let currentSlide = 0;
@@ -991,37 +1058,19 @@ function showSlide(index) {
     if(slides.length === 0) return;
     
     slides.forEach((slide) => {
-        slide.style.opacity = '0';
-        slide.style.transform = 'translateY(10px)';
-        // Prevent layout jhatka by delaying layout swap slightly
-        setTimeout(() => {
-            slide.style.display = 'none';
-            slide.classList.remove('active-review');
-        }, 300);
+        slide.classList.remove('active-review');
     });
     
     dots.forEach(dot => {
         dot.className = 'indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer';
     });
 
-    // Bring next slide smoothly
-    setTimeout(() => {
-        slides[index].style.display = 'block';
-        setTimeout(() => {
-            slides[index].style.opacity = '1';
-            slides[index].style.transform = 'translateY(0px)';
-            slides[index].classList.add('active-review');
-        }, 50);
-    }, 310);
-    
+    // Directly bind active layouts avoiding transition gap spaces
+    slides[index].classList.add('active-review');
     dots[index].className = 'indicator-dot w-8 h-1 bg-[#ff6b4a] rounded-full transition-all duration-500 cursor-pointer';
 }
 
-// Initial Setup
 if(slides.length > 0) {
-    slides.forEach((s, idx) => {
-        if(idx !== 0) { s.style.display = 'none'; s.style.opacity = '0'; }
-    });
     showSlide(currentSlide);
     
     let slideInterval = setInterval(() => {
@@ -1038,32 +1087,22 @@ if(slides.length > 0) {
     });
 }
 
-// ==========================================
-// 5. INTERACTIVE MOUSE CURSOR EFFECT
-// ==========================================
+// MOUSE COORDINATES DOT CAPTURE
 const dot = document.getElementById("cursor-dot");
 const outline = document.getElementById("cursor-outline");
 
-window.addEventListener("mousemove", (e) => {
-    const posX = e.clientX;
-    const posY = e.clientY;
-
-    if(dot && outline) {
+if(dot && outline) {
+    window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
         dot.style.left = `${posX}px`;
         dot.style.top = `${posY}px`;
         outline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 400, fill: "forwards" });
-    }
-
-    document.querySelectorAll('.info-card').forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
     });
-});
+}
 
-const targets = document.querySelectorAll('a, button, .process-card, .info-card, input, textarea, .faq-item, .indicator-dot');
+// BIND INTERACTIVE HOVER CLASSES CLEANLY
+const targets = document.querySelectorAll('a, button, .process-card, .info-card, input, textarea, .faq-item, .indicator-dot, #customers .group, #partners-about .group, #about-home .reveal, #contact .lg\\:col-span-7, #contact .glass.mt-auto');
 targets.forEach(t => {
     t.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover-active'));
     t.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover-active'));
