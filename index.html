@@ -1122,161 +1122,245 @@
         <p class="text-[9px] md:text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2026 EHTASHAM SHANI • DESIGNED TO INSPIRE</p>
     </footer>
 
-    <script>
-        lucide.createIcons();
-        const openBtn = document.getElementById('open-menu'), 
-              closeBtn = document.getElementById('close-menu'), 
-              mobileNav = document.getElementById('mobile-nav'), 
-              links = document.querySelectorAll('.m-link');
+<style>
+  /* FAQ Smooth Configuration */
+  .faq-answer {
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease;
+    overflow: hidden;
+  }
+  
+  /* 🎯 TESTIMONIAL CONTAINER ABSOLUTE HEIGHT LOCK (ELIMINATES ALL LAYOUT SHIFTS) */
+  #testimonials .max-w-4xl {
+    min-height: 290px !important; /* Locks structural height natively to hold reviews */
+    position: relative !important;
+    display: block !important;
+  }
+  @media (max-width: 768px) {
+    #testimonials .max-w-4xl { min-height: 420px !important; } /* Safe bounds for mobile text wrapping */
+  }
 
-        openBtn.onclick = () => { 
-            mobileNav.classList.add('open'); 
-            document.body.style.overflow = 'hidden'; 
-        };
+  /* Overrides and Forces absolute overlap behavior to kill dynamic height calculations */
+  .testimonial-card {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    margin: 0 auto;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: scale(0.99) translateY(6px) !important;
+    display: block !important; /* Force overrides conflicting hidden/flex utilities */
+    /* Hardware acceleration rules to prevent multi-line jitter */
+    will-change: opacity, transform;
+    transition: opacity 0.5s ease-in-out, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.5s !important;
+  }
 
-        const closeMenu = () => { 
-            mobileNav.classList.remove('open'); 
-            setTimeout(() => {
-                document.body.style.overflow = 'auto'; 
-            }, 800);
-        };
+  /* Smooth crossfade activation without touching display blocks */
+  .testimonial-card.active-review {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: scale(1) translateY(0px) !important;
+    z-index: 10 !important;
+  }
 
-        closeBtn.onclick = closeMenu; 
-        links.forEach(link => link.onclick = closeMenu);
+  /* Removes active transitions on paragraphs during active switches */
+  .testimonial-card p, .testimonial-card h3 {
+    transition: none !important;
+    transform: none !important;
+  }
 
-        const observer = new IntersectionObserver((entries) => { 
-            entries.forEach(entry => { 
-                if (entry.isIntersecting) entry.target.classList.add('active'); 
-            }); 
-        }, { threshold: 0.1 });
+  /* Component Glowing States */
+  .faq-item { transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important; }
+  .faq-item:hover {
+    border-color: #ff6b4a !important;
+    box-shadow: 0 15px 35px rgba(255, 107, 74, 0.12) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    transform: translateY(-2px);
+  }
+</style>
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+<script>
+// Initialize Icons Globally
+lucide.createIcons();
 
-        const cursorDot = document.getElementById("cursor-dot");
-        const cursorOutline = document.getElementById("cursor-outline");
+// Mobile Menu Control
+const openBtn = document.getElementById('open-menu');
+const closeBtn = document.getElementById('close-menu');
+const mobileNav = document.getElementById('mobile-nav');
+const mLinks = document.querySelectorAll('.m-link');
 
-        window.addEventListener("mousemove", function (e) {
-            const posX = e.clientX;
-            const posY = e.clientY;
+if(openBtn && closeBtn && mobileNav) {
+    openBtn.onclick = () => {
+        mobileNav.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+        mobileNav.classList.remove('open');
+        document.body.style.overflow = 'auto';
+    };
+    closeBtn.onclick = closeMenu;
+    mLinks.forEach(link => link.onclick = closeMenu);
+}
 
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        const interactables = document.querySelectorAll("a, button, .glass, .work-card, .process-card-about");
-        interactables.forEach(el => {
-            el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
-            el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
-        });
-
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            const toggle = item.querySelector('.faq-toggle');
-            toggle.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                
-                faqItems.forEach(i => {
-                    i.classList.remove('active');
-                    const icon = i.querySelector('.faq-icon');
-                    if(icon) icon.innerHTML = '<i data-lucide="plus" class="w-5 h-5"></i>';
-                });
-
-                if (!isActive) {
-                    item.classList.add('active');
-                    const icon = item.querySelector('.faq-icon');
-                    if(icon) icon.innerHTML = '<i data-lucide="minus" class="w-5 h-5"></i>';
-                }
-                lucide.createIcons();
-            });
-        });
-
-        let currentReviewIndex = 0;
-        const reviews = document.querySelectorAll('.testimonial-card');
-        const dots = document.querySelectorAll('.indicator-dot');
-
-        function showNextReview() {
-            if(!reviews.length) return;
-            reviews[currentReviewIndex].classList.remove('active-review');
-            dots[currentReviewIndex].classList.remove('bg-[#ff6b4a]', 'w-8');
-            dots[currentReviewIndex].classList.add('bg-white/20', 'w-2');
-
-            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-
-            reviews[currentReviewIndex].classList.add('active-review');
-            dots[currentReviewIndex].classList.remove('bg-white/20', 'w-2');
-            dots[currentReviewIndex].classList.add('bg-[#ff6b4a]', 'w-8');
+// Fluid Scroll Reveal Animations Observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
         }
+    });
+}, { threshold: 0.01, rootMargin: "0px 0px 80px 0px" });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        setInterval(showNextReview, 5000);
+// FAQ Accordion Engine
+document.querySelectorAll('.faq-item').forEach(item => {
+    const toggle = item.querySelector('.faq-toggle');
+    const answer = item.querySelector('.faq-answer');
+    
+    if(answer) {
+        answer.style.maxHeight = '0px';
+        answer.style.opacity = '0';
+    }
 
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                reviews[currentReviewIndex].classList.remove('active-review');
-                dots[currentReviewIndex].classList.remove('bg-[#ff6b4a]', 'w-8');
-                dots[currentReviewIndex].classList.add('bg-white/20', 'w-2');
-
-                currentReviewIndex = index;
-
-                reviews[currentReviewIndex].classList.add('active-review');
-                dots[currentReviewIndex].classList.remove('bg-white/20', 'w-2');
-                dots[currentReviewIndex].classList.add('bg-[#ff6b4a]', 'w-8');
-            });
+    toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = answer.style.maxHeight !== '0px';
+        
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+            if (otherItem !== item) {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon svg');
+                if (otherAnswer) {
+                    otherAnswer.style.maxHeight = '0px';
+                    otherAnswer.style.opacity = '0';
+                }
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+            }
         });
-    </script>
-</body>
 
-    <script type="application/ld+json">
+        const currentIcon = toggle.querySelector('.faq-icon svg');
+        if (!isOpen) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            answer.style.opacity = '1';
+            if (currentIcon) currentIcon.style.transform = 'rotate(45deg)';
+        } else {
+            answer.style.maxHeight = '0px';
+            answer.style.opacity = '0';
+            if (currentIcon) currentIcon.style.transform = 'rotate(0deg)';
+        }
+    });
+});
+
+// Testimonial Engine (Glitch-Free Stack Crossfade Alignment)
+const slides = document.querySelectorAll('.testimonial-card');
+const dots = document.querySelectorAll('.indicator-dot');
+let currentSlide = 0;
+
+function showSlide(index) {
+    if (slides.length === 0) return;
+    
+    // Smooth visibility swap preventing colliding heights during loop back
+    slides.forEach((slide) => {
+        slide.classList.remove('active-review');
+    });
+    
+    dots.forEach(dot => {
+        dot.className = 'indicator-dot w-2 h-1 bg-white/20 rounded-full transition-all duration-500 cursor-pointer';
+    });
+
+    // Directly bind active review class
+    slides[index].classList.add('active-review');
+    dots[index].className = 'indicator-dot w-8 h-1 bg-[#ff6b4a] rounded-full transition-all duration-500 cursor-pointer';
+}
+
+if (slides.length > 0) {
+    showSlide(currentSlide);
+    
+    let slideInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 5000);
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            currentSlide = index;
+            showSlide(currentSlide);
+            
+            slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }, 5000);
+        });
+    });
+}
+
+// Mouse Cursor Tracker Interaction
+const cursorDot = document.getElementById("cursor-dot");
+const cursorOutline = document.getElementById("cursor-outline");
+
+if(cursorDot && cursorOutline) {
+    window.addEventListener("mousemove", (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 400, fill: "forwards" });
+    });
+}
+
+const targets = document.querySelectorAll('a, button, .process-card, .info-card, input, textarea, .faq-item, .indicator-dot');
+targets.forEach(t => {
+    t.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover-active'));
+    t.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover-active'));
+});
+</script>
+
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Ehtasham Shani - Digital Marketing & Design Agency",
-  "image": "https://ehtashamshani.com/og-image.png",
-  "@id": "https://ehtashamshani.com/#agency",
-  "url": "https://ehtashamshani.com/",
-  "telephone": "+923356440525",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Karachi",
-    "addressRegion": "Sindh",
-    "addressCountry": "PK"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "24.8607",
-    "longitude": "67.0011"
-  },
-  "areaServed": [
+  "@graph": [
     {
-      "@type": "AdministrativeArea",
-      "name": "Karachi"
+      "@type": "WebSite",
+      "@id": "https://ehtashamshani.com/#website",
+      "url": "https://ehtashamshani.com/",
+      "name": "Ehtasham Shani",
+      "alternateName": "ES Design"
     },
     {
-      "@type": "AdministrativeArea",
-      "name": "Sindh"
+      "@type": "Person",
+      "@id": "https://ehtashamshani.com/#person",
+      "name": "Ehtasham Shani",
+      "url": "https://ehtashamshani.com/",
+      "image": "https://ehtashamshani.com/profile.jpg",
+      "jobTitle": "Creative & UI/UX Designer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Ehtasham Shani Design Studio"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/ehtasham-shani-4b0672190/",
+        "https://www.behance.net/shanikhan27",
+        "https://www.instagram.com/ehtashamshani_/",
+        "https://www.facebook.com/ehtasham.shani.806426",
+        "https://www.pinterest.com/ehtashamshanidesigns",
+        "https://peerlist.io/ehtashamishani",
+        "https://medium.com/@ehtashamshani",
+        "https://x.com/EhtashamShani22"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "ehtashamshaniofficial@gmail.com",
+        "telephone": "+923356440525",
+        "contactType": "customer support"
+      }
     }
-  ],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday"
-    ],
-    "opens": "09:00",
-    "closes": "21:00"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/in/ehtasham-shani-4b0672190/"
   ]
 }
 </script>
+</body>
 </html>
