@@ -1,0 +1,21 @@
+bash
+
+cd /home/claude/Ehtasham-Shani-GraphicDesigner-main
+npm install tailwindcss @tailwindcss/cli 2>/dev/null
+./node_modules/.bin/tailwindcss -i input.css -o tailwind.min.css --minify 2>&1
+echo "Exit: $?"
+ls -lh tailwind.min.css 2>/dev/null
+Output
+
+
+added 32 packages, and audited 34 packages in 6s
+
+6 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+≈ tailwindcss v4.3.2
+
+Done in 101ms
+Exit: 0
+-rw-r--r-- 1 root root 18K Jul  6 22:34 tailwind.min.css
