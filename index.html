@@ -403,6 +403,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link class="rounded-full" rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preload" href="PlusJakartaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Shape.webp" as="image">
     <link rel="apple-touch-icon" href="favicon.ico">
 
     <title>Ehtasham Shani – Graphic & UI/UX Designer</title>
@@ -424,8 +426,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ehtashamshani.com/og-image.png">
     
-  <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="tailwind.min.css">
+    <script src="icons.js" defer></script>
     
     <style>
       @font-face {
@@ -1304,7 +1306,7 @@ title="Service Coverage Map"
                 <h2 class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2">Insights</h2>
                 <h3 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Latest <span class="outline-text">Articles.</span></h3>
             </div>
-            <a href="blog.html" aria-label="View all blog articles by Ehtasham Shani" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">Read More</a>
+            <a href="blog.html" aria-label="Read more design articles and insights by Ehtasham Shani" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">Read More</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1523,7 +1525,7 @@ title="Service Coverage Map"
 
 <script>
 // Initialize Icons Globally
-lucide.createIcons();
+// Icons handled by icons.js
 
 // Mobile Menu Control
 const openBtn = document.getElementById('open-menu');
