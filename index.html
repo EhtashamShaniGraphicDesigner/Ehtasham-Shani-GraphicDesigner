@@ -753,171 +753,611 @@
         </div>
     </section>
 
-    <!-- FIXED SECTION (h3 to h2/h3 hierarchy) -->
-    <section id="services-home" class="py-20 md:py-32 px-6 md:px-24">
-        <div class="flex justify-between items-end mb-12 md:mb-16 reveal">
+     <!-- FIXED SECTION (h3 to h2/h3 hierarchy) -->
+    <section id="services-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-t border-white/5">
+    <div class="flex flex-col md:flex-row justify-between md:items-end mb-12 md:mb-16 reveal gap-4">
+        <div>
+            <span class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2 block">My Expertise</span>
+            <h2 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Core <span class="outline-text">Solutions.</span></h2>
+        </div>
+        <a href="services.html" class="text-[10px] font-bold uppercase border-b border-[#ff6b4a] pb-1 text-[#ff6b4a] hover:text-white hover:border-white transition-all w-fit">View All Services &rarr;</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Service Card 1: Logo Design -->
+        <a href="logo-design.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
             <div>
-                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2 block">My Expertise</span>
-                <h2 class="text-3xl md:text-5xl font-black uppercase italic leading-none">Core <span class="outline-text">Solutions.</span></h2>
+                <!-- Top Showcase Frame -->
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="10.webp" alt="Logo Design Concept Layout Frame" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <!-- Title & Icon Row -->
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Logo Design</h3>
+                    <i data-lucide="pen-tool" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Unique aur memorable logos for modern corporate brands.</p>
             </div>
-            <a href="services.html" class="text-[9px] font-bold uppercase border-b border-white/20 pb-1 hover:text-[#ff6b4a] hover:border-[#ff6b4a] transition-all">View All Services</a>
+        </a>
+
+        <!-- Service Card 2: Brand Identity -->
+        <a href="brand-identity.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="02.webp" alt="Brand Identity Guidelines Framework" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Brand Identity</h3>
+                    <i data-lucide="layers" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Complete structural branding systems, palettes, guidelines and visual assets.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 3: Website UI/UX -->
+        <a href="website-uiux.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="2.webp" alt="Website UI UX Prototype Display" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Website UI/UX</h3>
+                    <i data-lucide="monitor" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Modern, clean wireframe interfaces and high-converting web experiences.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 4: E-com Banners -->
+        <a href="ecommerce-banner.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="1.webp" alt="E-commerce Promotional Banner Layout" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">E-com Banners</h3>
+                    <i data-lucide="shopping-bag" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">High-converting product banners aur promotional creatives for online stores.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 5: Mobile App UI -->
+        <a href="mobile-app.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="2.webp" alt="Mobile Application UI Design" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Mobile App UI</h3>
+                    <i data-lucide="smartphone" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Clean, responsive, and intuitive mobile app user experience prototypes.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 6: Dashboard UI -->
+        <a href="dashboard-ui.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="9.webp" alt="SaaS Dashboard Interface Display" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Dashboard UI</h3>
+                    <i data-lucide="layout-dashboard" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Professional SaaS dashboards, web app panels, and admin analytics control systems.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 7: Social Media -->
+        <a href="social-media.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="01.webp" alt="Social Media Creative Posts Set" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Social Media</h3>
+                    <i data-lucide="share-2" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Creative promotional posts, stories, and high-impact social media assets.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 8: Ad Creatives -->
+        <a href="ad-creative.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="4.webp" alt="High Converting Ad Campaign Creatives" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Ad Creatives</h3>
+                    <i data-lucide="megaphone" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Eye-catching ads optimized for Meta, Google, and online ad campaigns.</p>
+            </div>
+        </a>
+
+        <!-- Service Card 9: Packaging Art -->
+        <a href="packaging-design.html" class="glass p-6 md:p-8 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.02] hover:shadow-[0_10px_30px_rgba(255,107,74,0.15)] transition-all duration-300 block group cursor-pointer flex flex-col justify-between">
+            <div>
+                <div class="w-full aspect-[16/10] rounded-[20px] overflow-hidden bg-[#111] mb-6 border border-white/5 relative">
+                    <img src="3.webp" alt="Product Label Packaging Design" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                </div>
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-lg md:text-xl font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Packaging Art</h3>
+                    <i data-lucide="box" class="text-[#ff6b4a] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <p class="text-gray-400 text-xs md:text-sm leading-relaxed">Premium packaging concepts, product labels, and retail box dielines.</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="mt-12 text-center reveal">
+        <a href="services.html" class="inline-block bg-[#ff6b4a] text-black hover:bg-white hover:text-black px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all shadow-lg">
+            See More Services
+        </a>
+    </div>
+</section>
+
+<!-- ========================================== -->
+<!-- INDUSTRIES WE PROVIDE SERVICE SECTION      -->
+<!-- ========================================== -->
+<section id="industries-serve" class="py-20 md:py-32 px-6 md:px-24 bg-[#030303] border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Title & Subcopy -->
+        <div class="text-center mb-16 reveal max-w-2xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight">
+                Industries We <span class="text-[#ff6b4a]">Provide Service</span>
+            </h2>
+            <p class="text-gray-400 text-xs md:text-sm mt-4 leading-relaxed tracking-wide">
+                Tailored digital solutions across diverse sectors — hover to explore how we deliver impact in your industry.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 8 Expandable Accordion Cards with Top-Aligned Titles -->
+        <div class="flex flex-col lg:flex-row gap-3.5 h-[1400px] lg:h-[520px] w-full reveal">
             
-            <a href="logo-design.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="pen-tool" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Logo Design</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Unique aur memorable logos for modern brands.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 1: Fintech -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <!-- Card Inner Wrapper -->
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <!-- Top Small Name -->
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        Fintech
+                    </h3>
+                    
+                    <!-- Bottom Description on Hover -->
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Clean, secure financial interface solutions simplifying complex processes.
+                    </p>
+                </div>
+            </div>
 
-            <a href="brand-identity.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="layers" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Brand Identity</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Complete branding system with colors, typography & guidelines.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 2: Healthcare -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        Healthcare
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Seamless patient portals and intuitive medical dashboard interfaces.
+                    </p>
+                </div>
+            </div>
 
-            <a href="website-uiux.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="monitor" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Website UI/UX</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Modern, responsive aur user-friendly website interfaces.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 3: Real Estate -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        Real Estate
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        High-converting web layouts and architectural property presentations.
+                    </p>
+                </div>
+            </div>
 
-            <a href="ecommerce-banner.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="shopping-bag" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">E-com Banners</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">High-converting product banners aur promotional creatives for online stores.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 4: On-Demand -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        On-Demand
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Fast-paced mobile UI/UX engineered for real-time tracking services.
+                    </p>
+                </div>
+            </div>
 
-            <a href="mobile-app.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="smartphone" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Mobile App UI</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Clean aur intuitive mobile app experiences.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 5: Logistics -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        Logistics
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Robust fleet management and supply chain tracking interface structures.
+                    </p>
+                </div>
+            </div>
 
-            <a href="dashboard-ui.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group pointer group cursor-pointer transition-all duration-300">
-                <i data-lucide="layout-dashboard" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Dashboard UI</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Professional dashboards & SaaS admin panel interfaces.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 6: E-Commerce -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1556742049-0a670f4a4591?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        E-Commerce
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Conversion-focused storefront UI and high-impact promo creative assets.
+                    </p>
+                </div>
+            </div>
 
-            <a href="social-media.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="share-2" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Social Media</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Creative posts, stories aur social media visuals.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 7: SaaS & Tech -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        SaaS &amp; Tech
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Modern cloud dashboard systems and digital software brand architectures.
+                    </p>
+                </div>
+            </div>
 
-            <a href="ad-creative.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="megaphone" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Ad Creatives</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Eye-catching ads for Meta, Google & online campaigns.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
+            <!-- Card 8: FMCG & Food -->
+            <div class="industry-card flex-1 hover:flex-[3] relative rounded-[28px] overflow-hidden transition-all duration-500 ease-in-out group border border-white/10 hover:border-[#ff6b4a] hover:shadow-[0_0_25px_rgba(255,107,74,0.25)] cursor-pointer bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800');">
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+                
+                <div class="absolute inset-0 p-6 md:p-8 z-10 flex flex-col justify-between">
+                    <h3 class="text-sm md:text-base font-extrabold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors duration-300 tracking-wide">
+                        FMCG &amp; Food
+                    </h3>
+                    <p class="text-xs text-gray-300 leading-relaxed max-h-0 opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 ease-in-out overflow-hidden max-w-sm">
+                        Creative ad campaign designs, social media posters, and packaging art.
+                    </p>
+                </div>
+            </div>
 
-            <a href="youtube-thumbnail.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="image" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Thumbnails</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">High-click thumbnails designed for better engagement.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
-
-            <a href="packaging-design.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="box" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Packaging Art</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Premium packaging concepts for products & brands.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
-
-            <a href="print-design.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="printer" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">Print Design</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Flyers, brochures, posters aur marketing materials.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
-
-            <a href="3d-mockup.html" class="glass p-8 md:p-10 reveal rounded-[30px] border-l-4 border-l-[#ff6b4a] block group cursor-pointer transition-all duration-300">
-                <i data-lucide="box-select" class="text-[#ff6b4a] mb-6 w-8 h-8 group-hover:scale-110 transition-transform"></i>
-                <h3 class="text-xl font-bold uppercase italic group-hover:text-[#ff6b4a] transition-colors">3D Mockups</h3>
-                <p class="text-gray-500 text-sm mt-4 leading-relaxed">Modern 3D product presentations & visual showcases.</p>
-                <span class="inline-flex items-center gap-1 text-[#ff6b4a] text-[10px] font-bold uppercase tracking-wider mt-6 border-b border-transparent group-hover:border-[#ff6b4a] pb-0.5 transition-all">Explore Service &rarr;</span>
-            </a>
         </div>
+    </div>
+</section>
 
-        <div class="mt-12 text-center reveal">
-            <a href="services.html" class="inline-block bg-white/5 border border-white/10 text-white hover:bg-[#ff6b4a] hover:text-white px-10 py-4 rounded-full text-[10px] font-black uppercase tracking-[0.3em] transition-all shadow-lg">
-                See More Services
+<!-- ========================================== -->
+<!-- 3. AWARDS & RECOGNITION (SMOOTH MARQUEE)   -->
+<!-- ========================================== -->
+<section id="awards-recognition" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto mb-16 text-center reveal">
+        <!-- Centered Main Heading -->
+        <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tight leading-tight">
+            Awards &amp; <span class="text-[#ff6b4a]">Recognition</span>
+        </h2>
+        <!-- Centered Subcopy -->
+        <p class="text-xs md:text-sm text-gray-400 max-w-2xl mx-auto leading-relaxed mt-4">
+            Ranked as a top designer worldwide, our commitment to excellence has earned recognition across leading platforms.
+        </p>
+    </div>
+
+    <!-- Glitch-Free Seamless Infinite Horizontal Marquee Carousel -->
+    <div class="marquee-container overflow-hidden w-full relative py-6">
+        <div class="marquee-content flex gap-6 w-max animate-marquee">
+            
+            <!-- Award Card 1 -->
+            <a href="https://www.behance.net/shanikhan27" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Top Firms Badge" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Top Firms</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Top Mobile App &amp; UI/UX Designer</p>
+                </div>
             </a>
+
+            <!-- Award Card 2 -->
+            <a href="https://peerlist.io/ehtashamishani" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Web Excellence Award" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Web Excellence</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Brand Identity Award Winner</p>
+                </div>
+            </a>
+
+            <!-- Award Card 3 -->
+            <a href="https://www.behance.net/shanikhan27" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" alt="Behance Spotlight" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Behance Portfolio</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Best Mobile App UI Developer</p>
+                </div>
+            </a>
+
+            <!-- Award Card 4 -->
+            <a href="https://www.upwork.com/freelancers/~017eb77fb4d0b583ff" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Clutch Top Developer" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Clutch Review</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Top Product Specialist</p>
+                </div>
+            </a>
+
+            <!-- Award Card 5 -->
+            <a href="https://www.linkedin.com/in/ehtasham-shani-4b0672190/" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/616/616490.png" alt="GoodFirms Award" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">GoodFirms</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Top UI/UX Design Studio</p>
+                </div>
+            </a>
+
+            <!-- Duplicate Exact Sequence for Glitch-Free Continuous Loop -->
+            <a href="https://www.behance.net/shanikhan27" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Top Firms Badge" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Top Firms</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Top Mobile App &amp; UI/UX Designer</p>
+                </div>
+            </a>
+
+            <a href="https://peerlist.io/ehtashamishani" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Web Excellence Award" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Web Excellence</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Brand Identity Award Winner</p>
+                </div>
+            </a>
+
+            <a href="https://www.behance.net/shanikhan27" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" alt="Behance Spotlight" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Behance Portfolio</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Best Mobile App UI Developer</p>
+                </div>
+            </a>
+
+            <a href="https://www.upwork.com/freelancers/~017eb77fb4d0b583ff" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Clutch Top Developer" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">Clutch Review</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Top Product Specialist</p>
+                </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/ehtasham-shani-4b0672190/" target="_blank" class="award-card w-[260px] md:w-[290px] bg-[#0c1017] p-6 rounded-[24px] border border-white/10 text-center flex flex-col items-center justify-between hover:border-[#ff6b4a] transition-all duration-300 hover:-translate-y-2 group flex-shrink-0">
+                <div class="bg-white p-4 rounded-xl w-full h-[120px] flex items-center justify-center mb-6 shadow-md overflow-hidden">
+                    <img src="https://cdn-icons-png.flaticon.com/512/616/616490.png" alt="GoodFirms Award" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-300">
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors">GoodFirms</h3>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-2">Top UI/UX Design Studio</p>
+                </div>
+            </a>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Glitch-Free Smooth Infinite Scroll Styles -->
+<style>
+  @keyframes marqueeSmooth {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
+  .animate-marquee {
+    display: flex;
+    will-change: transform;
+    animation: marqueeSmooth 30s linear infinite;
+  }
+  .marquee-container:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+</style>
 
     <!-- FIXED SECTION (6-D Process h3 to h2 Hierarchy) -->
-    <section id="process-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#030303] border-t border-white/5">
+    <section id="process-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#030303] border-t border-white/5 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
         <div class="flex justify-between items-end mb-12 md:mb-16 reveal">
             <div>
-                <h2 class="text-3xl md:text-5xl font-extrabold uppercase tracking-tight leading-none italic" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-2 block">Workflow Architecture</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold uppercase tracking-tight leading-none italic">
                     OUR 6-D <span class="outline-text" style="-webkit-text-stroke: 1px #ff6b4a; color: transparent;">PROCESS.</span>
                 </h2>
             </div>
         </div>
 
-        <div class="process-grid-block">
-            <div class="process-card-about reveal group" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                <span class="process-num-about-outline" style="position: absolute; right: 1.5rem; top: 0.5rem; font-size: 6.5rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08); user-select: none;">01</span>
-                <div>
-                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DISCOVER</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Exploring insights, market research, and client requirements to build a solid project foundation.</p>
+        <!-- 6-D Process Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            
+            <!-- Step 01: Discover -->
+            <div class="glass p-8 md:p-10 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.03] hover:shadow-[0_15px_35px_rgba(255,107,74,0.2)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between min-h-[280px] cursor-pointer">
+                <!-- Low Opacity Background Image (Hides on Hover) -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-0 transition-opacity duration-500 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+
+                <!-- Large Outline Number -->
+                <span class="absolute -right-2 -bottom-4 text-8xl md:text-9xl font-black italic select-none pointer-events-none transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:scale-105 z-10" style="color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);">
+                    01
+                </span>
+                
+                <div class="relative z-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff6b4a] group-hover:bg-[#ff6b4a] group-hover:text-black transition-all duration-300">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#ff6b4a] bg-[#ff6b4a]/10 px-3 py-1 rounded-full border border-[#ff6b4a]/20">Step 01</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-black uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors mb-3">
+                        DISCOVER
+                    </h3>
+                    <p class="text-gray-300 group-hover:text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs transition-colors duration-300">
+                        Exploring insights, market research, and client requirements to build a solid project foundation.
+                    </p>
                 </div>
             </div>
 
-            <div class="process-card-about reveal group" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                <span class="process-num-about-outline" style="position: absolute; right: 1.5rem; top: 0.5rem; font-size: 6.5rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08); user-select: none;">02</span>
-                <div>
-                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DEFINE</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Establishing clear goals, project scope, and brand strategy to align with your vision.</p>
+            <!-- Step 02: Define -->
+            <div class="glass p-8 md:p-10 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.03] hover:shadow-[0_15px_35px_rgba(255,107,74,0.2)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between min-h-[280px] cursor-pointer">
+                <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-0 transition-opacity duration-500 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+
+                <span class="absolute -right-2 -bottom-4 text-8xl md:text-9xl font-black italic select-none pointer-events-none transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:scale-105 z-10" style="color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);">
+                    02
+                </span>
+                
+                <div class="relative z-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff6b4a] group-hover:bg-[#ff6b4a] group-hover:text-black transition-all duration-300">
+                            <i data-lucide="compass" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#ff6b4a] bg-[#ff6b4a]/10 px-3 py-1 rounded-full border border-[#ff6b4a]/20">Step 02</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-black uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors mb-3">
+                        DEFINE
+                    </h3>
+                    <p class="text-gray-300 group-hover:text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs transition-colors duration-300">
+                        Establishing clear goals, project scope, and brand strategy to align with your vision.
+                    </p>
                 </div>
             </div>
 
-            <div class="process-card-about reveal group" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                <span class="process-num-about-outline" style="position: absolute; right: 1.5rem; top: 0.5rem; font-size: 6.5rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08); user-select: none;">03</span>
-                <div>
-                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DESIGN</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Creating high-end visuals and intuitive interfaces that bring the brand's personality to life.</p>
+            <!-- Step 03: Design -->
+            <div class="glass p-8 md:p-10 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.03] hover:shadow-[0_15px_35px_rgba(255,107,74,0.2)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between min-h-[280px] cursor-pointer">
+                <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-0 transition-opacity duration-500 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=800');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+
+                <span class="absolute -right-2 -bottom-4 text-8xl md:text-9xl font-black italic select-none pointer-events-none transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:scale-105 z-10" style="color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);">
+                    03
+                </span>
+                
+                <div class="relative z-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff6b4a] group-hover:bg-[#ff6b4a] group-hover:text-black transition-all duration-300">
+                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#ff6b4a] bg-[#ff6b4a]/10 px-3 py-1 rounded-full border border-[#ff6b4a]/20">Step 03</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-black uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors mb-3">
+                        DESIGN
+                    </h3>
+                    <p class="text-gray-300 group-hover:text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs transition-colors duration-300">
+                        Creating high-end visuals and intuitive interfaces that bring the brand's personality to life.
+                    </p>
                 </div>
             </div>
 
-            <div class="process-card-about reveal group" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                <span class="process-num-about-outline" style="position: absolute; right: 1.5rem; top: 0.5rem; font-size: 6.5rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08); user-select: none;">04</span>
-                <div>
-                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DEVELOP</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Transforming designs into functional digital assets with precision and attention to detail.</p>
+            <!-- Step 04: Develop -->
+            <div class="glass p-8 md:p-10 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.03] hover:shadow-[0_15px_35px_rgba(255,107,74,0.2)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between min-h-[280px] cursor-pointer">
+                <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-0 transition-opacity duration-500 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+
+                <span class="absolute -right-2 -bottom-4 text-8xl md:text-9xl font-black italic select-none pointer-events-none transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:scale-105 z-10" style="color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);">
+                    04
+                </span>
+                
+                <div class="relative z-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff6b4a] group-hover:bg-[#ff6b4a] group-hover:text-black transition-all duration-300">
+                            <i data-lucide="code" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#ff6b4a] bg-[#ff6b4a]/10 px-3 py-1 rounded-full border border-[#ff6b4a]/20">Step 04</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-black uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors mb-3">
+                        DEVELOP
+                    </h3>
+                    <p class="text-gray-300 group-hover:text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs transition-colors duration-300">
+                        Transforming designs into functional digital assets with precision and attention to detail.
+                    </p>
                 </div>
             </div>
 
-            <div class="process-card-about reveal group" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                <span class="process-num-about-outline" style="position: absolute; right: 1.5rem; top: 0.5rem; font-size: 6.5rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08); user-select: none;">05</span>
-                <div>
-                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DEPLOY</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Launching the finalized solution into the digital world, ensuring everything is optimized.</p>
+            <!-- Step 05: Deploy -->
+            <div class="glass p-8 md:p-10 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.03] hover:shadow-[0_15px_35px_rgba(255,107,74,0.2)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between min-h-[280px] cursor-pointer">
+                <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-0 transition-opacity duration-500 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+
+                <span class="absolute -right-2 -bottom-4 text-8xl md:text-9xl font-black italic select-none pointer-events-none transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:scale-105 z-10" style="color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);">
+                    05
+                </span>
+                
+                <div class="relative z-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff6b4a] group-hover:bg-[#ff6b4a] group-hover:text-black transition-all duration-300">
+                            <i data-lucide="rocket" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#ff6b4a] bg-[#ff6b4a]/10 px-3 py-1 rounded-full border border-[#ff6b4a]/20">Step 05</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-black uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors mb-3">
+                        DEPLOY
+                    </h3>
+                    <p class="text-gray-300 group-hover:text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs transition-colors duration-300">
+                        Launching the finalized solution into the digital world, ensuring everything is optimized.
+                    </p>
                 </div>
             </div>
 
-            <div class="process-card-about reveal group" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 24px; padding: 2.5rem; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-                <span class="process-num-about-outline" style="position: absolute; right: 1.5rem; top: 0.5rem; font-size: 6.5rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08); user-select: none;">06</span>
-                <div>
-                    <h4 class="text-lg font-bold uppercase italic text-white group-hover:text-[#ff6b4a] mb-3">DELIVER</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Handing over the final mission-ready assets and ensuring long-term project success.</p>
+            <!-- Step 06: Deliver -->
+            <div class="glass p-8 md:p-10 reveal rounded-[28px] border border-white/10 hover:border-[#ff6b4a] hover:scale-[1.03] hover:shadow-[0_15px_35px_rgba(255,107,74,0.2)] transition-all duration-500 relative overflow-hidden group flex flex-col justify-between min-h-[280px] cursor-pointer">
+                <div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:opacity-0 transition-opacity duration-500 mix-blend-luminosity" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800');"></div>
+                <div class="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-all duration-500"></div>
+
+                <span class="absolute -right-2 -bottom-4 text-8xl md:text-9xl font-black italic select-none pointer-events-none transition-all duration-500 opacity-20 group-hover:opacity-100 group-hover:scale-105 z-10" style="color: transparent; -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);">
+                    06
+                </span>
+                
+                <div class="relative z-10">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#ff6b4a] group-hover:bg-[#ff6b4a] group-hover:text-black transition-all duration-300">
+                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-[#ff6b4a] bg-[#ff6b4a]/10 px-3 py-1 rounded-full border border-[#ff6b4a]/20">Step 06</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-black uppercase italic text-white group-hover:text-[#ff6b4a] transition-colors mb-3">
+                        DELIVER
+                    </h3>
+                    <p class="text-gray-300 group-hover:text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs transition-colors duration-300">
+                        Handing over the final mission-ready assets and ensuring long-term project success.
+                    </p>
                 </div>
             </div>
+
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- FIXED SECTION (FAQ h3 to h2/h3 hierarchy) -->
     <section id="faq-home" class="py-20 md:py-32 px-6 md:px-24 bg-[#050505] border-t border-white/5">
         <div class="max-w-4xl mx-auto">
