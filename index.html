@@ -13,6 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FAST PRELOAD FOR HERO IMAGE -->
+    <link rel="preload" as="image" href="Shape-mobile.webp" fetchpriority="high">
+
     <link class="rounded-full" rel="icon" href="favicon.ico" type="image/x-icon">
     <link class="apple-touch-icon" href="favicon.ico">
 
@@ -741,6 +744,7 @@
     <img src="Shape.webp" 
          srcset="Shape-mobile.webp 300w, Shape.webp 550w" 
          sizes="(max-width: 768px) 220px, 550px"
+         fetchpriority="high"
          width="385" height="319" 
          alt="3D Abstract Geometric Shape Design by Ehtasham Shani" 
          class="w-full h-full object-contain mix-blend-screen slow-float opacity-95">
