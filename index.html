@@ -834,6 +834,47 @@
     </div>
 </section>
 
+<!-- COMBINED SMOOTH ANIMATION SCRIPT -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // 1. Dynamic Text Flipping Logic
+        const wordsList = ["BRANDING", "WEB DESIGN", "APP DESIGN", "UI/UX DESIGN", "VISUAL DESIGN"];
+        let currentIndex = 0;
+        const targetElement = document.getElementById("animated-word");
+
+        if (targetElement) {
+            setInterval(() => {
+                targetElement.style.opacity = "0";
+                targetElement.style.transform = "translateY(-12px)";
+
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % wordsList.length;
+                    targetElement.textContent = wordsList[currentIndex];
+
+                    targetElement.style.opacity = "1";
+                    targetElement.style.transform = "translateY(0)";
+                }, 300);
+            }, 2500);
+        }
+
+        // 2. Hero 3-Images Smooth Slider & Scale Animation Logic
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        let currentSlideIndex = 0;
+
+        if (heroSlides.length > 0) {
+            setInterval(() => {
+                heroSlides[currentSlideIndex].style.opacity = "0";
+                heroSlides[currentSlideIndex].style.transform = "scale(1.05)";
+
+                currentSlideIndex = (currentSlideIndex + 1) % heroSlides.length;
+
+                heroSlides[currentSlideIndex].style.opacity = "1";
+                heroSlides[currentSlideIndex].style.transform = "scale(1)";
+            }, 3500);
+        }
+    });
+</script>
+
 <!-- ========================================== -->
 <!-- HERO TICKER SECTION (#ff6b4a ORANGE COLOR) -->
 <!-- ========================================== -->
