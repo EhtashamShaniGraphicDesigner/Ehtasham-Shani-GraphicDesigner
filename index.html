@@ -4393,5 +4393,16 @@ lucide.createIcons();
 ...
 </script>
 
+    
+
+<script>
+  // DOM aur Lucide script load hone ka wait karega
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof lucide !== "undefined") {
+      lucide.createIcons();
+    }
+  });
+</script>
+
 </body>
 </html>
