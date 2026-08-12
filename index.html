@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1P8TLDYKCQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-1P8TLDYKCQ');
-    </script>
+    <!-- Optimized Google tag (gtag.js) Lazy Loading -->
+<script>
+  // Page par pehli interaction ya scroll hone par load hoga
+  window.addEventListener('scroll', function() {
+    loadGtag();
+  }, { once: true });
+
+  window.addEventListener('mousemove', function() {
+    loadGtag();
+  }, { once: true });
+
+  // Fallback: Agar user scroll ya move na kare toh 4 seconds baad auto load ho jaye
+  setTimeout(loadGtag, 4000);
+
+  function loadGtag() {
+    if (window.gtagLoaded) return;
+    window.gtagLoaded = true;
+
+    // 1. Script tag inject karein
+    var script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-1P8TLDYKCQ";
+    script.async = true;
+    document.head.appendChild(script);
+
+    // 2. DataLayer aur config initialize karein
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1P8TLDYKCQ');
+  }
+</script>
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
