@@ -11,9 +11,9 @@
   gtag('config', 'G-1P8TLDYKCQ');
 </script>
     
-     <!-- Google Compliant Favicon Tags -->
-<link rel="icon" type="image/png" sizes="48x48" href="https://ehtashamshani.com/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ehtashamshani.com/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link class="rounded-full" rel="icon" href="favicon.ico" type="image/x-icon">
     
     <title>Services | Ehtasham Shani – Graphic & UI/UX Designer</title>
     <meta name="description" content="Explore the comprehensive 18 design services offered by Ehtasham Shani. High-end branding, strategic UI/UX design, next-gen AI concepts, and high-conversion creative marketing ads.">
@@ -203,35 +203,93 @@
 </nav>
 
 <!-- COMPACT BREADCRUMB -->
-<div class="pt-20 md:pt-24 px-6 md:px-24 py-2 text-gray-400 text-xs relative z-10">
+<div class="pt-20 md:pt-24 px-6 md:px-24 py-2 text-gray-400 text-xs relative z-10 max-w-full overflow-hidden">
     <nav aria-label="Breadcrumb">
-        <ol class="list-reset flex">
-            <li><a href="index.html" class="hover:text-[#ff6b4a]">Home</a></li>
+        <ol class="list-reset flex flex-wrap items-center">
+            <li><a href="index.html" class="hover:text-[#ff6b4a] transition">Home</a></li>
             <li><span class="mx-2">/</span></li>
-            <li class="text-white">Services</li>
+            <li class="text-[#ff6b4a] font-medium">Services</li>
         </ol>
     </nav>
 </div>
 
-<!-- BACKGROUND BLOBS -->
+<!-- BACKGROUND BLOBS (Clamped to avoid side scrolling) -->
 <div class="blob"></div>
 <div class="blob blob-2" style="right: 0; bottom: 0;"></div>
 
-<!-- MOBILE NAVIGATION MENU -->
-<div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
-    <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]">
+<!-- MOBILE NAVIGATION MENU (FIXED OVERFLOW & BARS) -->
+<div id="mobile-nav" class="fixed inset-0 w-screen h-screen z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden overflow-hidden">
+    <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]" aria-label="Close Menu">
         <i data-lucide="x" class="w-6 h-6"></i>
     </button>
-    <div class="flex flex-col gap-6 text-center w-full px-10">
-        <a href="index.html" class="m-link text-4xl font-black italic uppercase text-white" style="transition-delay: 0s;">Home</a>
-        <a href="about.html" class="m-link text-4xl font-black italic uppercase text-white" style="transition-delay: 0.1s;">About</a>
-        <a href="services.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]" style="transition-delay: 0.2s;">Services</a>
-        <a href="work.html" class="m-link text-4xl font-black italic uppercase text-white" style="transition-delay: 0.3s;">Work</a>
-        <a href="careers.html" class="m-link text-4xl font-black italic uppercase text-white" style="transition-delay: 0.4s;">Careers</a>
-        <a href="blog.html" class="m-link text-4xl font-black italic uppercase text-white" style="transition-delay: 0.5s;">Blog</a>
-        <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-8 text-white/30" style="transition-delay: 0.6s;">Contact</a>
+    <div class="flex flex-col gap-5 text-center w-full px-6 max-h-[85vh] overflow-y-auto">
+        <a href="index.html" class="m-link text-3xl md:text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors">Home</a>
+        <a href="about.html" class="m-link text-3xl md:text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.1s;">About</a>
+        <a href="services.html" class="m-link text-3xl md:text-4xl font-black italic uppercase text-[#ff6b4a]" style="transition-delay: 0.2s;">Services</a>
+        <a href="work.html" class="m-link text-3xl md:text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.3s;">Work</a>
+        <a href="careers.html" class="m-link text-3xl md:text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.4s;">Careers</a>
+        <a href="blog.html" class="m-link text-3xl md:text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.5s;">Blog</a>
+        <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.4em] mt-4 text-white/40 hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.6s;">Contact</a>
     </div>
 </div>
+
+<!-- STYLES & SCRIPT -->
+<style>
+  html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+  }
+  #mobile-nav {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      will-change: opacity, visibility;
+  }
+  #mobile-nav.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+  }
+  #mobile-nav .m-link {
+      opacity: 0;
+      transform: translate3d(0, 15px, 0);
+      transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+      will-change: opacity, transform;
+  }
+  #mobile-nav.open .m-link {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const openBtn = document.getElementById("open-menu");
+        const closeBtn = document.getElementById("close-menu");
+        const mobileNav = document.getElementById("mobile-nav");
+        const navLinks = document.querySelectorAll("#mobile-nav .m-link");
+
+        if (openBtn && mobileNav) {
+            openBtn.addEventListener("click", function () {
+                mobileNav.classList.add("open");
+                document.documentElement.style.overflow = "hidden";
+                document.body.style.overflow = "hidden";
+            });
+        }
+
+        function closeMenu() {
+            if (mobileNav) {
+                mobileNav.classList.remove("open");
+                document.documentElement.style.overflow = "";
+                document.body.style.overflow = "";
+            }
+        }
+
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+        navLinks.forEach(link => link.addEventListener("click", closeMenu));
+    });
+</script>
 
 <section id="home" class="relative flex flex-col justify-center items-center md:items-start text-center md:text-left px-6 md:px-24 pt-4 md:pt-8 pb-12 overflow-hidden bg-[#050505] text-white">
     <div class="reveal relative z-10 flex flex-col items-center md:items-start w-full">
@@ -3654,7 +3712,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="lg:col-span-4 space-y-6">
                 <a href="index.html" class="inline-flex items-center gap-3 group">
                     <img 
-                        src="favicon.ico" 
+                        src="favicon.png" 
                         alt="ES Logo" 
                         class="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
