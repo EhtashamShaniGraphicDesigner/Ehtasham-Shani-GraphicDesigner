@@ -39,9 +39,8 @@ gtag('config', 'G-1P8TLDYKCQ');
 <!-- FAST PRELOAD FOR HERO IMAGE -->
 <link rel="preload" as="image" href="Shape-mobile.webp" fetchpriority="high">
 
-<!-- Google Compliant Favicon Tags -->
-<link rel="icon" type="image/png" sizes="48x48" href="https://ehtashamshani.com/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ehtashamshani.com/favicon.ico">
+<link class="rounded-full" rel="icon" href="favicon.ico" type="image/x-icon">
+<link class="apple-touch-icon" href="favicon.ico">
 
 <title>Ehtasham Shani – UI/UX & Graphic Designer in Karachi, Pakistan</title>
 <meta name="description" content="Ehtasham Shani is a UI/UX and Graphic Designer in Karachi, Pakistan, specializing in website UI/UX, mobile app design, branding, logo design, and digital experiences.">
@@ -816,7 +815,7 @@ ES <span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span
 <ol class="list-reset flex">
 <li><a href="index.html" class="hover:text-[#ff6b4a]">Home</a></li>
 <li><span class="mx-2">/</span></li>
-<li class="text-white">UI/UX Design</li>
+<li class="text-white">About</li>
 </ol>
 </nav>
 </div>
@@ -825,21 +824,82 @@ ES <span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span
 <div class="blob"></div>
 <div class="blob blob-2" style="right: 0; bottom: 0;"></div>
 
-<!-- MOBILE NAVIGATION MENU -->
+<!-- MOBILE NAVIGATION MENU (ABOUT PAGE - ACTIVE STATE MATCHED) -->
 <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
-<button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]">
-<i data-lucide="x" class="w-6 h-6"></i>
-</button>
-<div class="flex flex-col gap-6 text-center w-full px-10">
-<a href="index.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]">Home</a>
-<a href="about.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.1s;">About</a>
-<a href="services.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.2s;">Services</a>
-<a href="work.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.3s;">Work</a>
-<a href="careers.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.4s;">Careers</a>
-<a href="blog.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.5s;">Blog</a>
-<a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-8 text-white/30" style="transition-delay: 0.6s;">Contact</a>
+    <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]" aria-label="Close Menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="flex flex-col gap-6 text-center w-full px-10">
+        <!-- Home Link (Standard Solid White) -->
+        <a href="index.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors">Home</a>
+        
+        <!-- About Link Active (Orange) -->
+        <a href="about.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]" style="transition-delay: 0.1s;">About</a>
+        
+        <!-- Remaining Solid Fill White Links -->
+        <a href="services.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.2s;">Services</a>
+        <a href="work.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.3s;">Work</a>
+        <a href="careers.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.4s;">Careers</a>
+        <a href="blog.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.5s;">Blog</a>
+        <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-8 text-white/40 hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.6s;">Contact</a>
+    </div>
 </div>
-</div>
+
+<!-- JERK-FREE ANIMATION STYLES & SCRIPT -->
+<style>
+  #mobile-nav {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transform: translateZ(0);
+  }
+  #mobile-nav.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+  }
+  #mobile-nav .m-link {
+      opacity: 0;
+      transform: translate3d(-20px, 0, 0);
+      transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+      will-change: opacity, transform;
+  }
+  #mobile-nav.open .m-link {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const openBtn = document.getElementById("open-menu");
+        const closeBtn = document.getElementById("close-menu");
+        const mobileNav = document.getElementById("mobile-nav");
+        const navLinks = document.querySelectorAll("#mobile-nav .m-link");
+
+        if (openBtn && mobileNav) {
+            openBtn.addEventListener("click", function () {
+                requestAnimationFrame(() => {
+                    mobileNav.classList.add("open");
+                    document.body.style.overflow = "hidden";
+                });
+            });
+        }
+
+        function closeMenu() {
+            if (mobileNav) {
+                requestAnimationFrame(() => {
+                    mobileNav.classList.remove("open");
+                    document.body.style.overflow = "auto";
+                });
+            }
+        }
+
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+        navLinks.forEach(link => link.addEventListener("click", closeMenu));
+    });
+</script>
 
 <main>
 <!-- ========================================== -->
@@ -4421,47 +4481,14 @@ t.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ho
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-const statsSection = document.getElementById("stats-section");
-const counters = document.querySelectorAll(".stat-number");
-let started = false;
-
-const startCounter = () => {
-counters.forEach(counter => {
-const target = +counter.getAttribute("data-target");
-const duration = 2000; // Total duration in milliseconds (2 seconds)
-const stepTime = 20;
-const steps = duration / stepTime;
-const increment = target / steps;
-
-let current = 0;
-const timer = setInterval(() => {
-current += increment;
-if (current >= target) {
-counter.innerText = target;
-clearInterval(timer);
-} else {
-counter.innerText = Math.ceil(current);
-}
-}, stepTime);
-});
-};
-
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting && !started) {
-startCounter();
-started = true; // Section par pohanchne par sirf ek baar animate hoga
-}
-});
-}, { threshold: 0.4 }); // Jab 40% section screen par visible ho tab trigger karega
-
-if (statsSection) {
-observer.observe(statsSection);
-}
-});
-</script>
+<!-- NAV BAR HAMBURGER BUTTON -->
+<button id="open-menu" class="md:hidden glass p-2 rounded-lg text-white" aria-label="Open Menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" x2="20" y1="12" y2="12"></line>
+        <line x1="4" x2="20" y1="6" y2="6"></line>
+        <line x1="4" x2="20" y1="18" y2="18"></line>
+    </svg>
+</button>
 
 <style>
 /* FAQ Smooth Configuration */
