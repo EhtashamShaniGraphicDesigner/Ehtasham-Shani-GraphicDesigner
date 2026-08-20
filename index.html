@@ -39,8 +39,9 @@
     <!-- FAST PRELOAD FOR HERO IMAGE -->
     <link rel="preload" as="image" href="Shape-mobile.webp" fetchpriority="high">
 
-    <link class="rounded-full" rel="icon" href="favicon.ico" type="image/x-icon">
-    <link class="apple-touch-icon" href="favicon.ico">
+    <!-- Google Compliant Favicon Tags -->
+<link rel="icon" type="image/png" sizes="48x48" href="https://ehtashamshani.com/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ehtashamshani.com/favicon.png">
 
     <title>Ehtasham Shani – UI/UX & Graphic Designer in Karachi, Pakistan</title>
     <meta name="description" content="Ehtasham Shani is a UI/UX and Graphic Designer in Karachi, Pakistan, specializing in website UI/UX, mobile app design, branding, logo design, and digital experiences.">
@@ -784,9 +785,19 @@
 
 <!-- NAVIGATION BAR -->
 <nav class="fixed top-0 w-full z-[100] py-4 md:py-6 px-6 md:px-24 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/5">
-    <a href="index.html" class="text-lg md:text-xl font-black italic tracking-tighter uppercase cursor-pointer group">
-        ES <span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span>
+    <!-- Logo + Name Combination -->
+    <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
+        <img 
+            src="favicon.png" 
+            alt="Ehtasham Shani Logo" 
+            class="h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            loading="eager"
+        />
+        <span class="text-sm md:text-base font-black italic tracking-tighter uppercase text-white group-hover:text-[#ff6b4a] transition-colors">
+            Ehtasham Shani<span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span>
+        </span>
     </a>
+
     <div class="flex items-center gap-3 md:gap-10">
         <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
             <a href="index.html" class="text-[#ff6b4a]">Home</a>
