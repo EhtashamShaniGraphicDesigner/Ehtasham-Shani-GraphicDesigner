@@ -788,7 +788,7 @@
     <!-- Logo + Name Combination -->
     <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
         <img 
-            src="favicon.ico"
+            src="favicon.ico" 
             alt="Ehtasham Shani Logo" 
             class="h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             loading="eager"
@@ -818,9 +818,9 @@
 <div class="pt-20 md:pt-24 px-6 md:px-24 py-2 text-gray-400 text-xs relative z-10">
     <nav aria-label="Breadcrumb">
         <ol class="list-reset flex">
-            <li><a href="index.html" class="hover:text-[#ff6b4a]">Home</a></li>
+            <li><a href="index.html" class="text-white hover:text-[#ff6b4a]">Home</a></li>
             <li><span class="mx-2">/</span></li>
-            <li class="text-white">UI/UX Design</li>
+            <li class="text-white font-medium">UI/UX Design</li>
         </ol>
     </nav>
 </div>
@@ -829,21 +829,79 @@
 <div class="blob"></div>
 <div class="blob blob-2" style="right: 0; bottom: 0;"></div>
 
-<!-- MOBILE NAVIGATION MENU -->
+<!-- MOBILE NAVIGATION MENU (HOMEPAGE - SOLID TEXT) -->
 <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
-    <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]">
+    <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]" aria-label="Close Menu">
         <i data-lucide="x" class="w-6 h-6"></i>
     </button>
     <div class="flex flex-col gap-6 text-center w-full px-10">
+        <!-- Home Active (Orange) -->
         <a href="index.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]">Home</a>
-        <a href="about.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.1s;">About</a>
-        <a href="services.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.2s;">Services</a>
-        <a href="work.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.3s;">Work</a>
-        <a href="careers.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.4s;">Careers</a>
-        <a href="blog.html" class="m-link text-4xl font-black italic uppercase outline-text" style="transition-delay: 0.5s;">Blog</a>
-        <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-8 text-white/30" style="transition-delay: 0.6s;">Contact</a>
+        <!-- Rest of the links are Solid Fill White like about.html -->
+        <a href="about.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.1s;">About</a>
+        <a href="services.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.2s;">Services</a>
+        <a href="work.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.3s;">Work</a>
+        <a href="careers.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.4s;">Careers</a>
+        <a href="blog.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.5s;">Blog</a>
+        <a href="#contact" class="m-link text-xs font-bold uppercase tracking-[0.5em] mt-8 text-white/40 hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.6s;">Contact</a>
     </div>
 </div>
+
+<!-- JERK-FREE ANIMATION STYLES & SCRIPT -->
+<style>
+  #mobile-nav {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transform: translateZ(0);
+  }
+  #mobile-nav.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+  }
+  #mobile-nav .m-link {
+      opacity: 0;
+      transform: translate3d(-20px, 0, 0);
+      transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
+      will-change: opacity, transform;
+  }
+  #mobile-nav.open .m-link {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const openBtn = document.getElementById("open-menu");
+        const closeBtn = document.getElementById("close-menu");
+        const mobileNav = document.getElementById("mobile-nav");
+        const navLinks = document.querySelectorAll("#mobile-nav .m-link");
+
+        if (openBtn && mobileNav) {
+            openBtn.addEventListener("click", function () {
+                requestAnimationFrame(() => {
+                    mobileNav.classList.add("open");
+                    document.body.style.overflow = "hidden";
+                });
+            });
+        }
+
+        function closeMenu() {
+            if (mobileNav) {
+                requestAnimationFrame(() => {
+                    mobileNav.classList.remove("open");
+                    document.body.style.overflow = "auto";
+                });
+            }
+        }
+
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+        navLinks.forEach(link => link.addEventListener("click", closeMenu));
+    });
+</script>
 
 <main>
     <!-- ========================================== -->
