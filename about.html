@@ -791,53 +791,60 @@ transition: color 0.3s ease;
 
 <!-- NAVIGATION BAR -->
 <nav class="fixed top-0 w-full z-[100] py-4 md:py-6 px-6 md:px-24 flex justify-between items-center bg-black/60 backdrop-blur-lg border-b border-white/5">
-<a href="index.html" class="text-lg md:text-xl font-black italic tracking-tighter uppercase cursor-pointer group">
-ES <span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span>
-</a>
-<div class="flex items-center gap-3 md:gap-10">
-<div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
-<a href="index.html" class="text-[#ff6b4a]">Home</a>
-<a href="about.html" class="hover:text-[#ff6b4a] transition">About</a>
-<a href="services.html" class="hover:text-[#ff6b4a] transition">Services</a>
-<a href="work.html" class="hover:text-[#ff6b4a] transition">Work</a>
-<a href="careers.html" class="hover:text-[#ff6b4a] transition">Careers</a>
-<a href="blog.html" class="hover:text-[#ff6b4a] transition">Blog</a>
-</div>
-<a href="#contact" class="bg-[#ff6b4a] text-black px-4 py-2 md:px-7 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Hire</a>
-<button id="open-menu" class="md:hidden glass p-2 rounded-lg text-white" aria-label="Open Menu">
-<i data-lucide="menu" class="w-5 h-5"></i>
-</button>
-</div>
+    <!-- Logo + Name Combination -->
+    <a href="index.html" class="flex items-center gap-3 cursor-pointer group">
+        <img 
+            src="favicon.ico" 
+            alt="Ehtasham Shani Logo" 
+            class="h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            loading="eager"
+        />
+        <span class="text-sm md:text-base font-black italic tracking-tighter uppercase text-white group-hover:text-[#ff6b4a] transition-colors">
+            Ehtasham Shani<span class="text-[#ff6b4a] group-hover:text-white transition-colors">.</span>
+        </span>
+    </a>
+
+    <div class="flex items-center gap-3 md:gap-10">
+        <div class="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] items-center">
+            <a href="index.html" class="hover:text-[#ff6b4a] transition">Home</a>
+            <!-- Active State: Orange Accent -->
+            <a href="about.html" class="text-[#ff6b4a]">About</a>
+            <a href="services.html" class="hover:text-[#ff6b4a] transition">Services</a>
+            <a href="work.html" class="hover:text-[#ff6b4a] transition">Work</a>
+            <a href="careers.html" class="hover:text-[#ff6b4a] transition">Careers</a>
+            <a href="blog.html" class="hover:text-[#ff6b4a] transition">Blog</a>
+        </div>
+        <a href="#contact" class="bg-[#ff6b4a] text-black px-4 py-2 md:px-7 md:py-2.5 rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all">Hire</a>
+        <button id="open-menu" class="md:hidden glass p-2 rounded-lg text-white" aria-label="Open Menu">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+    </div>
 </nav>
 
 <!-- COMPACT BREADCRUMB -->
 <div class="pt-20 md:pt-24 px-6 md:px-24 py-2 text-gray-400 text-xs relative z-10">
-<nav aria-label="Breadcrumb">
-<ol class="list-reset flex">
-<li><a href="index.html" class="hover:text-[#ff6b4a]">Home</a></li>
-<li><span class="mx-2">/</span></li>
-<li class="text-white">About</li>
-</ol>
-</nav>
+    <nav aria-label="Breadcrumb">
+        <ol class="list-reset flex">
+            <li><a href="index.html" class="text-white hover:text-[#ff6b4a]">Home</a></li>
+            <li><span class="mx-2">/</span></li>
+            <li class="text-white font-medium">About</li>
+        </ol>
+    </nav>
 </div>
 
 <!-- BACKGROUND BLOBS -->
 <div class="blob"></div>
 <div class="blob blob-2" style="right: 0; bottom: 0;"></div>
 
-<!-- MOBILE NAVIGATION MENU (ABOUT PAGE - ACTIVE STATE MATCHED) -->
+<!-- MOBILE NAVIGATION MENU (ABOUT PAGE - SOLID TEXT) -->
 <div id="mobile-nav" class="fixed inset-0 z-[120] bg-black/98 backdrop-blur-3xl flex flex-col justify-center items-center md:hidden">
     <button id="close-menu" class="absolute top-5 right-6 glass p-3 rounded-full text-[#ff6b4a]" aria-label="Close Menu">
         <i data-lucide="x" class="w-6 h-6"></i>
     </button>
     <div class="flex flex-col gap-6 text-center w-full px-10">
-        <!-- Home Link (Standard Solid White) -->
         <a href="index.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors">Home</a>
-        
-        <!-- About Link Active (Orange) -->
+        <!-- About Active (Orange) -->
         <a href="about.html" class="m-link text-4xl font-black italic uppercase text-[#ff6b4a]" style="transition-delay: 0.1s;">About</a>
-        
-        <!-- Remaining Solid Fill White Links -->
         <a href="services.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.2s;">Services</a>
         <a href="work.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.3s;">Work</a>
         <a href="careers.html" class="m-link text-4xl font-black italic uppercase text-white hover:text-[#ff6b4a] transition-colors" style="transition-delay: 0.4s;">Careers</a>
