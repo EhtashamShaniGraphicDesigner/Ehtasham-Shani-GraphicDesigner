@@ -43,8 +43,8 @@
 <link rel="icon" type="image/png" sizes="48x48" href="https://ehtashamshani.com/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="https://ehtashamshani.com/favicon.ico">
 
-    <title>Ehtasham Shani – UI/UX & Graphic Designer in Karachi, Pakistan</title>
-    <meta name="description" content="Ehtasham Shani is a UI/UX and Graphic Designer in Karachi, Pakistan, specializing in website UI/UX, mobile app design, branding, logo design, and digital experiences.">
+    <title>Ehtasham Shani | UI/UX & Graphic Designer in Karachi</title>
+    <meta name="description" content="Ehtasham Shani is a Karachi-based UI/UX and Graphic Designer offering website, app, logo, branding and creative design services worldwide.">
     <meta name="keywords" content="Ehtasham Shani, UI/UX and Graphic Designer in Karachi, Custom Mobile App Designer, Branding Designer Pakistan, Creative Logo Designer in Karachi, Custom Website Designer Karachi, Product Designer Pakistan, Freelance Graphic Designer Pakistan, Digital Design Agency Pakistan, Top Packaging Designer Pakistan, Freelance Design Service Karachi, Product Designer Pakistan">
     <meta name="author" content="Ehtasham Shani">
     <meta name="robots" content="index, follow">
@@ -915,15 +915,30 @@
             
             <!-- Left Side: Heading & Copy -->
             <div class="max-w-xl flex flex-col items-center md:items-start">
-                <h1 class="hero-title flex flex-col items-center md:items-start gap-1 font-extrabold uppercase italic tracking-tighter leading-[1.1] text-4xl sm:text-5xl md:text-7xl text-white">
-                    <span class="block">CRAFTING</span>
-                    <span class="outline-text block py-0.5">THE FUTURE OF</span> 
-                    <span class="block text-[#ff6b4a]" id="animated-word">BRANDING</span>
-                </h1>
+               <h1 class="hero-title flex flex-col items-center md:items-start gap-1 font-extrabold uppercase italic tracking-tighter leading-[1.1] text-white">
+
+    <!-- Static Name: Single Line -->
+    <span class="block whitespace-nowrap text-[clamp(1.9rem,5vw,4.5rem)]">
+        EHTASHAM SHANI
+    </span>
+
+    <!-- Static Designation: Single Line -->
+    
+<span class="outline-text block whitespace-nowrap py-0.5 text-[clamp(1.6rem,3.8vw,3.2rem)]">
+    UI/UX & GRAPHIC DESIGNER
+</span>
+
+
+    <!-- Animated Services -->
+    <span class="block whitespace-nowrap text-[#ff6b4a] text-[clamp(1.5rem,4vw,3.5rem)]" id="animated-word">
+        BRANDING
+    </span>
+
+</h1>
 
                 <!-- Tagline -->
                 <p class="hero-tagline mt-3 md:mt-4 max-w-[280px] md:max-w-[480px] leading-relaxed text-[13px] md:text-[15px] text-gray-400 normal-case font-normal">
-                    Transforming bold ideas into meaningful digital experiences through creative design.
+                    Helping businesses worldwide with professional UI/UX design, graphic design, website design, mobile app design and branding services.
                 </p>
 
                 <!-- CTA Button -->
@@ -1782,21 +1797,60 @@
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    statNumbers.forEach(num => {
-                        num.textContent = "0"; // Reset counter to 0 before starting
-                        runCounter(num);
-                    });
-                }
-            });
-        }, observerOptions);
+           
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const statsSection = document.getElementById("stats-section");
+    const statNumbers = document.querySelectorAll(".stat-number");
 
-        if (statsSection) {
-            observer.observe(statsSection);
+    if (!statsSection || !statNumbers.length) return;
+
+    let isAnimating = false;
+
+    function runCounter(el) {
+        const target = Number(el.dataset.target);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const current = Math.ceil(target * progress);
+
+            el.textContent = progress === 1 ? target : current;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                el.textContent = target;
+            }
         }
+
+        requestAnimationFrame(updateCounter);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isAnimating) {
+                isAnimating = true;
+
+                statNumbers.forEach(num => {
+                    num.textContent = "0";
+                    runCounter(num);
+                });
+            }
+
+            if (!entry.isIntersecting) {
+                isAnimating = false;
+            }
+        });
+    }, {
+        threshold: 0.2
     });
+
+    observer.observe(statsSection);
+});
 </script>
+
 
 <!-- ========================================== -->
 <!-- 3. AWARDS & RECOGNITION (SMOOTH MARQUEE)   -->
@@ -2668,7 +2722,7 @@
             <div class="reveal">
                 <span class="text-xs font-black uppercase tracking-[0.5em] text-[#ff6b4a] mb-6 block">The Designer</span>
                 <h2 class="text-4xl md:text-6xl font-black uppercase italic leading-tight mb-8">Behind <br> <span class="outline-text">The Lens &</span> <br> The Grid.</h2>
-                <p class="text-gray-400 text-md md:text-lg font-light leading-relaxed mb-8 max-w-lg">Based in Pakistan, I am <span class="text-white font-medium">Ehtasham Shani</span>. For over 5+ years, I've been transforming complex ideas into minimalist, high-impact visual identities.</p>
+                <p class="text-gray-400 text-md md:text-lg font-light leading-relaxed mb-8 max-w-lg">I am <span class="text-white font-medium">Ehtasham Shani</span>. a Karachi-based UI/UX and Graphic Designer helping businesses worldwide create meaningful digital experiences through website design, mobile app design, branding and visual communication.</p>
                 <div class="grid grid-cols-2 gap-8 mb-10">
                     <div><h3 class="text-3xl font-bold text-[#ff6b4a]">50+</h3><p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Global Projects</p></div>
                     <div><h3 class="text-3xl font-bold text-[#ff6b4a]">5+</h3><p class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Years Experience</p></div>
