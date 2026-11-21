@@ -3977,25 +3977,6 @@ document.addEventListener("DOMContentLoaded", () => {
 <script>
 lucide.createIcons();
 
-// Mobile Menu Control
-const openBtn = document.getElementById('open-menu');
-const closeBtn = document.getElementById('close-menu');
-const mobileNav = document.getElementById('mobile-nav');
-const mLinks = document.querySelectorAll('.m-link');
-
-if(openBtn && closeBtn && mobileNav) {
-    openBtn.onclick = () => {
-        mobileNav.classList.add('open');
-        document.body.style.overflow = 'hidden';
-    };
-    const closeMenu = () => {
-        mobileNav.classList.remove('open');
-        document.body.style.overflow = 'auto';
-    };
-    closeBtn.onclick = closeMenu;
-    mLinks.forEach(link => link.onclick = closeMenu);
-}
-
 // Fluid Scroll Reveal Animations Observer
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
