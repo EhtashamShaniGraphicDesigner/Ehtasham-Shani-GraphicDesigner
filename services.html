@@ -3992,6 +3992,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('.faq-item').forEach(item => {
     const toggle = item.querySelector('.faq-toggle');
     const answer = item.querySelector('.faq-answer');
+    if (!toggle || !answer) return;
     
     if(answer) {
         answer.style.maxHeight = '0px';
