@@ -3024,34 +3024,8 @@ projectForm.addEventListener("submit", function(event) {
     </div>
 </section>
 
+
 <!-- Re-triggerable Counter Script -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const statsSection = document.getElementById("stats-section");
-        const statNumbers = document.querySelectorAll(".stat-number");
-
-        const runCounter = (el) => {
-            const target = +el.getAttribute("data-target");
-            let current = 0;
-            const increment = target / 30; // Speed adjustment
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    el.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    el.textContent = Math.ceil(current);
-                }
-            }, 40);
-        };
-
-        const observerOptions = {
-            root: null,
-            threshold: 0.2 // Trigger jab section 20% visible ho
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-           
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const statsSection = document.getElementById("stats-section");
@@ -3060,6 +3034,18 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!statsSection || !statNumbers.length) return;
 
     let isAnimating = false;
+    let animationFrames = [];
+
+    function resetCounters() {
+        animationFrames.forEach(frame => cancelAnimationFrame(frame));
+        animationFrames = [];
+
+        statNumbers.forEach(num => {
+            num.textContent = "0";
+        });
+
+        isAnimating = false;
+    }
 
     function runCounter(el) {
         const target = Number(el.dataset.target);
@@ -3067,19 +3053,23 @@ document.addEventListener("DOMContentLoaded", function () {
         const startTime = performance.now();
 
         function updateCounter(currentTime) {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            const current = Math.ceil(target * progress);
+            const progress = Math.min(
+                (currentTime - startTime) / duration,
+                1
+            );
 
-            el.textContent = progress === 1 ? target : current;
+            el.textContent = Math.ceil(target * progress);
 
             if (progress < 1) {
-                requestAnimationFrame(updateCounter);
+                const frame = requestAnimationFrame(updateCounter);
+                animationFrames.push(frame);
             } else {
                 el.textContent = target;
             }
         }
 
-        requestAnimationFrame(updateCounter);
+        const frame = requestAnimationFrame(updateCounter);
+        animationFrames.push(frame);
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -3094,7 +3084,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             if (!entry.isIntersecting) {
-                isAnimating = false;
+                resetCounters();
             }
         });
     }, {
