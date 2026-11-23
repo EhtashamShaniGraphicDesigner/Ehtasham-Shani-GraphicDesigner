@@ -5327,8 +5327,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             <!-- 3. Select Service -->
                             <div>
-                                <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-1.5">Select Service *</label>
-                                <select name="service" class="w-full bg-[#f8f9fa] border border-gray-200 rounded-xl px-5 py-3.5 text-sm font-medium text-gray-900 outline-none focus:bg-white focus:border-[#ff6b4a] focus:ring-2 focus:ring-[#ff6b4a]/20 transition-all cursor-pointer" required>
+                               <label for="project-service-select" class="block text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-1.5">
+    Select Service *
+</label>
+                                <select id="project-service-select" name="service" class="w-full bg-[#f8f9fa] border border-gray-200 rounded-xl px-5 py-3.5 text-sm font-medium text-gray-900 outline-none focus:bg-white focus:border-[#ff6b4a] focus:ring-2 focus:ring-[#ff6b4a]/20 transition-all cursor-pointer" required>
                                     <option value="" disabled selected>Choose a Service Required...</option>
                                     <option value="Brand Identity & Design System">Brand Identity & Design System</option>
                                     <option value="UI/UX & Mobile App Design">UI/UX & Mobile App Design</option>
