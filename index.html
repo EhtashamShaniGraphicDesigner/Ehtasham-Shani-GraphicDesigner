@@ -3386,12 +3386,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     />
                 </div>
 
-                <!-- 4. Select Service Dropdown -->
-                <div class="w-full relative">
-                    <select 
-                        name="service" 
-                        required 
-                        class="w-full bg-white text-gray-700 text-sm font-medium px-5 py-3.5 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-[#ff6b4a] shadow-sm appearance-none cursor-pointer pr-10"
+               <!-- 4. Select Service Dropdown -->
+<div class="w-full relative">
+
+    <label for="hero-service-select" class="sr-only">
+        Select a Service
+    </label>
+
+    <select
+        id="hero-service-select"
+        name="service"
+        required
+        class="w-full bg-white text-gray-700 text-sm font-medium px-5 py-3.5 rounded-full border border-transparent focus:outline-none focus:ring-2 focus:ring-[#ff6b4a] shadow-sm appearance-none cursor-pointer pr-10"
+    >
                     >
                         <option value="" disabled selected>--Select Service--</option>
                         <option value="Brand Identity">Brand Identity</option>
