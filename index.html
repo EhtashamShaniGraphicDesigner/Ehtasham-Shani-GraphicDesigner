@@ -5789,47 +5789,6 @@ targets.forEach(t => {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const statsSection = document.getElementById("stats-section");
-    const counters = document.querySelectorAll(".stat-number");
-    let started = false;
-
-    const startCounter = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute("data-target");
-            const duration = 2000; // Total duration in milliseconds (2 seconds)
-            const stepTime = 20;
-            const steps = duration / stepTime;
-            const increment = target / steps;
-
-            let current = 0;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    counter.innerText = target;
-                    clearInterval(timer);
-                } else {
-                    counter.innerText = Math.ceil(current);
-                }
-            }, stepTime);
-        });
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !started) {
-                startCounter();
-                started = true; // Section par pohanchne par sirf ek baar animate hoga
-            }
-        });
-    }, { threshold: 0.4 }); // Jab 40% section screen par visible ho tab trigger karega
-
-    if (statsSection) {
-        observer.observe(statsSection);
-    }
-});
-</script>
 
 <style>
   /* FAQ Smooth Configuration */
